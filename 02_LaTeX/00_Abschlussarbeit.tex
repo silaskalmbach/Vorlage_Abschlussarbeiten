@@ -212,13 +212,14 @@ natbib=true,									% Naturwissenschaftlich
 backend=biber,									% Biber statt BibTex verwenden. In TexStudio einstellen!
 style=numeric,									% Stil im Verzeichnis alt. authoryear
 citestyle=numeric,	                            % Stil im Fließtext
-firstinits=true,										
+giveninits=true,										
 doi=false,										% doi nicht mit angeben
 isbn=false,										% isbn nicht mit angeben
-sorting=nyt,									% Sortierung des Verzeichnis Autor, Titel, Jahr
+% sorting=nyt,									% Sortierung des Verzeichnis Autor, Titel, Jahr
+sorting=none,									% Keine Sortierung des Verzeichnisses
 ]{biblatex}	
 
-\DeclareNameAlias{default}{last-first}
+% \DeclareNameAlias{default}{family-given}
 \addbibresource{Literatur.bib} %Bibliographiedateien laden
 
 \urlstyle{same}	% url Schriftart anpassen auf die des Dokuments anpassen
