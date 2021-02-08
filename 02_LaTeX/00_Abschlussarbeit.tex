@@ -1,0 +1,314 @@
+%Version vom 30.04.2020, sk
+%Bei Fragen und Anregungen zu dieser Vorlage können Sie sich gerene bei Silas Kalmbach (silas.kalmbach@ilek.uni-stuttgart.de) melden.
+
+% ============= Einseitig =============
+\documentclass[a4paper,12pt]{scrreprt}
+\usepackage[left= 2.5cm, right = 2cm, top=2.5cm]{geometry}
+
+% ============= Doppelseitig =============
+%\documentclass[a4paper,12pt, openright, twoside]{scrreprt}
+%\usepackage[left= 2.5cm, right = 2cm, top=2.5cm]{geometry}
+%% -> Anpassungen an die Kopf- und Fußzeilen beachten!
+
+
+% ============= Angaben zur Arbeit =============
+
+\newcommand{\titel}{Xxxxx Xxxxx Xxxxx Xxxxx Xxxxx Xxxxx Xxxxx Xxxxx Xxxxx Xxxxx Xxxxx} % Hier den Titel der Arbeit angeben 
+\newcommand{\arbeit}{MASTERARBEIT} % Hier die Art der Abschlussarbeit eingeben in Großbuchstaben 
+\newcommand{\Nummer}{XX} % Nummerrierung der Arbeit (mit Berteurer zu klären)
+\newcommand{\EndeMonatTxt}{Xxxxx} % Angabe des Monates der Abgabe als Wort
+\newcommand{\EndeJahr}{20XX} % Angabe des Jahres der Abgabe
+\newcommand{\bereuer}{Xxxxx Xxxxx} % Hier den Betreuer der Arbeit angeben
+\newcommand{\pruefer}{Xxxxx Xxxxx} % Hier den Prüfer der Arbeit angeben 
+\newcommand{\student}{Xxxxx Xxxxx} %Hier den Studierendenname der Arbeit angeben 
+\newcommand{\profEins}{Prof. Dr.-Ing. M.Arch. Lucio Blandini} % Hier den Professor1 des Instituts angeben 
+\newcommand{\profZwei}{Prof. Dr.-Ing. Dr.-Ing. E.h. Dr. h.c. Werner Sobek} % Hier den Professor2 des Instituts angeben 
+\newcommand{\profDrei}{Prof. Dr.-Ing. Balthasar Nov\'{a}k} % Hier den Professor3 des Instituts angeben 
+\newcommand{\institut}{Institut f{\"u}r Leichtbau Entwerfen und Konstruieren} % Hier das Institut angeben
+\newcommand{\titelbild}{Images/Titelseite/Titelbild} % Hier den Pfad des Titelbildes eingeben
+
+
+% ============= Dokumentinformationen =============
+
+\usepackage[ 
+hidelinks
+]{hyperref} 
+\hypersetup{ 
+	pdfauthor={\student}, 
+	pdftitle={\titel},
+	pdfsubject={\arbeit}, 
+	pdfkeywords={}
+}
+
+
+% ============= Farbschema =============
+
+\usepackage{color}      %Verwendung von Farben
+\usepackage{xcolor}		%Definition eigener Farben
+
+% Uni Stuttgart Colors
+\definecolor{uniS_lightblue}{RGB}{0,190,255}
+\definecolor{uniS_darkblue}{RGB}{0,65,145}
+\definecolor{uniS_darkgrey}{RGB}{62, 68, 76}
+\definecolor{uniS_greyblue}{RGB}{125,198,234}
+\definecolor{uniS_grey}{RGB}{159,153,152}
+
+% Uni Stuttgart monochrom greyscale
+\definecolor{uniS_black}{RGB}{0,0,0}
+\definecolor{uniS_darkgrey}{RGB}{62,68,76}
+\definecolor{uniS_grey}{RGB}{159,153,152}
+\definecolor{uniS_lightgrey}{RGB}{185,186,187}
+
+
+% ============= Standart Packages und Einstellungen =============
+
+%\usepackage[utf8]{inputenc} %Schriftkodierung PDFLaTeX
+\usepackage[utf8]{luainputenc} %Schriftkodierung LuaLaTeX
+\usepackage[english, ngerman]{babel} %Sprachen
+\usepackage{graphicx, subfig} %Einbinden von Bildern, Bilder nebeneinander
+\usepackage{amsfonts} % zusätzliche Schriftzeichen der American Mathematical Society
+\usepackage{amsmath,amssymb} % zusätzliche Schriftzeichen der American Mathematical Society
+\usepackage{typearea} %Aufteilung von Rändern und Textbereich
+%\usepackage{minted} %Highlighting von Code, Benötigt Python ,cmd Eingabe->pdflatex -synctex=1 -interaction=nonstopmode --shell-escape %.tex
+\usepackage{tikz} %Grafiken Zeichnen
+\usetikzlibrary{shapes,arrows,positioning,calc,chains,scopes}
+\usepackage{pgfplots}  %Kurven, Graphen
+%\usepgfplotslibrary{dateplot, fillbetween, groupplots}
+\usepackage{pdfpages} %Einfügen von PDFs
+\usepackage{appendix} %Anhang
+\usepackage{csquotes}
+\usepackage[german]{cleveref} % Mehr Möglichkeiten zum referenzieren
+\usepackage{gensymb} %Symbole: \degree \celsius \perthousand \ohm \micro
+\tolerance = 400  % möglicher Abstand zwischen den Wörtern erhöhen
+\usepackage[section]{placeins} %\FloatBarrier Verhindert das Abbildungen in nachfolgenden Kapitel rutschen
+\makeatletter\AtBeginDocument{\expandafter\renewcommand\expandafter\subsection\expandafter{\expandafter\@fb@secFB\subsection}}\makeatother %FloatBarrier für Subsection
+
+
+% ============= Tabelleneinstellungen =============
+
+\usepackage{multirow}						% ermoeglicht mehrere Zeilen in einer Tabellenzeile
+\usepackage{multicol} 						% mehre Spalten auf eine Seite
+\usepackage{longtable, tabu}				% alternatives Tabellenpackage inkl. longtabu und Farben
+\usepackage{float}							% um [H] bei float Objekten verwenden zu können
+\usepackage{booktabs}						% um \toprule, \midrule und \bottomrule verwenden zu können
+\usepackage{tabularx}
+\usepackage{csvsimple} %Excel Improtieren als CSV 
+\usepackage{siunitx} %Wissenschaftliche Angabe der Einheiten \num{number}
+%für Excel to Latex Add-on
+\usepackage{colortbl} %Farbige Tabellen
+\usepackage{rotating} %Rotieren von Tabellen
+\usepackage{bigstrut} %Für Tabellen mit Vertikalen Linien
+
+
+% ============= Standart Einstellungen der Pfade =============
+
+\graphicspath{{./Images/}{./Images/Titelseite/}} %Bilderordner
+
+
+% ============= Schriftarten =============
+%PDF-LaTeX
+%\usepackage[T1]{fontenc} %Richtige Trennung von Umlauten
+%\usepackage[scale=0.87]{tgheros}
+%\usepackage{fourier}
+
+%Lua-LaTeX
+\usepackage{fontspec}
+
+\setmainfont{UniversforUniS}[
+Extension      = .ttf,
+Path           = fonts/,
+UprightFont    = *55Rm-Regular,
+ItalicFont     = *45LtObl-Rg,
+BoldFont       = *65Bd-Regular,
+BoldItalicFont = *45LtObl-Rg,
+]
+
+\setsansfont{UniversforUniS}[
+Extension      = .ttf,
+Path           = fonts/,
+UprightFont    = *55Rm-Regular,
+ItalicFont     = *45LtObl-Rg,
+BoldFont       = *65Bd-Regular,
+BoldItalicFont = *45LtObl-Rg,
+]
+
+%\setmonofont{CMU Typewriter Text}
+
+\addtokomafont{disposition}{\rmfamily} %Überschriften selbe Schriftart wie Text
+
+\usepackage{setspace} %Zeilenabstand
+\setstretch{1.05} %Zeilenabstand
+
+\setlength{\parindent}{0pt} %Wenn Absatzabstand, dann Einzug unnötig
+\setlength{\parskip}{7pt} %Absatzabstand
+
+\setkomafont{captionlabel}{\sffamily\bfseries} %Schrift der Labels
+\setkomafont{caption}{\sffamily} %Schrift der Labelbezeichnung
+\usepackage[eulergreek]{sansmath} %Schrift in Diagrammen
+\AtBeginEnvironment{longtabu}{\sffamily} %Schriftart Tabelle %\usepackage{etoolbox}
+\AtBeginEnvironment{figure}{\sffamily} %Schriftart Figure
+\AtBeginEnvironment{tabu}{\sffamily} %Schriftart Tabelle
+\AtBeginEnvironment{tikzpicture}{\footnotesize\sffamily} %Schriftart Tabelle \small, \footnotesize
+
+
+% ============= Verzeichnisse =============
+
+\RedeclareSectionCommands[
+tocentryformat=\sffamily,
+tocpagenumberformat=\sffamily
+]{part,section,subsection,subsubsection,paragraph,subparagraph}
+
+\DeclareTOCStyleEntry[pagenumberformat=\sffamily, entryformat=\sffamily]{tocline}{table}
+\DeclareTOCStyleEntry[pagenumberformat=\sffamily, entryformat=\sffamily]{tocline}{figure}
+
+
+% ============= Kopf- und Fußzeile >>Einseitig<< =============
+
+\usepackage{scrlayer-scrpage}
+\automark{chapter}	%Automatische Kapitelangabe in Kopfzeile
+\renewcommand*{\chaptermarkformat}{} %Kapitel ohne Kapitelnummer
+\clearpairofpagestyles %aktuelle Einetsllungen aus Kopf- und Fußzeile löschen
+\setkomafont{pageheadfoot}{\small\sffamily}		%Font für Kopfzeile
+\setkomafont{pagefoot}{\small\sffamily}  		%Font für Fußzeile
+\setkomafont{pagenumber}{\small\sffamily} 	%Font für Seitennummer
+\KOMAoptions{headsepline = true} %Kopzeile Linie
+
+\lohead[]{}
+\cohead[]{}
+\rohead[]{\headmark\enskip \raisebox{0.7pt}{|}\enskip \thechapter} %Darstellung Kapitel
+
+\lofoot[]{}
+\cofoot[]{}
+\rofoot[\pagemark]{\pagemark} %Seitenzahl
+
+
+% ============= Kopf- und Fußzeile >>Doppelseitig<< =============
+
+%\usepackage[automark, headsepline, autooneside=false]{scrlayer-scrpage}
+%\automark[section]{chapter}	%Automatische Kapitelangabe in Kopfzeile
+%\renewcommand*{\chaptermarkformat}{} %Kapitel ohne Kapitelnummer
+%\renewcommand*{\sectionmarkformat}{} %Kapitel ohne Kapitelnummer
+%\clearpairofpagestyles %aktuelle Einetsllungen aus Kopf- und Fußzeile löschen
+%\setkomafont{pageheadfoot}{\small\sffamily}		%Font für Kopfzeile
+%\setkomafont{pagefoot}{\small\sffamily}  		%Font für Fußzeile
+%\setkomafont{pagenumber}{\small\sffamily} 	%Font für Seitennummer
+%\KOMAoptions{headsepline = true} %Kopzeile Linie
+%
+%
+%\lehead[]{\rightmark} %Zweiseitig
+%\cohead[]{}
+%\rohead[]{\leftmark\enskip \raisebox{0.7pt}{|}\enskip \thechapter} %Darstellung Kapitel
+%
+%\lefoot[\pagemark]{\pagemark}
+%\lofoot[]{}
+%\cofoot[]{}
+%\rofoot[\pagemark]{\pagemark} %Seitenzahl
+
+
+% ============= Literatur =============
+
+\usepackage[									
+natbib=true,									% Naturwissenschaftlich
+backend=biber,									% Biber statt BibTex verwenden. In TexStudio einstellen!
+style=numeric,									% Stil im Verzeichnis alt. authoryear
+citestyle=numeric,	                            % Stil im Fließtext
+firstinits=true,										
+doi=false,										% doi nicht mit angeben
+isbn=false,										% isbn nicht mit angeben
+sorting=nyt,									% Sortierung des Verzeichnis Autor, Titel, Jahr
+]{biblatex}	
+
+\DeclareNameAlias{default}{last-first}
+\addbibresource{Literatur.bib} %Bibliographiedateien laden
+
+\urlstyle{same}	% url Schriftart anpassen auf die des Dokuments anpassen
+\renewcommand*{\bibfont}{\sffamily} %Schriftart des Literaturverzeichnises
+\usepackage{xpatch}% author in bold font in bibliography
+\xpretobibmacro{author}{\mkbibbold\bgroup}{}{}
+\xapptobibmacro{author}{\egroup}{}{}
+\xpretobibmacro{bbx:shortauthor}{\mkbibbold\bgroup}{}{}
+\xapptobibmacro{bbx:shortauthor}{\egroup}{}{}
+\xpretobibmacro{bbx:editor}{\mkbibbold\bgroup}{}{}
+\xapptobibmacro{bbx:editor}{\egroup}{}{}
+
+
+% ============= Besondere Abkürzungen ============= 
+
+\usepackage[figurename=Abb., % Beschriftung von Abbildung zu Abb.
+tablename=Tab., % Beschriftung von Tabelle zu Tab.
+labelfont=bf]{caption} %Label in Bold
+\KOMAoptions{numbers = noenddot} % der Punkt hinter den Kapiteln etc wird entfernt: 1.1. wird zu 1.1
+
+
+% ============= Besondere Trennungen ============= 
+
+\hyphenation{De-zi-mal-tren-nung}
+
+
+% ============= Testing ============= 
+
+\usepackage{blindtext}	% Beispiel Texte einfügen per \blindtext	
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% ============= Dokumentbeginn =============
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+\pagestyle{empty} %Seiten ohne Kopf- und Fußzeile sowie Seitenzahl
+\include{01_titel}
+\restoregeometry
+
+\pagestyle{plain.scrheadings}
+\pagenumbering{Roman} % Römische Seitenzahlen verwenden
+\include{02_aufgabenstellung} %->Optional
+\include{03_erklaerung}
+\include{04_vorwort} %->Optional
+\include{05_zusammenfassung}
+\tableofcontents %Inhaltsverzeichnis
+\cleardoubleoddpage
+\pagenumbering{arabic}	% Arabische Seitenzahlen verwenden
+\include{06_symbole}
+\cleardoubleoddpage
+\pagestyle{scrheadings}	% pagestyle für gesamtes Dokument aktivieren
+
+
+% ============= Kapitel =============
+
+\include{10_bsp} %durch Eigene Kapitel erstezen
+%\include{11_bsp}
+\include{12_bsp}
+\include{13_bsp}
+\include{14_bsp}
+
+
+% ============= Anhang =============
+
+\appendix
+\begin{appendices}
+	\include{15_bsp}
+\end{appendices}
+
+
+% ============= Verzeichnise =============
+
+\printbibliography[title=Literaturverzeichnis] %Literaturverzeichnis
+\addcontentsline{toc}{chapter}{Literaturverzeichnis}
+
+\listoffigures %Verzeichnis aller Bilder
+\addcontentsline{toc}{chapter}{Abbildungsverzeichnis}
+
+\listoftables %Verzeichnis aller Tabellen
+\addcontentsline{toc}{chapter}{Tabellenverzeichnis}
+
+
+% ============= Daten =============
+
+%{
+%\chapter*{Digitale Form der Ausarbeitung}
+%\thispagestyle{empty}}
+
+
+% ============= Dokumentende =============
+
+\end{document}

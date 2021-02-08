@@ -1,0 +1,79 @@
+\chapter{Exemplarischer Anhang}
+\label{chap:tab}
+
+\section{Beispieltabelle}
+
+\begin{table}[h]
+	\caption{Beispieltabelle}
+	\label{tab:par}
+	\centering
+	\begin{tabularx}{\textwidth}{p{0.32\textwidth}p{0.32\textwidth}p{0.32\textwidth}}
+																					\toprule
+		Eins                       	     & Zwei    			& Drei 				\\ 	\midrule
+		Vier                       	     & Fünf    			& Sechs				\\
+		Sieben                           & Acht         	& Neun				\\ 	\bottomrule	
+	\end{tabularx}
+\end{table}
+
+\begin{longtabu} to \textwidth {@{} X X[c] X[r] @{}}
+	\caption{Tabelle auf Textbreite mit drei gleich großen Spalten} \\
+	\toprule
+	Spalte 1 linksbündig & Spalte 2 zentriert & Spalte 3 rechtsbündig \\
+	\midrule
+1 , 2                           & 3 , 2                           & 1 , 3 \\
+2 , 4                           & 6 , 4                           & 2 , 6 \\
+3 , 6                           & 9 , 6                           & 3 , 9 \\
+	\bottomrule
+\end{longtabu}
+
+\begin{longtabu} to 140mm {@{} X X[c] X[r] @{}}
+	\caption{Tabelle auf Textbreite mit drei gleich großen Spalten} \\
+	\toprule
+	Spalte 1 linksbündig & Spalte 2 zentriert & Spalte 3 rechtsbündig \\
+	\midrule
+1 , 2                           & 3 , 2                           & 1 , 3 \\
+2 , 4                           & 6 , 4                           & 2 , 6 \\
+3 , 6                           & 9 , 6                           & 3 , 9 \\
+	\bottomrule
+\end{longtabu}
+
+\begin{longtabu} to \textwidth {@{} X[1,l] X[1,c] X[1,r] @{}}
+	%----- Kopfzeile erste Tabelle ----- %
+	\caption{Tabelle über mehrere Seiten}\label{tab:mehrere Seiten Anhang} \\
+	\toprule
+	Spalte 1 linksbündig & Spalte 2 zentriert & Spalte 3 rechtsbündig \\
+	\midrule
+	\endfirsthead
+	%----- Kopfzeile zweite Tabelle ----- %	
+	\caption*{\textbf{Fortsetzung:} \Cref{tab:mehrere Seiten Anhang}} \\
+	\toprule
+	Spalte 1 linksbündig & Spalte 2 zentriert & Spalte 3 rechtsbündig \\
+	\midrule
+	\endhead
+	%----- Tabellenende erste Tabelle ----- %	
+	\bottomrule
+	\endfoot
+	%----- Tabellenende zweite Tabelle ----- %
+	\bottomrule    
+	\endlastfoot
+	%----- Inhalt der Tabelle Tabelle ----- %	
+	1 , 2                           & 3 , 2                           & 1 , 3 \\
+	2 , 4                           & 6 , 4                           & 2 , 6 \\
+	3 , 6                           & 9 , 6                           & 3 , 9 \\
+	4 , 8                           & 12 , 8                           & 4 , 12 \\
+	5 , 10                           & 15 , 10                           & 5 , 15 \\
+	6 , 12                           & 18 , 12                           & 6 , 18 \\
+	7 , 14                           & 21 , 14                           & 7 , 21 \\
+	8 , 16                           & 24 , 16                           & 8 , 24 \\
+	9 , 18                           & 27 , 18                           & 9 , 27 \\
+	10 , 20                           & 30 , 20                           & 10 , 30 \\
+	11 , 22                           & 33 , 22                           & 11 , 33 \\
+	12 , 24                           & 36 , 24                           & 12 , 36 \\
+	13 , 26                           & 39 , 26                           & 13 , 39 \\
+	14 , 28                           & 42 , 28                           & 14 , 42 \\
+	15 , 30                           & 45 , 30                           & 15 , 45 \\
+	16 , 32                           & 48 , 32                           & 16 , 48 \\
+	17 , 34                           & 51 , 34                           & 17 , 51 \\
+	18 , 36                           & 54 , 36                           & 18 , 54 \\
+	19 , 38                           & 57 , 38                           & 19 , 57 \\
+\end{longtabu}

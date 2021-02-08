@@ -1,0 +1,102 @@
+\chapter{tikz - Grafiken}
+\label{sec:tikz}
+
+\section{Beispielkapitel tikz - Grafiken}
+\label{sec:beispiel}
+
+\blindtext
+
+\begin{figure}[!htbp]
+\centering
+\begin{align*}
+f(x)=\tanh(x)
+\end{align*}
+\begin{tikzpicture}
+\begin{axis}
+[
+width=200pt,
+height=200pt,
+axis x line=middle, xmin=-4, xmax=4, xtick={-3,...,3}, xlabel=$x$,
+axis y line=middle, ymin=-1.5, ymax=1.5, ytick={-1,...,1}, ylabel=$f(x)$,
+scale only axis=true,
+samples=101
+]
+\addplot[blue,mark=none, very thick]{tanh(x)};
+%		\legend{$\tanh(x)$}
+\end{axis}
+\end{tikzpicture}
+\caption[Tangens hyperbolicus Aktivierungsfunktion]{Tangens hyperbolicus}
+\label{fig:AktivTan}
+\end{figure}
+
+\blindtext
+
+
+\begin{figure}[!htbp]
+	\centering
+	\begin{tikzpicture}[]
+	\tikzstyle{netnode}=[circle, inner sep=0pt, text width=22pt, align=center, line width=1.0pt]
+	\tikzstyle{inputnode}=[netnode, fill=lightgray,draw=black]
+	\tikzstyle{hiddennode}=[netnode, fill=lightgray,draw=black]
+	\tikzstyle{outputnode}=[netnode, fill=lightgray,draw=black]
+	\tikzstyle{signal}=[arrows={-latex},draw=black,line width=1pt,rounded corners=4pt]
+	
+	\def\nodedist{35pt}
+	\def\layerdist{80pt}
+	\def\pindist{20pt}
+	
+	\tikzstyle{every pin edge}=[signal]
+	\tikzstyle{annot} = [text width=6em, text centered]
+	
+	\foreach \y in {1,...,3}
+	\node[inputnode, pin={[pin edge={latex-}, pin distance=\pindist]left:Eingabe \y}] 
+	(I\y) at (0,-\y*\nodedist) {$i_\y$};  
+	
+	\foreach \y in {1,...,4}
+	\node[hiddennode] 
+	(H1\y) at ($(\layerdist,-\y*\nodedist) +(0, 0.5*\nodedist)$) {$h_\y^1$};
+	
+	\foreach \y in {1,...,4}
+	\node[hiddennode] 
+	(H2\y) at ($(2*\layerdist,-\y*\nodedist) +(0, 0.5*\nodedist)$) {$h_\y^2$};
+	
+	\foreach \y in {1,...,2}
+	\node[outputnode, pin={[pin edge={-latex}, pin distance=\pindist]right:Ausgabe \y}]
+	(O\y) at ($(H21) + (\layerdist, -\y*\nodedist)$) {$o_\y$};
+	
+	\foreach \dest in {1,...,4}
+	\foreach \source in {1,...,3}
+	\draw[signal] (I\source) -- (H1\dest);
+	
+	\foreach \dest in {1,...,4}
+	\foreach \source in {1,...,4}
+	\draw[signal] (H1\source) -- (H2\dest);
+	
+	\foreach \dest in {1,...,2}
+	\foreach \source in {1,...,4}
+	\draw[signal] (H2\source) edge (O\dest);
+	
+	\node[annot, above=4pt of H11] (hl) {verborgene Schicht 1};
+	\node[annot, above=4pt of H21] (hl) {verborgene Schicht 2};
+	\node[annot] at (I1 |- hl) {Eingabe\-schicht};
+	\node[annot] at (O1 |- hl) {Ausgabe\-schicht};
+	\end{tikzpicture}
+	\caption{Schematischer Aufbau eines künstlichen neuronalen Netzes \cite[Abb. nach][]{Frochte.2019}}
+	\label{fig:DNN}
+\end{figure}
+
+
+\section{Beispielkapitel Standard Grafik}
+\label{sec:graf}
+
+\blindtext
+
+\begin{figure}[h]
+  \centering  
+  	\includegraphics[scale=0.5]{Images/ILEK-logo.jpg}
+  \caption{ILEK Logo}
+  \label{fig:starwars}
+\end{figure}
+
+\blindtext
+
