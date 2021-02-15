@@ -65,7 +65,7 @@ hidelinks
 %\usepackage[utf8]{inputenc} %Schriftkodierung PDFLaTeX
 \usepackage[utf8]{luainputenc} %Schriftkodierung LuaLaTeX
 \usepackage[english, ngerman]{babel} %Sprachen
-\usepackage{graphicx, subfig} %Einbinden von Bildern, Bilder nebeneinander
+\usepackage{graphicx} %Einbinden von Bildern
 \usepackage{amsfonts} % zusätzliche Schriftzeichen der American Mathematical Society
 \usepackage{amsmath,amssymb} % zusätzliche Schriftzeichen der American Mathematical Society
 \usepackage{typearea} %Aufteilung von Rändern und Textbereich
@@ -82,7 +82,8 @@ hidelinks
 \tolerance = 400  % möglicher Abstand zwischen den Wörtern erhöhen
 \usepackage[section]{placeins} %\FloatBarrier Verhindert das Abbildungen in nachfolgenden Kapitel rutschen
 \makeatletter\AtBeginDocument{\expandafter\renewcommand\expandafter\subsection\expandafter{\expandafter\@fb@secFB\subsection}}\makeatother %FloatBarrier für Subsection
-
+\usepackage{subcaption} % Bilder nebeneinander
+\captionsetup[subfigure]{list=true, labelfont=bf, position=top}
 
 % ============= Tabelleneinstellungen =============
 
@@ -276,11 +277,12 @@ labelfont=bf]{caption} %Label in Bold
 
 % ============= Kapitel =============
 
-\include{10_bsp} %durch Eigene Kapitel erstezen
+%\include{10_bsp} %durch Eigene Kapitel erstezen
 %\include{11_bsp}
-\include{12_bsp}
-\include{13_bsp}
-\include{14_bsp}
+%\include{12_bsp}
+%\include{13_bsp}
+%\include{14_bsp}
+\include{16_bsp}
 
 
 % ============= Anhang =============
