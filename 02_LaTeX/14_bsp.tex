@@ -81,7 +81,8 @@ samples=101
 	\node[annot] at (I1 |- hl) {Eingabe\-schicht};
 	\node[annot] at (O1 |- hl) {Ausgabe\-schicht};
 	\end{tikzpicture}
-	\caption{Schematischer Aufbau eines künstlichen neuronalen Netzes \cite[Abb. nach][]{Frochte.2019}}
+	\caption[Schematischer Aufbau eines künstlichen neuronalen Netzes] %hier kann ein alternativer/ verkürzter Text für das Abbildungsverzeichnis angegeben werden
+	{Schematischer Aufbau eines künstlichen neuronalen Netzes \cite[Abb. nach][]{Frochte.2019}} %Bildunteschrift
 	\label{fig:DNN}
 \end{figure}
 
@@ -100,3 +101,37 @@ samples=101
 
 \blindtext
 
+\begin{figure}
+	\centering
+	\begin{subfigure}[b]{0.3\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{Images/ILEK-logo.jpg}
+		\caption{$y=x$}
+		\label{fig:a}
+	\end{subfigure}
+%	\hfill
+\hspace{1cm}
+	\begin{subfigure}[b]{0.3\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{Images/ILEK-logo.jpg}
+		\caption{$y=3sinx$}
+		\label{fig:b}
+	\end{subfigure}
+	\\ 
+	\begin{subfigure}[b]{0.3\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{Images/ILEK-logo.jpg}
+		\caption{$y=3sinx$}
+		\label{fig:c}
+	\end{subfigure}
+%	\hfill
+\hspace{1cm}
+	\begin{subfigure}[b]{0.3\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{Images/ILEK-logo.jpg}
+		\caption{$y=5/x$}
+		\label{fig:five over x}
+	\end{subfigure}
+	\caption{Three simple graphs}
+	\label{fig:d}
+\end{figure}

@@ -29,17 +29,17 @@ hidelinks
 \usepackage{xcolor}		%Definition eigener Farben
 
 % Uni Stuttgart Colors
-\definecolor{uniS_lightblue}{RGB}{0,190,255}
-\definecolor{uniS_darkblue}{RGB}{0,65,145}
-\definecolor{uniS_darkgrey}{RGB}{62, 68, 76}
-\definecolor{uniS_greyblue}{RGB}{125,198,234}
-\definecolor{uniS_grey}{RGB}{159,153,152}
+\definecolor{uniSlightblue}{RGB}{0,190,255}
+\definecolor{uniSdarkblue}{RGB}{0,65,145}
+\definecolor{uniSdarkgrey}{RGB}{62, 68, 76}
+\definecolor{uniSgreyblue}{RGB}{125,198,234}
+\definecolor{uniSgrey}{RGB}{159,153,152}
 
 % Uni Stuttgart monochrom greyscale
-\definecolor{uniS_black}{RGB}{0,0,0}
-\definecolor{uniS_darkgrey}{RGB}{62,68,76}
-\definecolor{uniS_grey}{RGB}{159,153,152}
-\definecolor{uniS_lightgrey}{RGB}{185,186,187}
+\definecolor{uniSblack}{RGB}{0,0,0}
+\definecolor{uniSdarkgrey}{RGB}{62,68,76}
+\definecolor{uniSgrey}{RGB}{159,153,152}
+\definecolor{uniSlightgrey}{RGB}{185,186,187}
 
 
 % ============= Standart Packages und Einstellungen =============
@@ -51,7 +51,6 @@ hidelinks
 \usepackage{amsfonts} % zusätzliche Schriftzeichen der American Mathematical Society
 \usepackage{amsmath,amssymb} % zusätzliche Schriftzeichen der American Mathematical Society
 \usepackage{typearea} %Aufteilung von Rändern und Textbereich
-%\usepackage{minted} %Highlighting von Code, Benötigt Python ,cmd Eingabe->pdflatex -synctex=1 -interaction=nonstopmode --shell-escape %.tex
 \usepackage{tikz} %Grafiken Zeichnen
 \usetikzlibrary{shapes,arrows,positioning,calc,chains,scopes}
 \usepackage{pgfplots}  %Kurven, Graphen
@@ -66,6 +65,36 @@ hidelinks
 \makeatletter\AtBeginDocument{\expandafter\renewcommand\expandafter\subsection\expandafter{\expandafter\@fb@secFB\subsection}}\makeatother %FloatBarrier für Subsection
 \usepackage{subcaption} % Bilder nebeneinander
 \captionsetup[subfigure]{list=true, labelfont=bf, position=top}
+
+
+% ============= Programmierung (Visualisierung) =============
+
+%\usepackage[cache=false]{minted}
+\usepackage[cache=false]{minted} %Highlighting von Code, Benötigt Python und Pygments hinterlegt in den Umgebungsvariablen (pip install Pygments) ,cmd Eingabe->pdflatex -synctex=1 -interaction=nonstopmode -shell-escape %.tex
+\usemintedstyle{tango, xleftmargin=20pt, linenos, fontsize=\small, breaklines=true, tabsize=4} %borland, bw, tango, frame=leftline
+\usepackage{listings}
+\lstdefinestyle{mystyle}{
+%	backgroundcolor=\color{uniS_lightgrey},   
+	commentstyle=\color{uniSlightblue},
+	keywordstyle=\color{uniSdarkblue},
+	numberstyle=\tiny\color{uniSlightgrey},
+	stringstyle=\color{uniSgreyblue},
+	basicstyle=\ttfamily\small,
+	xleftmargin=20pt,
+%	xrightmargin=3pt,
+	breakatwhitespace=false,         
+	breaklines=true,                 
+	captionpos=b,                    
+	keepspaces=true,                 
+	numbers=left,                    
+	numbersep=10pt,                  
+	showspaces=false,                
+	showstringspaces=false,
+	showtabs=false,                  
+	tabsize=4
+}
+\lstset{style=mystyle}
+
 
 % ============= Tabelleneinstellungen =============
 
@@ -95,7 +124,7 @@ hidelinks
 %\usepackage{fourier}
 
 %Lua-LaTeX
-\usepackage{fontspec}
+\usepackage[no-math]{fontspec}
 
 \setmainfont{UniversforUniS}[
 Extension      = .ttf,
@@ -105,19 +134,14 @@ ItalicFont     = *45LtObl-Rg,
 BoldFont       = *65Bd-Regular,
 BoldItalicFont = *45LtObl-Rg,
 ]
-
-\setsansfont{UniversforUniS}[
-Extension      = .ttf,
-Path           = fonts/,
-UprightFont    = *55Rm-Regular,
-ItalicFont     = *45LtObl-Rg,
-BoldFont       = *65Bd-Regular,
-BoldItalicFont = *45LtObl-Rg,
-]
-
-%\setmonofont{CMU Typewriter Text}
+%\setsansfont{}[]
+%\setmonofont{}[]
 
 \addtokomafont{disposition}{\rmfamily} %Überschriften selbe Schriftart wie Text
+
+\renewcommand\familydefault\sfdefault % Formeln in Sans-Serif
+\usepackage[italic, symbolgreek]{mathastext} % Formeln in Sans-Serif
+\renewcommand\familydefault\rmdefault % Formeln in Sans-Serif
 
 \usepackage{setspace} %Zeilenabstand
 \setstretch{1.05} %Zeilenabstand
@@ -125,24 +149,6 @@ BoldItalicFont = *45LtObl-Rg,
 \setlength{\parindent}{0pt} %Wenn Absatzabstand, dann Einzug unnötig
 \setlength{\parskip}{7pt} %Absatzabstand
 
-\setkomafont{captionlabel}{\sffamily\bfseries} %Schrift der Labels
-\setkomafont{caption}{\sffamily} %Schrift der Labelbezeichnung
-\usepackage[eulergreek]{sansmath} %Schrift in Diagrammen
-\AtBeginEnvironment{longtabu}{\sffamily} %Schriftart Tabelle %\usepackage{etoolbox}
-\AtBeginEnvironment{figure}{\sffamily} %Schriftart Figure
-\AtBeginEnvironment{tabu}{\sffamily} %Schriftart Tabelle
-\AtBeginEnvironment{tikzpicture}{\footnotesize\sffamily} %Schriftart Tabelle \small, \footnotesize
-
-
-% ============= Verzeichnisse =============
-
-\RedeclareSectionCommands[
-tocentryformat=\sffamily,
-tocpagenumberformat=\sffamily
-]{part,section,subsection,subsubsection,paragraph,subparagraph}
-
-\DeclareTOCStyleEntry[pagenumberformat=\sffamily, entryformat=\sffamily]{tocline}{table}
-\DeclareTOCStyleEntry[pagenumberformat=\sffamily, entryformat=\sffamily]{tocline}{figure}
 
 
 % ============= Kopf- und Fußzeile >>Einseitig<< =============
@@ -151,9 +157,9 @@ tocpagenumberformat=\sffamily
 \automark{chapter}	%Automatische Kapitelangabe in Kopfzeile
 \renewcommand*{\chaptermarkformat}{} %Kapitel ohne Kapitelnummer
 \clearpairofpagestyles %aktuelle Einetsllungen aus Kopf- und Fußzeile löschen
-\setkomafont{pageheadfoot}{\small\sffamily}		%Font für Kopfzeile
-\setkomafont{pagefoot}{\small\sffamily}  		%Font für Fußzeile
-\setkomafont{pagenumber}{\small\sffamily} 	%Font für Seitennummer
+\setkomafont{pageheadfoot}{\small}		%Font für Kopfzeile
+\setkomafont{pagefoot}{\small}  		%Font für Fußzeile
+\setkomafont{pagenumber}{\small} 	%Font für Seitennummer
 \KOMAoptions{headsepline = true} %Kopzeile Linie
 
 \lohead[]{}
@@ -206,7 +212,6 @@ sorting=none,									% Sortierung des Verzeichnis nach Autor, Titel, Jahr
 \addbibresource{Literatur.bib} %Bibliographiedateien laden
 
 \urlstyle{same}	% url Schriftart anpassen auf die des Dokuments anpassen
-\renewcommand*{\bibfont}{\sffamily} %Schriftart des Literaturverzeichnises
 \usepackage{xpatch}% author in bold font in bibliography
 \xpretobibmacro{author}{\mkbibbold\bgroup}{}{}
 \xapptobibmacro{author}{\egroup}{}{}
