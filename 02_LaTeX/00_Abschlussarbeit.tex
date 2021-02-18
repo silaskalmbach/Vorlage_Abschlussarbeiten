@@ -40,18 +40,18 @@
 \include{01_titel}
 \restoregeometry
 
-\pagestyle{plain.scrheadings}
+\pagestyle{plain.scrheadings} % Leere Kopf- und Fußzeilen
 \pagenumbering{Roman} % Römische Seitenzahlen verwenden
 \include{02_aufgabenstellung} %->Optional
 \include{03_erklaerung}
 \include{04_vorwort} %->Optional
 \include{05_zusammenfassung}
 \tableofcontents %Inhaltsverzeichnis
-\cleardoubleoddpage
+\cleardoubleoddpage %Beginn auf einer neuen Seite. Bei Doppelseiten rechts
 \pagenumbering{arabic}	% Arabische Seitenzahlen verwenden
 \include{06_symbole}
-\cleardoubleoddpage
-\pagestyle{scrheadings}	% pagestyle für gesamtes Dokument aktivieren
+\cleardoubleoddpage %Beginn auf einer neuen Seite. Bei Doppelseiten rechts
+\pagestyle{scrheadings}	% pagestyle für gesamtes Dokument aktivieren (Kopf- und Fußzeilen)
 
 
 % ============= Kapitel =============
