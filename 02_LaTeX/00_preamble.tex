@@ -72,8 +72,13 @@ hidelinks
 \usepackage[cache=false]{minted} %Highlighting von Code, Benötigt Python und Pygments hinterlegt in den Umgebungsvariablen (pip install Pygments) ,cmd Eingabe->pdflatex -synctex=1 -interaction=nonstopmode -shell-escape %.tex
 \usemintedstyle{tango, xleftmargin=20pt, linenos, fontsize=\small, breaklines=true, tabsize=4} %borland, bw, tango, frame=leftline
 \usepackage{listings}
+%\lstset{
+%	language=python,
+%	otherkeywords={1, 2, 3, 4, 5, 6, 7, 8 ,9 , 0, -, =, +, [, ], (, ), \{, \}, :, *, !},
+%}
+
 \lstdefinestyle{mystyle}{
-%	backgroundcolor=\color{uniS_lightgrey},   
+%	backgroundcolor=\color{uniSlightgrey},   
 	commentstyle=\color{uniSlightblue},
 	keywordstyle=\color{uniSdarkblue},
 	numberstyle=\tiny\color{uniSlightgrey},
@@ -92,6 +97,7 @@ hidelinks
 	showtabs=false,                  
 	tabsize=4
 }
+
 \lstset{style=mystyle}
 
 
