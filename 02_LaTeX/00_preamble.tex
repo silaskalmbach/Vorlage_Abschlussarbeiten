@@ -69,7 +69,6 @@ hidelinks
 
 % ============= Programmierung (Visualisierung) =============
 
-%\usepackage[cache=false]{minted}
 \usepackage[cache=false]{minted} %Highlighting von Code, Benötigt Python und Pygments hinterlegt in den Umgebungsvariablen (pip install Pygments) ,cmd Eingabe->pdflatex -synctex=1 -interaction=nonstopmode -shell-escape %.tex
 \usemintedstyle{tango, xleftmargin=20pt, linenos, fontsize=\small, breaklines=true, tabsize=4} %borland, bw, tango, frame=leftline
 \usepackage{listings}
@@ -141,7 +140,8 @@ BoldItalicFont = *45LtObl-Rg,
 
 \renewcommand\familydefault\sfdefault % Formeln in Sans-Serif
 \usepackage[italic, symbolgreek]{mathastext} % Formeln in Sans-Serif
-\renewcommand\familydefault\rmdefault % Formeln in Sans-Serif
+\renewcommand\familydefault\rmdefault
+ % Formeln in Sans-Serif
 
 \usepackage{setspace} %Zeilenabstand
 \setstretch{1.05} %Zeilenabstand

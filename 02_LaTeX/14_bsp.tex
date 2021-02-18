@@ -21,7 +21,7 @@ axis y line=middle, ymin=-1.5, ymax=1.5, ytick={-1,...,1}, ylabel=$f(x)$,
 scale only axis=true,
 samples=101
 ]
-\addplot[blue,mark=none, very thick]{tanh(x)};
+\addplot[uniSdarkblue, mark=none, very thick]{tanh(x)};
 %		\legend{$\tanh(x)$}
 \end{axis}
 \end{tikzpicture}
@@ -36,10 +36,10 @@ samples=101
 	\centering
 	\begin{tikzpicture}[]
 	\tikzstyle{netnode}=[circle, inner sep=0pt, text width=22pt, align=center, line width=1.0pt]
-	\tikzstyle{inputnode}=[netnode, fill=lightgray,draw=black]
-	\tikzstyle{hiddennode}=[netnode, fill=lightgray,draw=black]
-	\tikzstyle{outputnode}=[netnode, fill=lightgray,draw=black]
-	\tikzstyle{signal}=[arrows={-latex},draw=black,line width=1pt,rounded corners=4pt]
+	\tikzstyle{inputnode}=[netnode, fill=uniSlightgrey,draw=black]
+	\tikzstyle{hiddennode}=[netnode, fill=uniSlightgrey,draw=black]
+	\tikzstyle{outputnode}=[netnode, fill=uniSlightgrey,draw=black]
+	\tikzstyle{signal}=[arrows={-latex},draw=uniSblack,line width=1pt,rounded corners=4pt]
 	
 	\def\nodedist{35pt}
 	\def\layerdist{80pt}
@@ -92,7 +92,7 @@ samples=101
 
 \blindtext
 
-\begin{figure}[h]
+\begin{figure}[H]
   \centering  
   	\includegraphics[scale=0.5]{Images/ILEK-logo.jpg}
   \caption{ILEK Logo}
@@ -101,7 +101,7 @@ samples=101
 
 \blindtext
 
-\begin{figure}
+\begin{figure}[H]
 	\centering
 	\begin{subfigure}[b]{0.3\textwidth}
 		\centering
@@ -132,6 +132,6 @@ samples=101
 		\caption{$y=5/x$}
 		\label{fig:five over x}
 	\end{subfigure}
-	\caption{Three simple graphs}
+	\caption{Vier Bilder}
 	\label{fig:d}
 \end{figure}
