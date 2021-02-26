@@ -6,7 +6,7 @@
 
 \blindtext
 
-\begin{figure}[!htbp]
+\begin{figure}[htb]
 \centering
 \begin{align*}
 f(x)=\tanh(x)
@@ -32,7 +32,7 @@ samples=101
 \blindtext
 
 
-\begin{figure}[!htbp]
+\begin{figure}[htb]
 	\centering
 	\begin{tikzpicture}[]
 	\tikzstyle{netnode}=[circle, inner sep=0pt, text width=22pt, align=center, line width=1.0pt]
@@ -86,6 +86,76 @@ samples=101
 	\label{fig:DNN}
 \end{figure}
 
+\setlength{\figureheight}{5cm}
+\setlength{\figurewidth}{\textwidth}
+\begin{figure}[htbp]
+	\centering
+	\begin{tikzpicture}
+		\begin{axis}[
+			width=\figurewidth,
+			height=\figureheight,
+			date coordinates in = x,
+			xmin=2018-01-01 00:00,
+			xmax=2018-01-08 00:00,
+			minor x tick num=1,
+			xtick={2018-01-01 12:00, 2018-01-02 12:00, 2018-01-03 12:00, 2018-01-04 12:00, 2018-01-05 12:00, 2018-01-06 12:00, 2018-01-07 12:00},
+			set layers,cell picture=true,
+			xticklabel={\day.\month},
+			xlabel={2018},
+			ymin=-0.1, ymax=1.1, ytick={0,0.5,1},
+			no marks,
+			scaled y ticks = false,
+			ylabel={[\nicefrac{\%}{100}]}
+			,]
+			\addplot+[color=black ] table[x=Zeit, y=Shadestep, col sep=comma, skip first n=0] {./Data/Example.csv};
+			\legend{Shadestep};
+		\end{axis}
+	\end{tikzpicture}
+	\caption[Photometrische Regelung der adaptiven Verglasung im Juli 2018, nach 500 Episoden]{Photometrische Regelung der adaptiven Verglasung nach 500 Episoden, für den Zeitraum vom 01. bis 07. Juli 2018} \label{fig:AVPhJun500}	
+\end{figure}
+
+
+\begin{figure}[htb]
+	\setlength{\figureheight}{5cm}
+	\setlength{\figurewidth}{\textwidth}
+	\centering
+	\begin{tikzpicture}
+		\begin{groupplot}[
+			width=\figurewidth,
+			height=\figureheight,
+			date coordinates in = x,
+			xmin=2018-01-01 00:00,
+			xmax=2018-01-08 00:00,
+			minor x tick num=1,
+			xtick={2018-01-01 12:00, 2018-01-02 12:00, 2018-01-03 12:00, 2018-01-04 12:00, 2018-01-05 12:00, 2018-01-06 12:00, 2018-01-07 12:00},
+			set layers,cell picture=true,
+			xticklabel={\day.\month},
+			xlabel={2018},
+			no marks,
+			scaled y ticks = false,
+			group style = {group size = 1 by 7,
+				horizontal sep =1cm,
+				vertical sep = 0cm,},]
+			
+			\nextgroupplot[xlabel={},xticklabels={},ylabel={[°C]}]
+			\addplot[color=black ] table[x=Zeit, y=T01, col sep=comma, skip first n=0] {./Data/Example.csv};
+			\legend{T01};
+			
+			\nextgroupplot[xlabel={},xticklabels={},ylabel={[klx]}]
+			\addplot[color=black ] table[x=Zeit, y expr=\thisrow{B01}/1000, col sep=comma, skip first n=0] {./Data/Example.csv};
+			\legend{B01};
+			
+			\nextgroupplot[ylabel={[kW]}, ymin=-0.02, ymax=0.32, ytick={0,0.1,0.2,0.3},]
+			\addplot+[color=black , name path=A] table[x=Zeit, y expr=\thisrow{QBeleuchtung}+\thisrow{QHeizung}+\thisrow{QKuehlung}, col sep=comma, skip first n=0] {./Data/Example.csv};
+			\addplot+[draw=none,name path=B, mark=none] table[x=Zeit, y expr=0, col sep=comma, skip first n=0] {./Data/Example.csv}; 
+			\addplot+[gray, fill opacity=0.1] fill between[of=A and B];
+			\legend{Q\textsubscript{HEAT}+Q\textsubscript{COOL}+Q\textsubscript{LIGHT}};
+
+		\end{groupplot}
+	\end{tikzpicture}
+	\caption[Kombinierte Regelung im Januar 2018, nach 500 Episoden]{Kombinierte Regelung nach 500 Episoden, für den Zeitraum vom 01. bis 07. Januar 2018} \label{fig:KomJan18}	
+\end{figure}
+
 
 \section{Beispielkapitel Standard Grafik}
 \label{sec:graf}
@@ -135,3 +205,33 @@ samples=101
 	\caption{Vier Bilder}
 	\label{fig:d}
 \end{figure}
+
+
+\blindtext[3]
+
+
+\begin{wraptable}[]{O}[0cm]{9cm}
+	\begin{center}
+		\begin{tabular}{|l|l|l|}
+			\hline
+			r & R & right side of the text\\
+			l & L & left side of the text\\
+			i & I & inside edge–near the binding\\
+			& &  (in a twoside document)\\
+			o & O & outside edge–far from the binding\\
+			\hline
+		\end{tabular}
+	\end{center}
+	\caption{The uppercase version allows the figure to float. The lowercase version means exactly here.}%\citep{cite}
+\end{wraptable}
+
+\blindtext[3]
+
+%\begin{wrapfigure}[Zeile]{Position}[Randüberhang]{Breite}
+\begin{wrapfigure}[]{O}[0cm]{6.5cm}
+	\includegraphics[width=6cm,angle=0]{bild}
+	\caption{Bildbezeichnung}
+	\label{fig:bild}
+\end{wrapfigure}
+
+\blindtext[3]

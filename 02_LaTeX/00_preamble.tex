@@ -51,20 +51,18 @@ hidelinks
 \usepackage{amsfonts} % zusätzliche Schriftzeichen der American Mathematical Society
 \usepackage{amsmath,amssymb} % zusätzliche Schriftzeichen der American Mathematical Society
 \usepackage{typearea} %Aufteilung von Rändern und Textbereich
-\usepackage{tikz} %Grafiken Zeichnen
-\usetikzlibrary{shapes,arrows,positioning,calc,chains,scopes}
-\usepackage{pgfplots}  %Kurven, Graphen
-%\usepgfplotslibrary{dateplot, fillbetween, groupplots}
+\usepackage{nicefrac}% weitere Alternative mit mehreren Zeichen für Brüche
 \usepackage{pdfpages} %Einfügen von PDFs
 \usepackage{appendix} %Anhang
 \usepackage{csquotes}
-\usepackage[german]{cleveref} % Mehr Möglichkeiten zum referenzieren
+\usepackage[german, nameinlink]{cleveref} % Mehr Möglichkeiten zum referenzieren
 \usepackage{gensymb} %Symbole: \degree \celsius \perthousand \ohm \micro
 \tolerance = 400  % möglicher Abstand zwischen den Wörtern erhöhen
 \usepackage[section]{placeins} %\FloatBarrier Verhindert das Abbildungen in nachfolgenden Kapitel rutschen
 \makeatletter\AtBeginDocument{\expandafter\renewcommand\expandafter\subsection\expandafter{\expandafter\@fb@secFB\subsection}}\makeatother %FloatBarrier für Subsection
 \usepackage{subcaption} % Bilder nebeneinander
 \captionsetup[subfigure]{list=true, labelfont=bf, position=top}
+\usepackage{wrapfig} % Bilder von TExt umgeben
 
 
 % ============= Programmierung (Visualisierung) =============
@@ -233,3 +231,21 @@ sorting=none,									% Sortierung des Verzeichnis nach Autor, Titel, Jahr
 tablename=Tab., % Beschriftung von Tabelle zu Tab.
 labelfont=bf]{caption} %Label in Bold
 \KOMAoptions{numbers = noenddot} % der Punkt hinter den Kapiteln etc wird entfernt: 1.1. wird zu 1.1
+
+
+% ============= Daten Plotten ============= 
+
+\usepackage{tikz} %Grafiken Zeichnen
+\usepackage{shellesc} % Notwendig für LuaLaTeX
+\usetikzlibrary{shapes, arrows, positioning, calc, chains, scopes, external}
+\tikzexternalize[prefix=tikz/,optimize command away=\includepdf] % activate and define tikz/ as cache folder
+
+\usepackage{pgfplots}  %Kurven, Graphen
+\usepgfplotslibrary{dateplot, fillbetween, groupplots}
+\pgfkeys{/pgf/number format/.cd,fixed, use comma}
+\pgfplotsset{compat=newest}
+\usepgfplotslibrary{groupplots}
+\usepgfplotslibrary{dateplot}
+
+\newlength{\figureheight} %Eigene Vatiable für Längen
+\newlength{\figurewidth} %Eigene Vatiable für Längen

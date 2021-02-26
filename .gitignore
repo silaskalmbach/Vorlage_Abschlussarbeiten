@@ -19,3 +19,7 @@
 *.toc
 *.xla
 *.ttf
+*.dpth
+*.md5
+*.dep
+*.pdf
