@@ -1,5 +1,8 @@
 % ============= Angaben zur Arbeit =============
 
+\def\mode{1} % 1 = onepage; 2=twopage (Ein- oder Zweiseitiges Dokument)
+\def\tikzextern{0} % 0 = Nein; 1 = Ja (TikZ Grafiken Extern Speicehrn)
+
 \newcommand{\titel}{Xxxxx Xxxxx Xxxxx Xxxxx Xxxxx Xxxxx Xxxxx Xxxxx Xxxxx Xxxxx Xxxxx} % Hier den Titel der Arbeit angeben 
 \newcommand{\arbeit}{MASTERARBEIT} % Hier die Art der Abschlussarbeit eingeben in Großbuchstaben 
 \newcommand{\Nummer}{XX} % Nummerrierung der Arbeit (mit Berteurer zu klären)
@@ -57,19 +60,19 @@
 % ============= Kapitel =============
 % durch Eigene Kapitel erstezen
 
-%\include{10_bsp} % Zitation
-%\include{11_bsp} % Programmcode
-%\include{12_bsp} % Tabellen
-%\include{13_bsp} % Formeln
+\include{10_bsp} % Zitation
+\include{11_bsp} % Programmcode
+\include{12_bsp} % Tabellen
+\include{13_bsp} % Formeln
 \include{14_bsp} % Grafiken
 
 
 % ============= Anhang =============
 
-\appendix
-\begin{appendices}
-	\include{15_bsp}
-\end{appendices}
+%\appendix
+%\begin{appendices}
+%	\include{15_bsp}
+%\end{appendices}
 
 
 % ============= Verzeichnise =============

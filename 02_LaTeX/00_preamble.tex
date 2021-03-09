@@ -1,13 +1,15 @@
-%Bei Fragen und Anregungen zu dieser Vorlage können Sie sich gerene bei Silas Kalmbach (silas.kalmbach@ilek.uni-stuttgart.de) melden.
+%%Bei Fragen und Anregungen zu dieser Vorlage können Sie sich gerene bei Silas Kalmbach (silas.kalmbach@ilek.uni-stuttgart.de) melden.
 
 % ============= Einseitig =============
-\documentclass[a4paper,12pt]{scrreprt}
-\usepackage[left= 2.5cm, right = 2cm, top=2.5cm]{geometry}
-
+\if 1\mode
+	\documentclass[a4paper,12pt]{scrreprt}
+	\usepackage[left= 2.5cm, right = 2cm, top=2.5cm]{geometry}
+\else
 % ============= Doppelseitig =============
-%\documentclass[a4paper,12pt, openright, twoside]{scrreprt}
-%\usepackage[left= 2.5cm, right = 2cm, top=2.5cm]{geometry}
-%% -> Anpassungen an die Kopf- und Fußzeilen beachten!
+	\documentclass[a4paper,12pt, openright, twoside]{scrreprt}
+	\usepackage[left= 2.5cm, right = 2cm, top=2.5cm]{geometry}
+\fi
+
 
 
 % ============= Dokumentinformationen =============
@@ -44,8 +46,13 @@ hidelinks
 
 % ============= Standart Packages und Einstellungen =============
 
-%\usepackage[utf8]{inputenc} %Schriftkodierung PDFLaTeX
-\usepackage[utf8]{luainputenc} %Schriftkodierung LuaLaTeX
+\usepackage{ifluatex}
+\ifluatex
+	\usepackage[utf8]{luainputenc} %Schriftkodierung LuaLaTeX
+\else
+	\usepackage[utf8]{inputenc} %Schriftkodierung PDFLaTeX
+\fi
+
 \usepackage[english, ngerman]{babel} %Sprachen
 \usepackage{graphicx} %Einbinden von Bildern
 \usepackage{amsfonts} % zusätzliche Schriftzeichen der American Mathematical Society
@@ -54,7 +61,8 @@ hidelinks
 \usepackage{nicefrac}% weitere Alternative mit mehreren Zeichen für Brüche
 \usepackage{pdfpages} %Einfügen von PDFs
 \usepackage{appendix} %Anhang
-\usepackage{csquotes}
+\usepackage{fvextra} %automatic line breaking and improved math mode
+\usepackage{csquotes} %inline and display quotations
 \usepackage[german, nameinlink]{cleveref} % Mehr Möglichkeiten zum referenzieren
 \usepackage{gensymb} %Symbole: \degree \celsius \perthousand \ohm \micro
 \tolerance = 400  % möglicher Abstand zwischen den Wörtern erhöhen
@@ -107,6 +115,12 @@ hidelinks
 \usepackage{float}							% um [H] bei float Objekten verwenden zu können
 \usepackage{booktabs}						% um \toprule, \midrule und \bottomrule verwenden zu können
 \usepackage{tabularx}
+\usepackage{tabulary}
+%\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}} % linksbündig mit Breitenangabe
+%\newcolumntype{C}[1]{>{\centering\arraybackslash}p{#1}} % zentriert mit Breitenangabe
+%\newcolumntype{R}[1]{>{\raggedleft\arraybackslash}p{#1}} % rechtsbündig mit Breitenangabe
+%\newcolumntype{R}{>{\raggedleft\arraybackslash}X}
+
 \usepackage{csvsimple} %Excel Improtieren als CSV 
 \usepackage{siunitx} %Wissenschaftliche Angabe der Einheiten \num{number}
 %für Excel to Latex Add-on
@@ -121,31 +135,42 @@ hidelinks
 
 
 % ============= Schriftarten =============
-%PDF-LaTeX
-%\usepackage[T1]{fontenc} %Richtige Trennung von Umlauten
-%\usepackage[scale=0.87]{tgheros}
-%\usepackage{fourier}
 
-%Lua-LaTeX
-\usepackage[no-math]{fontspec}
+\ifluatex
+%% ============= Lua-LaTeX =============
+	\usepackage[no-math]{fontspec} 
+	\setmainfont{UniversforUniS}[
+	Extension      = .ttf,
+	Path           = fonts/,
+	UprightFont    = *55Rm-Regular,
+	ItalicFont     = *45LtObl-Rg,
+	BoldFont       = *65Bd-Regular,
+	BoldItalicFont = *45LtObl-Rg,
+	]
+	\setsansfont{UniversforUniS}[
+	Extension      = .ttf,
+	Path           = fonts/,
+	UprightFont    = *55Rm-Regular,
+	ItalicFont     = *45LtObl-Rg,
+	BoldFont       = *65Bd-Regular,
+	BoldItalicFont = *45LtObl-Rg,
+	]
+	%\setmonofont{}[]
+	\addtokomafont{disposition}{\rmfamily} %Überschriften selbe Schriftart wie Text
+	\renewcommand\familydefault\sfdefault % Formeln in Sans-Serif
+	\usepackage[italic, symbolgreek]{mathastext} % Formeln in Sans-Serif
+	\renewcommand\familydefault\rmdefault % Formeln in Sans-Serif
 
-\setmainfont{UniversforUniS}[
-Extension      = .ttf,
-Path           = fonts/,
-UprightFont    = *55Rm-Regular,
-ItalicFont     = *45LtObl-Rg,
-BoldFont       = *65Bd-Regular,
-BoldItalicFont = *45LtObl-Rg,
-]
-%\setsansfont{}[]
-%\setmonofont{}[]
+\else
+%% ============= PDF-LaTeX =============
+	\usepackage[T1]{fontenc} %Richtige Trennung von Umlauten
+	\usepackage[scale=0.87]{tgheros}
+%	\usepackage{fourier}
+	\renewcommand\familydefault\sfdefault % alles in Sans-Serif
+	\usepackage[italic, symbolgreek]{mathastext} % Formeln in Sans-Serif
+\fi
 
-\addtokomafont{disposition}{\rmfamily} %Überschriften selbe Schriftart wie Text
 
-\renewcommand\familydefault\sfdefault % Formeln in Sans-Serif
-\usepackage[italic, symbolgreek]{mathastext} % Formeln in Sans-Serif
-\renewcommand\familydefault\rmdefault
- % Formeln in Sans-Serif
 
 \usepackage{setspace} %Zeilenabstand
 \setstretch{1.05} %Zeilenabstand
@@ -155,47 +180,49 @@ BoldItalicFont = *45LtObl-Rg,
 
 
 
-% ============= Kopf- und Fußzeile >>Einseitig<< =============
+% ============= Kopf- und Fußzeile =============
 
-\usepackage{scrlayer-scrpage}
-\automark{chapter}	%Automatische Kapitelangabe in Kopfzeile
-\renewcommand*{\chaptermarkformat}{} %Kapitel ohne Kapitelnummer
-\clearpairofpagestyles %aktuelle Einetsllungen aus Kopf- und Fußzeile löschen
-\setkomafont{pageheadfoot}{\small}		%Font für Kopfzeile
-\setkomafont{pagefoot}{\small}  		%Font für Fußzeile
-\setkomafont{pagenumber}{\small} 	%Font für Seitennummer
-\KOMAoptions{headsepline = true} %Kopzeile Linie
+% ============= >>Einseitig<< =============
+\if 1\mode
+	\usepackage{scrlayer-scrpage}
+	\automark{chapter}	%Automatische Kapitelangabe in Kopfzeile
+	\renewcommand*{\chaptermarkformat}{} %Kapitel ohne Kapitelnummer
+	\clearpairofpagestyles %aktuelle Einetsllungen aus Kopf- und Fußzeile löschen
+	\setkomafont{pageheadfoot}{\small}		%Font für Kopfzeile
+	\setkomafont{pagefoot}{\small}  		%Font für Fußzeile
+	\setkomafont{pagenumber}{\small} 	%Font für Seitennummer
+	\KOMAoptions{headsepline = true} %Kopzeile Linie
+	
+	\lohead[]{}
+	\cohead[]{}
+	\rohead[]{\headmark\enskip \raisebox{0.7pt}{|}\enskip \thechapter} %Darstellung Kapitel
+	
+	\lofoot[]{}
+	\cofoot[]{}
+	\rofoot[\pagemark]{\pagemark} %Seitenzahl
+\else
 
-\lohead[]{}
-\cohead[]{}
-\rohead[]{\headmark\enskip \raisebox{0.7pt}{|}\enskip \thechapter} %Darstellung Kapitel
-
-\lofoot[]{}
-\cofoot[]{}
-\rofoot[\pagemark]{\pagemark} %Seitenzahl
-
-
-% ============= Kopf- und Fußzeile >>Doppelseitig<< =============
-
-%\usepackage[automark, headsepline, autooneside=false]{scrlayer-scrpage}
-%\automark[section]{chapter}	%Automatische Kapitelangabe in Kopfzeile
-%\renewcommand*{\chaptermarkformat}{} %Kapitel ohne Kapitelnummer
-%\renewcommand*{\sectionmarkformat}{} %Kapitel ohne Kapitelnummer
-%\clearpairofpagestyles %aktuelle Einetsllungen aus Kopf- und Fußzeile löschen
-%\setkomafont{pageheadfoot}{\small\sffamily}		%Font für Kopfzeile
-%\setkomafont{pagefoot}{\small\sffamily}  		%Font für Fußzeile
-%\setkomafont{pagenumber}{\small\sffamily} 	%Font für Seitennummer
-%\KOMAoptions{headsepline = true} %Kopzeile Linie
-%
-%
-%\lehead[]{\rightmark} %Zweiseitig
-%\cohead[]{}
-%\rohead[]{\leftmark\enskip \raisebox{0.7pt}{|}\enskip \thechapter} %Darstellung Kapitel
-%
-%\lefoot[\pagemark]{\pagemark}
-%\lofoot[]{}
-%\cofoot[]{}
-%\rofoot[\pagemark]{\pagemark} %Seitenzahl
+% ============= >>Doppelseitig<< =============
+	\usepackage[automark, headsepline, autooneside=false]{scrlayer-scrpage}
+	\automark[section]{chapter}	%Automatische Kapitelangabe in Kopfzeile
+	\renewcommand*{\chaptermarkformat}{} %Kapitel ohne Kapitelnummer
+	\renewcommand*{\sectionmarkformat}{} %Kapitel ohne Kapitelnummer
+	\clearpairofpagestyles %aktuelle Einetsllungen aus Kopf- und Fußzeile löschen
+	\setkomafont{pageheadfoot}{\small}		%Font für Kopfzeile
+	\setkomafont{pagefoot}{\small}  		%Font für Fußzeile
+	\setkomafont{pagenumber}{\small} 	%Font für Seitennummer
+	\KOMAoptions{headsepline = true} %Kopzeile Linie
+	
+	
+	\lehead[]{\rightmark} %Zweiseitig
+	\cohead[]{}
+	\rohead[]{\leftmark\enskip \raisebox{0.7pt}{|}\enskip \thechapter} %Darstellung Kapitel
+	
+	\lefoot[\pagemark]{\pagemark}
+	\lofoot[]{}
+	\cofoot[]{}
+	\rofoot[\pagemark]{\pagemark} %Seitenzahl
+\fi
 
 
 % ============= Literatur =============
@@ -236,16 +263,33 @@ labelfont=bf]{caption} %Label in Bold
 % ============= Daten Plotten ============= 
 
 \usepackage{tikz} %Grafiken Zeichnen
-\usepackage{shellesc} % Notwendig für LuaLaTeX
-\usetikzlibrary{shapes, arrows, positioning, calc, chains, scopes, external}
-\tikzexternalize[prefix=tikz/,optimize command away=\includepdf] % activate and define tikz/ as cache folder
+\if 0\tikzextern
+	\usetikzlibrary{shapes, arrows, positioning, calc, chains, scopes}
+\else
+	\usepackage{shellesc} % Notwendig für LuaLaTeX
+	\usetikzlibrary{shapes, arrows, positioning, calc, chains, scopes, external}
+	\tikzexternalize[prefix=tikz/,optimize command away=\includepdf] % activate and define tikz/ as cache folder
+\fi
 
 \usepackage{pgfplots}  %Kurven, Graphen
 \usepgfplotslibrary{dateplot, fillbetween, groupplots}
 \pgfkeys{/pgf/number format/.cd,fixed, use comma}
-\pgfplotsset{compat=newest}
+\pgfplotsset{
+	compat=newest,
+	every axis label/.append style={font={\rmfamily}},
+}
+\AtBeginEnvironment{tikzpicture}{\footnotesize} %Schriftart Tabelle \small, \footnotesize
+
 \usepgfplotslibrary{groupplots}
 \usepgfplotslibrary{dateplot}
+
+%\usepackage[eulergreek]{sansmath} %Schrift in Diagrammen
+%\pgfplotsset{
+%	tick label style = {font=\rmfamily},
+%	every axis label = {font=\rmfamily},
+%	legend style = {font=\rmfamily},
+%	label style = {font=\rmfamily}
+%}
 
 \newlength{\figureheight} %Eigene Vatiable für Längen
 \newlength{\figurewidth} %Eigene Vatiable für Längen
