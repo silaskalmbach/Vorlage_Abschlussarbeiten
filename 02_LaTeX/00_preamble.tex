@@ -83,7 +83,7 @@ hidelinks
 %	otherkeywords={1, 2, 3, 4, 5, 6, 7, 8 ,9 , 0, -, =, +, [, ], (, ), \{, \}, :, *, !},
 %}
 
-\lstdefinestyle{mystyle}{
+\lstdefinestyle{UniStStyle}{
 %	backgroundcolor=\color{uniSlightgrey},   
 	commentstyle=\color{uniSlightblue},
 	keywordstyle=\color{uniSdarkblue},
@@ -104,7 +104,7 @@ hidelinks
 	tabsize=4
 }
 
-\lstset{style=mystyle}
+\lstset{style=UniStStyle}
 
 
 % ============= Tabelleneinstellungen =============
@@ -200,9 +200,9 @@ hidelinks
 	\lofoot[]{}
 	\cofoot[]{}
 	\rofoot[\pagemark]{\pagemark} %Seitenzahl
-\else
 
 % ============= >>Doppelseitig<< =============
+\else
 	\usepackage[automark, headsepline, autooneside=false]{scrlayer-scrpage}
 	\automark[section]{chapter}	%Automatische Kapitelangabe in Kopfzeile
 	\renewcommand*{\chaptermarkformat}{} %Kapitel ohne Kapitelnummer
@@ -212,7 +212,6 @@ hidelinks
 	\setkomafont{pagefoot}{\small}  		%Font für Fußzeile
 	\setkomafont{pagenumber}{\small} 	%Font für Seitennummer
 	\KOMAoptions{headsepline = true} %Kopzeile Linie
-	
 	
 	\lehead[]{\rightmark} %Zweiseitig
 	\cohead[]{}
@@ -293,3 +292,8 @@ labelfont=bf]{caption} %Label in Bold
 
 \newlength{\figureheight} %Eigene Vatiable für Längen
 \newlength{\figurewidth} %Eigene Vatiable für Längen
+
+
+% ============= Testing ============= 
+
+\usepackage{blindtext}	% Beispiel Texte einfügen per \blindtext	
