@@ -75,8 +75,12 @@ hidelinks
 
 % ============= Programmierung (Visualisierung) =============
 
-\usepackage[cache=false]{minted} %Highlighting von Code, Benötigt Python und Pygments hinterlegt in den Umgebungsvariablen (pip install Pygments) ,cmd Eingabe->pdflatex -synctex=1 -interaction=nonstopmode -shell-escape %.tex
-\usemintedstyle{tango, xleftmargin=20pt, linenos, fontsize=\small, breaklines=true, tabsize=4} %borland, bw, tango, frame=leftline
+\if 1\mintedinstall
+	\usepackage[cache=false]{minted} %Highlighting von Code, Benötigt Python und Pygments hinterlegt in den Umgebungsvariablen (pip install Pygments) ,cmd Eingabe->pdflatex -synctex=1 -interaction=nonstopmode -shell-escape %.tex
+	\usemintedstyle{tango, xleftmargin=20pt, linenos, fontsize=\small, breaklines=true, tabsize=4} %borland, bw, tango, frame=leftline
+\fi
+
+
 \usepackage{listings}
 %\lstset{
 %	language=python,
@@ -85,7 +89,7 @@ hidelinks
 
 \lstdefinestyle{UniStStyle}{
 %	backgroundcolor=\color{uniSlightgrey},   
-	commentstyle=\color{uniSlightblue},
+	commentstyle=\itshape\color{uniSlightblue}\lstset{columns=fullflexible},
 	keywordstyle=\color{uniSdarkblue},
 	numberstyle=\tiny\color{uniSlightgrey},
 	stringstyle=\color{uniSgreyblue},
