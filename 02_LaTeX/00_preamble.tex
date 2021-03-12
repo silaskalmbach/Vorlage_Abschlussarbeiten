@@ -1,15 +1,12 @@
-%%Bei Fragen und Anregungen zu dieser Vorlage können Sie sich gerene bei Silas Kalmbach (silas.kalmbach@ilek.uni-stuttgart.de) melden.
+%------------------------------------------------------------------------------
+%Description:  LaTeX Thesis Template preamble
+%Author:       silas.kalmbach@ilek.uni-stuttgart.de
+%Created:      2021-03-10
+%------------------------------------------------------------------------------
 
-% ============= Einseitig =============
-\if 1\mode
-	\documentclass[a4paper,12pt]{scrreprt}
-	\usepackage[left= 2.5cm, right = 2cm, top=2.5cm]{geometry}
-\else
-% ============= Doppelseitig =============
-	\documentclass[a4paper,12pt, openright, twoside]{scrreprt}
-	\usepackage[left= 2.5cm, right = 2cm, top=2.5cm]{geometry}
-\fi
+% ============= Randabstände =============
 
+\usepackage[left= 2.5cm, right = 2cm, top=2.5cm]{geometry}
 
 
 % ============= Dokumentinformationen =============
@@ -120,11 +117,6 @@ hidelinks
 \usepackage{booktabs}						% um \toprule, \midrule und \bottomrule verwenden zu können
 \usepackage{tabularx}
 \usepackage{tabulary}
-%\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}} % linksbündig mit Breitenangabe
-%\newcolumntype{C}[1]{>{\centering\arraybackslash}p{#1}} % zentriert mit Breitenangabe
-%\newcolumntype{R}[1]{>{\raggedleft\arraybackslash}p{#1}} % rechtsbündig mit Breitenangabe
-%\newcolumntype{R}{>{\raggedleft\arraybackslash}X}
-
 \usepackage{csvsimple} %Excel Improtieren als CSV 
 \usepackage{siunitx} %Wissenschaftliche Angabe der Einheiten \num{number}
 %für Excel to Latex Add-on
@@ -186,46 +178,24 @@ hidelinks
 
 % ============= Kopf- und Fußzeile =============
 
-% ============= >>Einseitig<< =============
-\if 1\mode
-	\usepackage{scrlayer-scrpage}
-	\automark{chapter}	%Automatische Kapitelangabe in Kopfzeile
-	\renewcommand*{\chaptermarkformat}{} %Kapitel ohne Kapitelnummer
-	\clearpairofpagestyles %aktuelle Einetsllungen aus Kopf- und Fußzeile löschen
-	\setkomafont{pageheadfoot}{\small}		%Font für Kopfzeile
-	\setkomafont{pagefoot}{\small}  		%Font für Fußzeile
-	\setkomafont{pagenumber}{\small} 	%Font für Seitennummer
-	\KOMAoptions{headsepline = true} %Kopzeile Linie
-	
-	\lohead[]{}
-	\cohead[]{}
-	\rohead[]{\headmark\enskip \raisebox{0.7pt}{|}\enskip \thechapter} %Darstellung Kapitel
-	
-	\lofoot[]{}
-	\cofoot[]{}
-	\rofoot[\pagemark]{\pagemark} %Seitenzahl
+\usepackage[automark, headsepline, autooneside=false]{scrlayer-scrpage}
+\automark[section]{chapter}	%Automatische Kapitelangabe in Kopfzeile
+\renewcommand*{\chaptermarkformat}{} %Kapitel ohne Kapitelnummer
+\renewcommand*{\sectionmarkformat}{} %Kapitel ohne Kapitelnummer
+\clearpairofpagestyles %aktuelle Einetsllungen aus Kopf- und Fußzeile löschen
+\setkomafont{pageheadfoot}{\small}		%Font für Kopfzeile
+\setkomafont{pagefoot}{\small}  		%Font für Fußzeile
+\setkomafont{pagenumber}{\small} 	%Font für Seitennummer
+\KOMAoptions{headsepline = true} %Kopzeile Linie
 
-% ============= >>Doppelseitig<< =============
-\else
-	\usepackage[automark, headsepline, autooneside=false]{scrlayer-scrpage}
-	\automark[section]{chapter}	%Automatische Kapitelangabe in Kopfzeile
-	\renewcommand*{\chaptermarkformat}{} %Kapitel ohne Kapitelnummer
-	\renewcommand*{\sectionmarkformat}{} %Kapitel ohne Kapitelnummer
-	\clearpairofpagestyles %aktuelle Einetsllungen aus Kopf- und Fußzeile löschen
-	\setkomafont{pageheadfoot}{\small}		%Font für Kopfzeile
-	\setkomafont{pagefoot}{\small}  		%Font für Fußzeile
-	\setkomafont{pagenumber}{\small} 	%Font für Seitennummer
-	\KOMAoptions{headsepline = true} %Kopzeile Linie
-	
-	\lehead[]{\rightmark} %Zweiseitig
-	\cohead[]{}
-	\rohead[]{\leftmark\enskip \raisebox{0.7pt}{|}\enskip \thechapter} %Darstellung Kapitel
-	
-	\lefoot[\pagemark]{\pagemark}
-	\lofoot[]{}
-	\cofoot[]{}
-	\rofoot[\pagemark]{\pagemark} %Seitenzahl
-\fi
+\lehead[]{\rightmark} %Zweiseitig
+\cohead[]{}
+\rohead[]{\leftmark\enskip \raisebox{0.7pt}{|}\enskip \thechapter} %Darstellung Kapitel
+
+\lefoot[\pagemark]{\pagemark}
+\lofoot[]{}
+\cofoot[]{}
+\rofoot[\pagemark]{\pagemark} %Seitenzahl
 
 
 % ============= Literatur =============
@@ -242,7 +212,6 @@ sorting=none,									% Sortierung des Verzeichnis nach Autor, Titel, Jahr
 % sorting=none,									% Keine Sortierung des Verzeichnisses
 ]{biblatex}	
 
-% \DeclareNameAlias{default}{family-given}
 \addbibresource{Literatur.bib} %Bibliographiedateien laden
 
 \urlstyle{same}	% url Schriftart anpassen auf die des Dokuments anpassen
@@ -285,14 +254,6 @@ labelfont=bf]{caption} %Label in Bold
 
 \usepgfplotslibrary{groupplots}
 \usepgfplotslibrary{dateplot}
-
-%\usepackage[eulergreek]{sansmath} %Schrift in Diagrammen
-%\pgfplotsset{
-%	tick label style = {font=\rmfamily},
-%	every axis label = {font=\rmfamily},
-%	legend style = {font=\rmfamily},
-%	label style = {font=\rmfamily}
-%}
 
 \newlength{\figureheight} %Eigene Vatiable für Längen
 \newlength{\figurewidth} %Eigene Vatiable für Längen
