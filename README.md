@@ -63,7 +63,7 @@ Diese Datei ist der Startpunkt des Dokumentes. Hier werden grundlegende Angaben 
 
 Um das Gesamtdokument zu erstellen muss diese Datei kompiliert werden.
 
-## I_frontmatter
+## _A_frontmatter
 
 Die Titelei (englisch front matter) bezeichnet die Seiten, die dem eigentlichen Inhalt vorangestellt sind.
 
@@ -99,7 +99,7 @@ Enthält Symbole und Abkürzungen die in der Arbeit verwendet werden. Keine Anpa
 
 Alternativ kann dieser Abschnitt auch ins Backmatter vor das Abbildungsverzeichnis eingefügt werden.
 
-## II_mainmatter
+## _B__mainmatter
 
 Ab hier beginnt der Hauptteil der Abschlussarbeit. Der Aufbau dieses Ordner kann beliebig angepasst werden.
 
@@ -111,13 +111,13 @@ Die einzelnen Dateien enthalten Beispiele für Formatierungen von Tabellen, Bild
 
 Die verwendeten Abbildungen können in diesem Ordner abgelegt werden. Auch der Aufbau dieses Ordner kann beliebig angepasst werden.
 
-## III_appendix
+## _C_appendix
 
 Ab hier beginnt der Anhang der Abschlussarbeit. Auch hier gilt das der Aufbau dieses Ordner beliebig angepasst werden kann.
 
 Der Vorschlag für den Aufbau orientiert sich an II_mainmatter.
 
-## IV_backmatter
+## _D_backmatter
 
 Ab hier beginnet der Schlussteil der Arbeit.
 
@@ -135,7 +135,7 @@ Empfohlen wird die Verwaltung und Anfertigung des Literaturverzeichnisses mit de
 
 1. Zotero https://www.zotero.org/
 
-## V_ressources
+## _E_ressources
 
 Enthält notwendige Einstellungen und Dateien für LaTex.
 
