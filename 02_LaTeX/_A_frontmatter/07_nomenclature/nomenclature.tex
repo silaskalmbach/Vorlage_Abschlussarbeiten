@@ -1,34 +1,42 @@
-\chapter*{Bezeichnungen und Symbole}
-\addcontentsline{toc}{chapter}{Bezeichnungen und Symbole}
-\begin{longtable}{
-		@{}
-		>{\centering}p{0.15\linewidth}
-		@{}
-		>{\hspace*{0pt}}p{0.845\linewidth}
-		@{}
-	}
-	\centering
-	\small
-	\tabularnewline
-	\multicolumn{2}{@{}l}{\textsf{\textbf{Akronyme}}} \\
-	APDL & Ansys Parametric Design Language \\
-	DMS & Dehnungsmessstreifen \\
-	FEM & Finite-Elemente-Methode \\
-	
-	\tabularnewline
-	\multicolumn{2}{@{}l}{\textsf{\textbf{Lateinische Buchstaben}}} \\
-	\textit{a} & Erster Eintrag \\
-	\textit{b} & Zweiter Eintrag \\
-	
-	\tabularnewline
-	\multicolumn{2}{@{}l}{\textsf{\textbf{Griechische Buchstaben}}} \\
-	$\alpha$ & Kontinuierlicher Temperaturabminderungsfaktor \\
-	$\varepsilon$ & Dehnung \\
-	$\varepsilon_\mathrm{b}$ & Rechnerische Dehnung im Vierpunktbiegeversuch \\
-	
-	\tabularnewline
-	\multicolumn{2}{@{}l}{\textsf{\textbf{Indizes}}} \\
-	aktiv & Wert im aktiven Zustand \\
-	min & Minimalwert \\
-	
-\end{longtable}
+\cleardoublepage
+
+\chapter[Nomenklatur]{Nomenklatur}
+
+% ============= Abkürzungen ============= 
+
+\setglossarysection{section}% <- added					% Titel Abkürzungsverzeichnis auf Ebene "section"
+\printacronyms[title=Abkürzungen,style=abbreviation] 	% Abkürzungsverzeichnis hinzufügen
+
+% ============= Symbole ============= 
+\addsec[Symbole]{Symbole}
+
+\setglossarysection{subsection}% <- added				% Titel einzelnen Gruppen auf Ebene "subsection"
+\glstocfalse											% Folgenden Abschnitte nicht ins TOC
+
+% lat. Großbuchstaben
+% Alle Elemente dem Glossary hinzufügen
+\glsaddall[types=lat_upp]	
+% Vertikalen Abstand vor Titel entfernen
+\vspace*{-3em}
+% Symbole hinzufügen
+\printglossary[title=Lateinische Großbuchstaben,type=lat_upp,nonumberlist,style=symbols]	
+
+% lat. Kleinbuchstaben
+\glsaddall[types=lat_low]
+\vspace*{-3em}
+\printglossary[title=Lateinische Kleinbuchstaben,type=lat_low,nonumberlist,style=symbols]
+
+% gr. Großbuchstaben
+\glsaddall[types=gre_upp]
+\vspace*{-3em}
+\printglossary[title=Griechische Großbuchstaben, type=gre_upp,nonumberlist,style=symbols]
+
+% gr. Kleinbuchstaben
+\glsaddall[types=gre_low]
+\vspace*{-3em}
+\printglossary[title=Griechische Kleinbuchstaben, type=gre_low,nonumberlist,style=symbols]
+
+% mathematische Operatoren
+\glsaddall[types=math_op]
+\vspace*{-3em}
+\printglossary[title=Mathematische Operatoren, type=math_op,nonumberlist,style=symbols]

@@ -11,7 +11,7 @@
     paper=a4,
 	listof=totoc,       % Alle Listen ins Inhaltsverzeichnis
     fontsize=11pt, 		% Schriftgröße
-    twoside=off, 		% Off = PDF-Version, On = Booklet / Book
+    twoside=off, 		% Off = PDF-Version, On = Booklet / Book (Gedrucktes Exemplar)
     headings=openright	% Einfügen von Leerseiten
 ]{scrbook}              % Dokumentenklasse: KOMA-Script Book
 
@@ -71,8 +71,9 @@
 \include{_A_frontmatter/06_abstract/abstract}
 \include{_A_frontmatter/07_nomenclature/nomenclature}
 
-\tableofcontents %Inhaltsverzeichnis
-\cleardoubleoddpage %Beginn auf einer neuen Seite. Bei Doppelseiten rechts
+\setcounter{tocdepth}{1}    % Inhaltsverzeichnis bis Ebene "Sections"
+\tableofcontents            % Inhaltsverzeichnis
+\cleardoubleoddpage         % Beginn auf einer neuen Seite. Bei Doppelseiten rechts
 
 % ============= Mainmatter =============
 \mainmatter 
@@ -88,6 +89,7 @@
 \include{_B_mainmatter/03_bsp}      % Tabellen
 \include{_B_mainmatter/04_bsp}      % Formeln
 \include{_B_mainmatter/05_bsp}      % Abbildungen
+\include{_B_mainmatter/06_bsp}      % Nomenklatur
 
 % ============= Appendix =============
 \appendix
