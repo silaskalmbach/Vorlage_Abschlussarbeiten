@@ -68,6 +68,7 @@ hidelinks
 \usepackage{subcaption} % Bilder nebeneinander
 \captionsetup[subfigure]{list=true, labelfont=bf, position=top}
 \usepackage{wrapfig} % Bilder von TExt umgeben
+\usepackage{dirtree} % Darstellen von Verzeichnisstrukturen
 
 
 % ============= Programmierung (Visualisierung) =============
@@ -124,19 +125,12 @@ hidelinks
 \usepackage{rotating} %Rotieren von Tabellen
 \usepackage{bigstrut} %Für Tabellen mit Vertikalen Linien
 
-
-% ============= Standart Einstellungen der Pfade =============
-
-\graphicspath{{./Images/}{./Images/Titelseite/}} %Bilderordner
-
-
 % ============= Schriftarten =============
 
 \ifluatex
 %% ============= Lua-LaTeX =============
 % Prüfen ob Datei mit Schriftart UniversforUniS vorhanden:
-    \IfFileExists{./_E_ressources/fonts/UniversforUniS55Rm-Regular.ttf}
-        {
+    \IfFileExists{./_E_ressources/fonts/UniversforUniS55Rm-Regular.ttf}{
         % Wenn ja, diese Schriftart auswählen
     	\usepackage[no-math]{fontspec} 
     	\setmainfont{UniversforUniS}[
@@ -160,7 +154,13 @@ hidelinks
     	\renewcommand\familydefault\sfdefault % Formeln in Sans-Serif
     	\usepackage[italic, symbolgreek]{mathastext} % Formeln in Sans-Serif
     	\renewcommand\familydefault\rmdefault % Formeln in Sans-Serif
-        }{}
+    }{
+    	\usepackage[T1]{fontenc} %Richtige Trennung von Umlauten
+    	\usepackage[scale=0.87]{tgheros}
+    % 	\usepackage{fourier}
+    	\renewcommand\familydefault\sfdefault % alles in Sans-Serif
+    	\usepackage[italic, symbolgreek]{mathastext} % Formeln in Sans-Serif
+    }
 
 \else
 %% ============= PDF-LaTeX =============
@@ -263,7 +263,6 @@ labelfont=bf]{caption} %Label in Bold
 \newlength{\figureheight} %Eigene Vatiable für Längen
 \newlength{\figurewidth} %Eigene Vatiable für Längen
 
-
 % ============= Testing ============= 
 
-\usepackage{blindtext}	% Beispiel Texte einfügen per \blindtext	
+\usepackage{blindtext}	% Beispiel Texte einfügen per \blindtext
