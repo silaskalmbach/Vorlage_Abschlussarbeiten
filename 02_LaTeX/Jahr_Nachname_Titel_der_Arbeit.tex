@@ -7,15 +7,16 @@
 
 % ============= Einstellungen zur Arbeit =============
 
-\documentclass[a4paper,12pt, openright, 
-%twoside
-]{scrreprt}
+\documentclass[%
+    paper=a4,
+	listof=totoc,       % Alle Listen ins Inhaltsverzeichnis
+    fontsize=11pt, 		% Schriftgröße
+    twoside=off, 		% Off = PDF-Version, On = Booklet / Book
+    headings=openright	% Einfügen von Leerseiten
+]{scrbook}              % Dokumentenklasse: KOMA-Script Book
 
 \def\tikzextern{0} % 0 = Nein; 1 = Ja (TikZ Grafiken extern Speichern)
 \def\mintedinstall{0} % 0 = Nein; 1 = Ja; Um Minted zu nutzen muss Python und Pygments installiert sein. Alternative: listings
-
-\include{00_preamble.tex} % Import relvenanter Einstellungen und Abhängigkeiten
-
 
 % ============= Angaben zur Arbeit =============
 
@@ -24,21 +25,21 @@
 \newcommand{\Nummer}{XX} % Nummerrierung der Arbeit (mit Berteurer zu klären)
 \newcommand{\EndeMonatTxt}{Xxxxx} % Angabe des Monates der Abgabe als Wort
 \newcommand{\EndeJahr}{20XX} % Angabe des Jahres der Abgabe
-\newcommand{\bereuer}{Xxxxx Xxxxx} % Hier den Betreuer der Arbeit angeben
+\newcommand{\betreuer}{Xxxxx Xxxxx} % Hier den Betreuer der Arbeit angeben
 \newcommand{\pruefer}{Xxxxx Xxxxx} % Hier den Prüfer der Arbeit angeben 
 \newcommand{\student}{Xxxxx Xxxxx} %Hier den Studierendenname der Arbeit angeben 
 \newcommand{\profEins}{Prof. Dr.-Ing. M.Arch. Lucio Blandini} % Hier den Professor1 des Instituts angeben 
 \newcommand{\profZwei}{Prof. Dr.-Ing. Dr.-Ing. E.h. Dr. h.c. Werner Sobek} % Hier den Professor2 des Instituts angeben 
 \newcommand{\profDrei}{Prof. Dr.-Ing. Balthasar Nov\'{a}k} % Hier den Professor3 des Instituts angeben 
 \newcommand{\institut}{Institut f{\"u}r Leichtbau Entwerfen und Konstruieren} % Hier das Institut angeben
-\newcommand{\titelbild}{Images/Titelseite/Titelbild} % Hier den Pfad des Titelbildes eingeben
 
+% ============= Präambel einbinden ============= 
+
+\include{_E_ressources/preambel} % Import relvenanter Einstellungen und Abhängigkeiten
 
 % ============= Besondere Trennungen ============= 
 
 \hyphenation{De-zi-mal-tren-nung}
-
-
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % ============= Dokumentbeginn =============
@@ -46,54 +47,63 @@
 
 \begin{document}
 
+% ============= Titelseiten ============= 
+
 \pagestyle{empty} %Seiten ohne Kopf- und Fußzeile sowie Seitenzahl
-\include{01_titel}
+
+\include{_A_frontmatter/02_cover/cover}
+
 \restoregeometry
+
+% ============= Frontmatter ============= 
+\frontmatter
 
 \pagestyle{plain.scrheadings} % Leere Kopf- und Fußzeilen
 \pagenumbering{Roman} % Römische Seitenzahlen verwenden
-\include{02_aufgabenstellung} %->Optional
-\include{03_erklaerung}
-\include{04_vorwort} %->Optional
-\include{05_zusammenfassung}
+
+% In diesem Pfad werden die Grafiken geladen
+% Der Pfad kann beliebig oft im Dokument durch das Einfügen von \graphicspath{{}} verändert werden
+\graphicspath{{_B_mainmatter/images/}}
+
+\include{_A_frontmatter/03_copyright/copyright}
+\include{_A_frontmatter/04_acknowledgements/acknowledgements}
+\include{_A_frontmatter/05_assignment/assignment}
+\include{_A_frontmatter/06_abstract/abstract}
+\include{_A_frontmatter/07_nomenclature/nomenclature}
+
 \tableofcontents %Inhaltsverzeichnis
 \cleardoubleoddpage %Beginn auf einer neuen Seite. Bei Doppelseiten rechts
-\pagenumbering{arabic}	% Arabische Seitenzahlen verwenden
-\include{06_symbole}
-\cleardoubleoddpage %Beginn auf einer neuen Seite. Bei Doppelseiten rechts
+
+% ============= Mainmatter =============
+\mainmatter 
+
 \pagestyle{scrheadings}	% pagestyle für gesamtes Dokument aktivieren (Kopf- und Fußzeilen)
+\pagenumbering{arabic}	% Arabische Seitenzahlen verwenden
 
+% Hier eigene Kapitel einsetzen
 
-% ============= Kapitel =============
-% durch Eigene Kapitel erstezen
+\include{_B_mainmatter/00_readme}   % Readme
+\include{_B_mainmatter/01_bsp}      % Zitation
+\include{_B_mainmatter/02_bsp}      % Programmcode
+\include{_B_mainmatter/03_bsp}      % Tabellen
+\include{_B_mainmatter/04_bsp}      % Formeln
+\include{_B_mainmatter/05_bsp}      % Abbildungen
 
-\include{10_bsp} % Zitation
-\include{11_bsp} % Programmcode
-\include{12_bsp} % Tabellen
-\include{13_bsp} % Formeln
-\include{14_bsp} % Grafiken
+% ============= Appendix =============
+\appendix
 
+\addappheadtotoc
+\appendixpage
 
-% ============= Anhang =============
+\include{_C_appendix/01_bsp}
 
-%\appendix
-%\begin{appendices}
-%	\include{15_bsp}
-%\end{appendices}
-
-
-% ============= Verzeichnise =============
+% ============= Backmatter =============
 
 \printbibliography[title=Literaturverzeichnis] %Literaturverzeichnis
 \addcontentsline{toc}{chapter}{Literaturverzeichnis}
 
 \listoffigures %Verzeichnis aller Bilder
-\addcontentsline{toc}{chapter}{Abbildungsverzeichnis}
 
 \listoftables %Verzeichnis aller Tabellen
-\addcontentsline{toc}{chapter}{Tabellenverzeichnis}
-
-
-% ============= Dokumentende =============
 
 \end{document}

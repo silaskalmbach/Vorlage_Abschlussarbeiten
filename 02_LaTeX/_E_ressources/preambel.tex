@@ -134,28 +134,33 @@ hidelinks
 
 \ifluatex
 %% ============= Lua-LaTeX =============
-	\usepackage[no-math]{fontspec} 
-	\setmainfont{UniversforUniS}[
-	Extension      = .ttf,
-	Path           = fonts/,
-	UprightFont    = *55Rm-Regular,
-	ItalicFont     = *45LtObl-Rg,
-	BoldFont       = *65Bd-Regular,
-	BoldItalicFont = *45LtObl-Rg,
-	]
-	\setsansfont{UniversforUniS}[
-	Extension      = .ttf,
-	Path           = fonts/,
-	UprightFont    = *55Rm-Regular,
-	ItalicFont     = *45LtObl-Rg,
-	BoldFont       = *65Bd-Regular,
-	BoldItalicFont = *45LtObl-Rg,
-	]
-	%\setmonofont{}[]
-	\addtokomafont{disposition}{\rmfamily} %Überschriften selbe Schriftart wie Text
-	\renewcommand\familydefault\sfdefault % Formeln in Sans-Serif
-	\usepackage[italic, symbolgreek]{mathastext} % Formeln in Sans-Serif
-	\renewcommand\familydefault\rmdefault % Formeln in Sans-Serif
+% Prüfen ob Datei mit Schriftart UniversforUniS vorhanden:
+    \IfFileExists{./_E_ressources/fonts/UniversforUniS55Rm-Regular.ttf}
+        {
+        % Wenn ja, diese Schriftart auswählen
+    	\usepackage[no-math]{fontspec} 
+    	\setmainfont{UniversforUniS}[
+    	Extension      = .ttf,
+    	Path           = _E_ressources/fonts/,
+    	UprightFont    = *55Rm-Regular,
+    	ItalicFont     = *45LtObl-Rg,
+    	BoldFont       = *65Bd-Regular,
+    	BoldItalicFont = *45LtObl-Rg,
+    	]
+    	\setsansfont{UniversforUniS}[
+    	Extension      = .ttf,
+    	Path           = _E_ressources/fonts/,
+    	UprightFont    = *55Rm-Regular,
+    	ItalicFont     = *45LtObl-Rg,
+    	BoldFont       = *65Bd-Regular,
+    	BoldItalicFont = *45LtObl-Rg,
+    	]
+    	%\setmonofont{}[]
+    	\addtokomafont{disposition}{\rmfamily} %Überschriften selbe Schriftart wie Text
+    	\renewcommand\familydefault\sfdefault % Formeln in Sans-Serif
+    	\usepackage[italic, symbolgreek]{mathastext} % Formeln in Sans-Serif
+    	\renewcommand\familydefault\rmdefault % Formeln in Sans-Serif
+        }{}
 
 \else
 %% ============= PDF-LaTeX =============
@@ -201,18 +206,18 @@ hidelinks
 % ============= Literatur =============
 
 \usepackage[									
-natbib=true,									% Naturwissenschaftlich
-backend=biber,									% Biber statt BibTex verwenden. In TexStudio einstellen!
-style=numeric,									% Stil im Verzeichnis alt. authoryear
-citestyle=numeric,	                            % Stil im Fließtext
-giveninits=true,										
-doi=false,										% doi nicht mit angeben
-isbn=false,										% isbn nicht mit angeben
-sorting=none,									% Sortierung des Verzeichnis nach Autor, Titel, Jahr
-% sorting=none,									% Keine Sortierung des Verzeichnisses
+    natbib=true,			% Naturwissenschaftlich
+    backend=biber,			% Biber statt BibTex verwenden. In TexStudio einstellen!
+    style=numeric,			% Stil im Verzeichnis alt. authoryear
+    citestyle=numeric,	    % Stil im Fließtext
+    giveninits=true,										
+    doi=false,				% doi nicht mit angeben
+    isbn=false,				% isbn nicht mit angeben
+    sorting=none,			% Sortierung des Verzeichnis nach Autor, Titel, Jahr
+    % sorting=none,			% Keine Sortierung des Verzeichnisses
 ]{biblatex}	
 
-\addbibresource{Literatur.bib} %Bibliographiedateien laden
+\addbibresource{_D_backmatter/literatur.bib} %Bibliographiedateien laden
 
 \urlstyle{same}	% url Schriftart anpassen auf die des Dokuments anpassen
 \usepackage{xpatch}% author in bold font in bibliography

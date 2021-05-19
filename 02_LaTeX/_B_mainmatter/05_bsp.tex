@@ -26,7 +26,7 @@ samples=101
 \end{axis}
 \end{tikzpicture}
 \caption[Tangens hyperbolicus Aktivierungsfunktion]{Tangens hyperbolicus}
-\label{fig:AktivTan}
+\label{fig:05_AktivTan}
 \end{figure}
 
 \newpage
@@ -83,7 +83,7 @@ samples=101
 	\end{tikzpicture}
 	\caption[Schematischer Aufbau eines künstlichen neuronalen Netzes] %hier kann ein alternativer/ verkürzter Text für das Abbildungsverzeichnis angegeben werden
 	{Schematischer Aufbau eines künstlichen neuronalen Netzes \cite[Abb. nach][]{Frochte.2019}} %Bildunteschrift
-	\label{fig:DNN}
+	\label{fig:05_DNN}
 \end{figure}
 
 
@@ -110,11 +110,11 @@ samples=101
 			scaled y ticks = false,
 			ylabel={[\nicefrac{\%}{100}]}
 			,]
-			\addplot+[color=black ] table[x=Zeit, y=Shadestep, col sep=comma, skip first n=0] {./Data/Example.csv};
+			\addplot+[color=black ] table[x=Zeit, y=Shadestep, col sep=comma, skip first n=0] {_B_mainmatter/data/Example.csv};
 			\legend{Shadestep};
 		\end{axis}
 	\end{tikzpicture}
-	\caption[Photometrische Regelung der adaptiven Verglasung im Juli 2018, nach 500 Episoden]{Photometrische Regelung der adaptiven Verglasung nach 500 Episoden, für den Zeitraum vom 01. bis 07. Juli 2018} \label{fig:AVPhJun500}	
+	\caption[Photometrische Regelung der adaptiven Verglasung im Juli 2018, nach 500 Episoden]{Photometrische Regelung der adaptiven Verglasung nach 500 Episoden, für den Zeitraum vom 01. bis 07. Juli 2018} \label{fig:05_AVPhJun500}	
 \end{figure}
 
 \newpage
@@ -143,22 +143,22 @@ samples=101
 				vertical sep = 0cm,},]
 			
 			\nextgroupplot[xlabel={},xticklabels={},ylabel={[°C]}]
-			\addplot[color=black ] table[x=Zeit, y=T01, col sep=comma, skip first n=0] {./Data/Example.csv};
+			\addplot[color=black ] table[x=Zeit, y=T01, col sep=comma, skip first n=0] {_B_mainmatter/data/Example.csv};
 			\legend{T01};
 			
 			\nextgroupplot[xlabel={},xticklabels={},ylabel={[klx]}]
-			\addplot[color=black ] table[x=Zeit, y expr=\thisrow{B01}/1000, col sep=comma, skip first n=0] {./Data/Example.csv};
+			\addplot[color=black ] table[x=Zeit, y expr=\thisrow{B01}/1000, col sep=comma, skip first n=0] {_B_mainmatter/data/Example.csv};
 			\legend{B01};
 			
 			\nextgroupplot[ylabel={[kW]}, ymin=-0.02, ymax=0.32, ytick={0,0.1,0.2,0.3},]
-			\addplot+[color=black , name path=A] table[x=Zeit, y expr=\thisrow{QBeleuchtung}+\thisrow{QHeizung}+\thisrow{QKuehlung}, col sep=comma, skip first n=0] {./Data/Example.csv};
-			\addplot+[draw=none,name path=B, mark=none] table[x=Zeit, y expr=0, col sep=comma, skip first n=0] {./Data/Example.csv}; 
+			\addplot+[color=black , name path=A] table[x=Zeit, y expr=\thisrow{QBeleuchtung}+\thisrow{QHeizung}+\thisrow{QKuehlung}, col sep=comma, skip first n=0] {_B_mainmatter/data/Example.csv};
+			\addplot+[draw=none,name path=B, mark=none] table[x=Zeit, y expr=0, col sep=comma, skip first n=0] {_B_mainmatter/data/Example.csv}; 
 			\addplot+[gray, fill opacity=0.1] fill between[of=A and B];
 			\legend{Q\textsubscript{HEAT}+Q\textsubscript{COOL}+Q\textsubscript{LIGHT}};
 
 		\end{groupplot}
 	\end{tikzpicture}
-	\caption[Kombinierte Regelung im Januar 2018, nach 500 Episoden]{Kombinierte Regelung nach 500 Episoden, für den Zeitraum vom 01. bis 07. Januar 2018} \label{fig:KomJan18}	
+	\caption[Kombinierte Regelung im Januar 2018, nach 500 Episoden]{Kombinierte Regelung nach 500 Episoden, für den Zeitraum vom 01. bis 07. Januar 2018} \label{fig:05_KomJan18}	
 \end{figure}
 
 
@@ -169,9 +169,9 @@ samples=101
 
 \begin{figure}[H]
   \centering  
-  	\includegraphics[scale=0.5]{Images/ILEK-logo.jpg}
+  	\includegraphics[scale=0.5]{ILEK-logo.jpg}
   \caption{ILEK Logo}
-  \label{fig:starwars}
+  \label{fig:05_starwars}
 \end{figure}
 
 \subsection{Gruppierung von Bildern}
@@ -180,35 +180,35 @@ samples=101
 	\centering
 	\begin{subfigure}[b]{0.3\textwidth}
 		\centering
-		\includegraphics[width=\textwidth]{Images/ILEK-logo.jpg}
+		\includegraphics[width=\textwidth]{ILEK-logo.jpg}
 		\caption{$y=x$}
-		\label{fig:a}
+		\label{fig:05_a}
 	\end{subfigure}
 %	\hfill
 \hspace{1cm}
 	\begin{subfigure}[b]{0.3\textwidth}
 		\centering
-		\includegraphics[width=\textwidth]{Images/ILEK-logo.jpg}
+		\includegraphics[width=\textwidth]{ILEK-logo.jpg}
 		\caption{$y=3sinx$}
-		\label{fig:b}
+		\label{fig:05_b}
 	\end{subfigure}
 	\\ 
 	\begin{subfigure}[b]{0.3\textwidth}
 		\centering
-		\includegraphics[width=\textwidth]{Images/ILEK-logo.jpg}
+		\includegraphics[width=\textwidth]{ILEK-logo.jpg}
 		\caption{$y=3sinx$}
-		\label{fig:c}
+		\label{fig:05_c}
 	\end{subfigure}
 %	\hfill
 \hspace{1cm}
 	\begin{subfigure}[b]{0.3\textwidth}
 		\centering
-		\includegraphics[width=\textwidth]{Images/ILEK-logo.jpg}
+		\includegraphics[width=\textwidth]{ILEK-logo.jpg}
 		\caption{$y=5/x$}
-		\label{fig:five over x}
+		\label{fig:05_five over x}
 	\end{subfigure}
 	\caption{Vier Bilder}
-	\label{fig:d}
+	\label{fig:05_d}
 \end{figure}
 
 \subsection{Bilder und Tabellen im Fließtext}
@@ -232,9 +232,9 @@ samples=101
 
 %\begin{wrapfigure}[Zeile]{Position}[Randüberhang]{Breite}
 \begin{wrapfigure}[]{o}[0cm]{6.5cm}
-	\includegraphics[width=6cm,angle=0]{bild}
+	\includegraphics[width=6cm,angle=0]{ILEK-logo.jpg}
 	\caption{Bildbezeichnung}
-	\label{fig:bild}
+	\label{fig:05_bild}
 \end{wrapfigure}
 
 \blindtext[2]
