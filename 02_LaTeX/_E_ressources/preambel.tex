@@ -16,7 +16,6 @@ hidelinks
 	pdfkeywords={}
 }
 
-
 % ============= Farbschema =============
 
 \usepackage{color}      %Verwendung von Farben
@@ -38,31 +37,59 @@ hidelinks
 
 % ============= Standart Packages und Einstellungen =============
 
+% Schriftkodierung
 \usepackage{ifluatex}
 \ifluatex
-	\usepackage[utf8]{luainputenc} %Schriftkodierung LuaLaTeX
+	\usepackage[utf8]{luainputenc}      % Schriftkodierung LuaLaTeX
 \else
-	\usepackage[utf8]{inputenc} %Schriftkodierung PDFLaTeX
+	\usepackage[utf8]{inputenc}         % Schriftkodierung PDFLaTeX
 \fi
 
-\usepackage[english, ngerman]{babel} %Sprachen
-\usepackage{graphicx} %Einbinden von Bildern
+% Symbole
 \usepackage{amsfonts} % zusätzliche Schriftzeichen der American Mathematical Society
 \usepackage{amsmath,amssymb} % zusätzliche Schriftzeichen der American Mathematical Society
-\usepackage{typearea} %Aufteilung von Rändern und Textbereich
-\usepackage{nicefrac}% weitere Alternative mit mehreren Zeichen für Brüche
-\usepackage{pdfpages} %Einfügen von PDFs
-\usepackage{appendix} %Anhang
-\usepackage{fvextra} %automatic line breaking and improved math mode
-\usepackage{csquotes} %inline and display quotations
-\usepackage[german, nameinlink]{cleveref} % Mehr Möglichkeiten zum referenzieren
-\usepackage{gensymb} %Symbole: \degree \celsius \perthousand \ohm \micro
-\tolerance = 400  % möglicher Abstand zwischen den Wörtern erhöhen
-\usepackage[section]{placeins} %\FloatBarrier Verhindert das Abbildungen in nachfolgenden Kapitel rutschen
-\makeatletter\AtBeginDocument{\expandafter\renewcommand\expandafter\subsection\expandafter{\expandafter\@fb@secFB\subsection}}\makeatother %FloatBarrier für Subsection
+\usepackage{gensymb} % Symbole: \degree \celsius \perthousand \ohm \micro
+
+% Sprachen
+\usepackage[english, ngerman]{babel} % Sprachen
+
+% Abbildungen
+\usepackage{graphicx} % Einbinden von Bildern
+\usepackage{svg} % Einbinden von svg   
+\usepackage{pdfpages} % Einfügen von PDFs  
+
 \usepackage{subcaption} % Bilder nebeneinander
 \captionsetup[subfigure]{list=true, labelfont=bf, position=top}
-\usepackage{wrapfig} % Bilder von TExt umgeben
+
+\usepackage{wrapfig} % Bilder von Text umgeben
+
+\usepackage[section]{placeins} %\FloatBarrier verhindert das Abbildungen in nachfolgenden Kapitel rutschen
+\makeatletter % FloatBarrier für Subsection
+    \AtBeginDocument{%
+        \expandafter\renewcommand\expandafter\subsection\expandafter{
+            \expandafter\@fb@secFB\subsection
+            }
+        }
+\makeatother 
+
+% Labels
+\usepackage[german, nameinlink]{cleveref} % Mehr Möglichkeiten zum referenzieren
+
+% Zitation
+\usepackage{csquotes} % inline and display quotations
+
+% Gliederung
+\usepackage{appendix} % Anhang
+
+% Sonstiges
+\usepackage{typearea} % Aufteilung von Rändern und Textbereich
+
+\usepackage{nicefrac}% weitere Alternative mit mehreren Zeichen für Brüche
+
+\usepackage{fvextra} %automatic line breaking and improved math mode
+
+\tolerance = 400  % möglicher Abstand zwischen den Wörtern erhöhen
+
 \usepackage{dirtree} % Darstellen von Verzeichnisstrukturen
 
 
@@ -166,14 +193,13 @@ hidelinks
 	\usepackage[italic, symbolgreek]{mathastext} % Formeln in Sans-Serif
 \fi
 
-
+%% ============= PDF-LaTeX =============
 
 \usepackage{setspace} %Zeilenabstand
 \setstretch{1.05} %Zeilenabstand
 
 \setlength{\parindent}{0pt} %Wenn Absatzabstand, dann Einzug unnötig
 \setlength{\parskip}{7pt} %Absatzabstand
-
 
 
 % ============= Kopf- und Fußzeile =============
@@ -246,9 +272,6 @@ labelfont=bf]{caption} %Label in Bold
 
 
 % ============= Daten Plotten ============= 
-
-\usepackage{svg} 
-
 \usepackage{tikz} %Grafiken Zeichnen
 \if 0\tikzextern
 	\usetikzlibrary{shapes, arrows, positioning, calc, chains, scopes}
@@ -272,6 +295,7 @@ labelfont=bf]{caption} %Label in Bold
 
 \newlength{\figureheight} %Eigene Vatiable für Längen
 \newlength{\figurewidth} %Eigene Vatiable für Längen
+
 
 % ============= Abkürzungen, Glossare ============= 
 \usepackage[%
@@ -332,7 +356,58 @@ labelfont=bf]{caption} %Label in Bold
 % See: https://tex.stackexchange.com/questions/289734/special-package-combination-gives-no-room-for-new-write
 \usepackage{morewrites}
 
+
 % ============= Testing ============= 
 
 \usepackage{blindtext}	% Beispiel Texte einfügen per \blindtext
 \usepackage{lipsum}
+
+
+% ============= Formatierung Überschriften =============
+
+% Change chapter fontsize
+\setkomafont{chapter}{\LARGE}
+
+% Change section fontsize
+\setkomafont{section}{\Large}
+
+% Set the space before and after chapters, sections, subsections
+\RedeclareSectionCommand[
+  %runin=false,
+  afterindent=false,
+  beforeskip=0pt,
+  afterskip=.1\baselineskip]{chapter}
+  
+\RedeclareSectionCommand[
+  %runin=false,
+  afterindent=false,
+  beforeskip=1\baselineskip,
+  afterskip=.1\baselineskip]{section}
+  
+\RedeclareSectionCommand[
+  %runin=false,
+  afterindent=false,
+  beforeskip=.75\baselineskip,
+  afterskip=.1\baselineskip]{subsection}
+
+% ============= Formatierung Inhaltsverzeichnis =============  
+
+% Format des TOC
+% Titelleiste "Inhaltsverzeichnis"
+\BeforeTOCHead[toc]{%
+  \KOMAoptions{parskip=true}% no parskip in ToC
+  \RedeclareSectionCommand[afterskip=1\baselineskip]{chapter}% skip after ToC title
+}
+
+% Zeilenabstände im TOC
+\DeclareTOCStyleEntry[beforeskip=1\baselineskip]{chapter}{chapter}
+
+% Kein Einzug vor Unterkapiteln, H-Space zwischen Nummern und Titel automatisch anpassen
+\RedeclareSectionCommands[tocindent=0em,tocdynnumwidth]{%
+    chapter,section
+}
+
+% Keine punktierten Linien zwischen section und pagenumber
+\RedeclareSectionCommand[
+  toclinefill=\hfill
+]{section}
