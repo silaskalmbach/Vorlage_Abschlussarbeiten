@@ -338,54 +338,58 @@ labelfont=bf]{caption} %Label in Bold
 \usepackage{lipsum}
 
 % ============= Formatierung Überschriften =============
-
-% Change chapter fontsize
-\setkomafont{chapter}{\LARGE}
-
-% Change section fontsize
-\setkomafont{section}{\Large}
-
-% Set the space before and after chapters, sections, subsections
-\RedeclareSectionCommand[
-  %runin=false,
-  afterindent=false,
-  beforeskip=0pt,
-  afterskip=.1\baselineskip]{chapter}
-  
-\RedeclareSectionCommand[
-  %runin=false,
-  afterindent=false,
-  beforeskip=1\baselineskip,
-  afterskip=.1\baselineskip]{section}
-  
-\RedeclareSectionCommand[
-  %runin=false,
-  afterindent=false,
-  beforeskip=.75\baselineskip,
-  afterskip=.1\baselineskip]{subsection}
-
-% ============= Formatierung Inhaltsverzeichnis =============  
-
-% Format des TOC
-% Titelleiste "Inhaltsverzeichnis"
-\BeforeTOCHead[toc]{%
-  \KOMAoptions{parskip=true}% no parskip in ToC
-  \RedeclareSectionCommand[afterskip=1\baselineskip]{chapter}% skip after ToC title
+% Führe folgendes nur aus, wenn nicht article als document class festgelegt wurde (frontcover.tex)
+\makeatletter
+\@ifclassloaded{article}{}{%
+    % Change chapter fontsize
+    \setkomafont{chapter}{\LARGE}
+    
+    % Change section fontsize
+    \setkomafont{section}{\Large}
+    
+    % Set the space before and after chapters, sections, subsections
+    \RedeclareSectionCommand[
+      %runin=false,
+      afterindent=false,
+      beforeskip=0pt,
+      afterskip=.1\baselineskip]{chapter}
+      
+    \RedeclareSectionCommand[
+      %runin=false,
+      afterindent=false,
+      beforeskip=1\baselineskip,
+      afterskip=.1\baselineskip]{section}
+      
+    \RedeclareSectionCommand[
+      %runin=false,
+      afterindent=false,
+      beforeskip=.75\baselineskip,
+      afterskip=.1\baselineskip]{subsection}
+    
+    % ============= Formatierung Inhaltsverzeichnis =============  
+    
+    % Format des TOC
+    % Titelleiste "Inhaltsverzeichnis"
+    \BeforeTOCHead[toc]{%
+      \KOMAoptions{parskip=true}% no parskip in ToC
+      \RedeclareSectionCommand[afterskip=1\baselineskip]{chapter}% skip after ToC title
+    }
+    
+    % Zeilenabstände im TOC
+    \DeclareTOCStyleEntry[beforeskip=1\baselineskip]{chapter}{chapter}
+    
+    % Kein Einzug vor Unterkapiteln, H-Space zwischen Nummern und Titel automatisch anpassen
+    \RedeclareSectionCommands[tocindent=0em,tocdynnumwidth]{%
+        chapter,section
+    }
+    
+    % Keine punktierten Linien zwischen section und pagenumber
+    \RedeclareSectionCommand[
+      toclinefill=\hfill
+    ]{section}
+    
+    % Keine punktierten Linien im Abbildungs-/Tabellenverzeichnis
+    \DeclareTOCStyleEntry[linefill=\hfill]{default}{figure}
+    \DeclareTOCStyleEntry[linefill=\hfill]{default}{table}
 }
-
-% Zeilenabstände im TOC
-\DeclareTOCStyleEntry[beforeskip=1\baselineskip]{chapter}{chapter}
-
-% Kein Einzug vor Unterkapiteln, H-Space zwischen Nummern und Titel automatisch anpassen
-\RedeclareSectionCommands[tocindent=0em,tocdynnumwidth]{%
-    chapter,section
-}
-
-% Keine punktierten Linien zwischen section und pagenumber
-\RedeclareSectionCommand[
-  toclinefill=\hfill
-]{section}
-
-% Keine punktierten Linien im Abbildungs-/Tabellenverzeichnis
-\DeclareTOCStyleEntry[linefill=\hfill]{default}{figure}
-\DeclareTOCStyleEntry[linefill=\hfill]{default}{table}
+\makeatother
