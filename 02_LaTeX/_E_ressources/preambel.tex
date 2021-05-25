@@ -385,3 +385,7 @@ labelfont=bf]{caption} %Label in Bold
 \RedeclareSectionCommand[
   toclinefill=\hfill
 ]{section}
+
+% Keine punktierten Linien im Abbildungs-/Tabellenverzeichnis
+\DeclareTOCStyleEntry[linefill=\hfill]{default}{figure}
+\DeclareTOCStyleEntry[linefill=\hfill]{default}{table}
