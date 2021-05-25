@@ -1,45 +1,17 @@
-\chapter{Nomenklatur}
+\chapter{Erweiterte Formatierung}
 
-Die Nomenklatur ist gegliedert in Abkürzungen und Symbole. Die Symbole sind gegliedert in lateinische sowie griechische Klein- und Großbuchstaben. Jeder dieser Teile hat ein eigenes Glossar in LaTeX. 
+\section{Float Objekte}
 
-Diese Gliederung dient als Richtlinie. Wird eine andere Gliederung verwendet, müssen die Preambel und die Dateien unter \lstinline[basicstyle=\ttfamily]|_A_frontmatter\07_nomenclature| angepasst werden
+\begin{description}
+	\item[h:] an der Stelle, an der es in der Eingabedatei angegeben ist (here)
+	\item[t:] am oberen Ende der aktuellen oder Folgeseite (top)
+	\item[b:] am unteren Ende der aktuellen Seite (bottom)
+	\item[p:] auf einer eigenen Seite für ein oder mehrere Gleitobjekte (page)
+	\item[!:] Überschreiben Sie die internen Parameter, die LaTeX zur Bestimmung "guter" Gleitkommapositionen verwendet.
+	\item[H:] Setzt den Float an genau die Stelle im LaTeX-Code. Erfordert das float-Paket.
+\end{description}
 
-\section{Abkürzungen}
-Abkürzungen müssen unter \lstinline[basicstyle=\ttfamily]|_A_frontmatter\07_nomenclature\_abbreviations.tex| definiert werden. Sie erscheinen nur im Abkürzungsverzeichnis insofern sie im Dokument verwendet werden. 
-
-Bei erstmaliger Verwendung, bspw. \gls{CFD} wird automatisch die Langform im Fließtext verwendet. Für die nachfolgende Verwendung wird die Kurzform, bspw. \gls{CFD} verwendet.
-
-Verwendet werden in diesem Beispiel die Abkürzungen \gls{cent}, \gls{DFT}, \gls{FEM}, \gls{FV} sowie \gls{MDOF}.
-
-\section{Symbole}
-
-Abkürzungen müssen unter \lstinline[basicstyle=\ttfamily]|_A_frontmatter\07_nomenclature\_symbols.tex| definiert werden. Standartmäßig erscheinen alle Symbole in der Nomenklatur, auch wenn Sie nicht im Dokument verwendet werden. 
-
-Gegliedert sind die Symbole in:
-
-Lateinische Kleinbuchstaben, bspw. \gls{u_i}, \gls{u_ref}
-
-Lateinische Großbuchstaben, bspw. \gls{Strouhal}, \gls{Iuu}
-
-Griechische Kleinbuchstaben, bspw. \gls{kappa}, \gls{rho}
-
-Griechische Großbuchstaben, bspw. \gls{dt}
-
-Mathematische Operatoren, bspw. \gls{mean}, \gls{std} 
-
-\newpage
-
-\section{Hinweise zum Kompilieren}
-
-Wird das Dokument, z.B. eines mit dem Namen "main.tex", auf dem lokalen Rechner kompiliert, folgende Reihenfolge  verwenden:
-
-Bspw. mit pdflatex als Compilier:
-
-pdflatex main.tex
-
-makeglossaries glossaries
-
-pdflatex main.tex
-
-Um in Overleaf zu kompilieren, müssen diese Schritte nicht beachtet werden. Allerdings gibt es hier teilweise Probleme. Sollte etwas nicht korrekt funktionieren, lohnt es sich für die Erstellung der Nomenklatur den Compiler zu wechseln und den Cache zu leeren. Siehe auch Online die Hinweise von Overleaf zum Thema "Glossaries".
-
+\section{Einheiten}
+Bei der Verwendung von Einheiten wird in der Regel bei Wissenschaftlichen Arbeiten ein schmales Leerzeichen verwendet.\\
+1 m : Leerzeichen \\
+1\,m : schmales Leerzeichen \\

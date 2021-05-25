@@ -1,32 +1,52 @@
 \chapter{Grundlagen}
-\label{sec:grundlagen}
+\label{ch:01_grundlagen}
 
+\section{Was ist \LaTeX}
+\label{sec:01_was_ist_latex}
+
+\LaTeX ist ein Layout- und Satzprogramm für wissenschaftliches Arbeiten. Es basiert auf dem Satzprogramm \TeX\, das von Donald Knuth von der Stanford University entwickelt wurde (seine erste Version erschien 1978).
+
+\section{Textformatierung}
+\label{sec:01_textformatierung}
+
+Text kann unter anderem \textit{kursiv}, \textbf{fett} oder \underline{unterstrichen} formatiert werden. Mathematische Zeichen und Formeln können durch spezielle Befehle in \LaTeX erzeugt werden, bspw. $\sigma=E\cdot\varepsilon$.
+
+\section{Gliederung}
+\label{sec:01_gliederung}
+
+Im wesentlichen wird das Dokument untergliedert in Kapitel (\verb!\chapter{}!), Abschnitte (\verb!\section{}!) und Unterabschnitte (\verb!\subsection{}!). Auch eine weitere Untergliederung ist möglich. Ab der Ebene (\verb!\subsection{}!) werden Abschnitte in dieser Vorlage im Inhaltsverzeichnis aus Gründen der Übersichtlichkeit nicht abgebildet.
+
+\section{Verweise}
+\label{sec:01_verweise}
+
+% Prefixes
+% ch: 	    chapter
+% sec: 	    section
+% subsec: 	subsection
+% fig: 	    figure
+% tab: 	    table
+% eq: 	    equation
+% lst: 	    code listing
+% itm: 	    enumerated list item
+% alg: 	    algorithm
+% app: 	    appendix subsection 
+
+Auf Kapitel und Abschnitte kann verwiesen werden. Beispielweise beinhaltet \cref{ch:01_grundlagen} die \crefrange{sec:01_was_ist_latex}{sec:01_zitation}.
+
+Neben Kapiteln und Abschnitten kann auf Bilder, Tabellen, Gleichungen etc. verwiesen werden. Diese müssen im \LaTeX-Code mit \verb!\label{<prefix>:<label>}! versehen werden. 
 \section{Zitation}
-Nachfolgend Beispiele der Zitation in {\LaTeX} \cite{yang_application_2003}.
-\blindtext
-\cite{test}
-\blindtext
-\cite{kroll_computational_2016, yang_application_2003}
+\label{sec:01_zitation}
 
+Zitate können unter anderem wie folgt eingefügt werden:
 
-\section{Float Objekte}
+\begin{itemize}
 
-
-\begin{description}
-	\item[h:] an der Stelle, an der es in der Eingabedatei angegeben ist (here)
-	\item[t:] am oberen Ende der aktuellen oder Folgeseite (top)
-	\item[b:] am unteren Ende der aktuellen Seite (bottom)
-	\item[p:] auf einer eigenen Seite für ein oder mehrere Gleitobjekte (page)
-	\item[!:] Überschreiben Sie die internen Parameter, die LaTeX zur Bestimmung "guter" Gleitkommapositionen verwendet.
-	\item[H:] Setzt den Float an genau die Stelle im LaTeX-Code. Erfordert das float-Paket.
-\end{description}
-
-\section{Einheiten}
-Bei der Verwendung von Einheiten wird in der Regel bei Wissenschaftlichen Arbeiten ein schmales Leerzeichen verwendet.\\
-1 m : Leerzeichen \\
-1\,m : schmales Leerzeichen \\
-
-\section{Gliederung: Beispiel Section}
-\subsection{Gliederung: Beispiel Subsection}
-\subsubsection{Gliederung: Beispiel Subsubsection}
-Subsubsections werden, in dieser Vorlage, im Inhaltsverzeichnis aus Gründen der Übersichtlichkeit nicht abgebildet.
+    \item Indirektes Zitat, eine Quelle: \cite{yang_application_2003}. 
+    
+    \item Indirektes Zitat, mehrere Quellen \cite{yang_application_2003, kroll_computational_2016}
+    
+    \item Direktes Zitat: Wie bereits \citet[][p.97]{yang_application_2003} sagte, \enquote{\lipsum[1][1]}
+    
+    \item \citet[][p.365]{yang_application_2003} stellte fest: \blockquote{\lipsum[1][2]}
+    
+\end{itemize}

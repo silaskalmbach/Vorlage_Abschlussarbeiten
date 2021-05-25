@@ -55,10 +55,6 @@
 \pagestyle{plain.scrheadings} % Leere Kopf- und Fußzeilen
 \pagenumbering{Roman} % Römische Seitenzahlen verwenden
 
-% In diesem Pfad werden die Grafiken geladen
-% Der Pfad kann beliebig oft im Dokument durch das Einfügen von \graphicspath{{}} verändert werden
-\graphicspath{{_B_mainmatter/images/}}
-
 \include{_A_frontmatter/03_copyright/copyright}
 \include{_A_frontmatter/04_acknowledgements/acknowledgements}
 \include{_A_frontmatter/05_assignment/assignment}
@@ -75,15 +71,20 @@
 \pagestyle{scrheadings}	% pagestyle für gesamtes Dokument aktivieren (Kopf- und Fußzeilen)
 \pagenumbering{arabic}	% Arabische Seitenzahlen verwenden
 
-% Hier eigene Kapitel einsetzen
+% In diesem Pfad werden die Grafiken geladen
+% Der Pfad kann beliebig oft im Dokument durch das Einfügen von \graphicspath{{}} verändert werden
+\graphicspath{{_B_mainmatter/images/}}
 
+% Hier eigene Kapitel einsetzen
 \include{_B_mainmatter/00_readme}   % Readme
-\include{_B_mainmatter/01_bsp}      % Zitation
-\include{_B_mainmatter/02_bsp}      % Programmcode
-\include{_B_mainmatter/03_bsp}      % Tabellen
+\include{_B_mainmatter/01_bsp}      % Grundlagen
+\include{_B_mainmatter/02_bsp}      % Tabellen
+\include{_B_mainmatter/03_bsp}      % Abbildungen
 \include{_B_mainmatter/04_bsp}      % Formeln
-\include{_B_mainmatter/05_bsp}      % Abbildungen
-\include{_B_mainmatter/06_bsp}      % Nomenklatur
+\include{_B_mainmatter/05_bsp}      % Nomenklatur
+\include{_B_mainmatter/06_bsp}      % Erweiterte Formatierung
+\include{_B_mainmatter/07_bsp}      % Farbschema
+\include{_B_mainmatter/08_bsp}      % Programmcode
 
 % ============= Appendix =============
 \appendix

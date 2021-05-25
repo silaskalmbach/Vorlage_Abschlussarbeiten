@@ -1,240 +1,44 @@
-\chapter{tikz - Grafiken}
-\label{sec:tikz}
+\chapter{Nomenklatur}
 
-\section{Beispielkapitel tikz - Grafiken}
-\label{sec:beispiel}
+Die Nomenklatur ist gegliedert in Abkürzungen und Symbole. Die Symbole sind gegliedert in lateinische sowie griechische Klein- und Großbuchstaben. Jeder dieser Teile hat ein eigenes Glossar in LaTeX. 
 
-\subsection{Darstellung von Funktionen}
+Diese Gliederung dient als Richtlinie. Wird eine andere Gliederung verwendet, müssen die Preambel und die Dateien unter \lstinline[basicstyle=\ttfamily]|_A_frontmatter\07_nomenclature| angepasst werden
 
-\begin{figure}[htb]
-\centering
-\begin{align*}
-f(x)=\tanh(x)
-\end{align*}
-\begin{tikzpicture}
-\begin{axis}
-[
-width=200pt,
-height=200pt,
-axis x line=middle, xmin=-4, xmax=4, xtick={-3,...,3}, xlabel=$x$,
-axis y line=middle, ymin=-1.5, ymax=1.5, ytick={-1,...,1}, ylabel=$f(x)$,
-scale only axis=true,
-samples=101
-]
-\addplot[uniSdarkblue, mark=none, very thick]{tanh(x)};
-%		\legend{$\tanh(x)$}
-\end{axis}
-\end{tikzpicture}
-\caption[Tangens hyperbolicus Aktivierungsfunktion]{Tangens hyperbolicus}
-\label{fig:05_AktivTan}
-\end{figure}
+\section{Abkürzungen}
+Abkürzungen müssen unter \lstinline[basicstyle=\ttfamily]|_A_frontmatter\07_nomenclature\_abbreviations.tex| definiert werden. Sie erscheinen nur im Abkürzungsverzeichnis insofern sie im Dokument verwendet werden. 
+
+Bei erstmaliger Verwendung, bspw. \gls{CFD} wird automatisch die Langform im Fließtext verwendet. Für die nachfolgende Verwendung wird die Kurzform, bspw. \gls{CFD} verwendet.
+
+Verwendet werden in diesem Beispiel die Abkürzungen \gls{cent}, \gls{DFT}, \gls{FEM},  sowie \gls{FV}.
+
+\section{Symbole}
+
+Abkürzungen müssen unter \lstinline[basicstyle=\ttfamily]|_A_frontmatter\07_nomenclature\_symbols.tex| definiert werden. Standartmäßig erscheinen alle Symbole in der Nomenklatur, auch wenn Sie nicht im Dokument verwendet werden. 
+
+Gegliedert sind die Symbole in:
+
+Lateinische Kleinbuchstaben, bspw. \gls{u_i}, \gls{u_ref}
+
+Lateinische Großbuchstaben, bspw. \gls{Strouhal}, \gls{Iuu}
+
+Griechische Kleinbuchstaben, bspw. \gls{kappa}, \gls{rho}
+
+Griechische Großbuchstaben, bspw. \gls{dt}
+
+Mathematische Operatoren, bspw. \gls{mean}, \gls{std} 
 
 \newpage
-\subsection{for-Schleifen bei der Grafikerzeugung}
 
-\begin{figure}[htb]
-	\centering
-	\begin{tikzpicture}[]
-	\tikzstyle{netnode}=[circle, inner sep=0pt, text width=22pt, align=center, line width=1.0pt]
-	\tikzstyle{inputnode}=[netnode, fill=uniSlightgrey,draw=black]
-	\tikzstyle{hiddennode}=[netnode, fill=uniSlightgrey,draw=black]
-	\tikzstyle{outputnode}=[netnode, fill=uniSlightgrey,draw=black]
-	\tikzstyle{signal}=[arrows={-latex},draw=uniSblack,line width=1pt,rounded corners=4pt]
-	
-	\def\nodedist{35pt}
-	\def\layerdist{80pt}
-	\def\pindist{20pt}
-	
-	\tikzstyle{every pin edge}=[signal]
-	\tikzstyle{annot} = [text width=6em, text centered]
-	
-	\foreach \y in {1,...,3}
-	\node[inputnode, pin={[pin edge={latex-}, pin distance=\pindist]left:Eingabe \y}] 
-	(I\y) at (0,-\y*\nodedist) {$i_\y$};  
-	
-	\foreach \y in {1,...,4}
-	\node[hiddennode] 
-	(H1\y) at ($(\layerdist,-\y*\nodedist) +(0, 0.5*\nodedist)$) {$h_\y^1$};
-	
-	\foreach \y in {1,...,4}
-	\node[hiddennode] 
-	(H2\y) at ($(2*\layerdist,-\y*\nodedist) +(0, 0.5*\nodedist)$) {$h_\y^2$};
-	
-	\foreach \y in {1,...,2}
-	\node[outputnode, pin={[pin edge={-latex}, pin distance=\pindist]right:Ausgabe \y}]
-	(O\y) at ($(H21) + (\layerdist, -\y*\nodedist)$) {$o_\y$};
-	
-	\foreach \dest in {1,...,4}
-	\foreach \source in {1,...,3}
-	\draw[signal] (I\source) -- (H1\dest);
-	
-	\foreach \dest in {1,...,4}
-	\foreach \source in {1,...,4}
-	\draw[signal] (H1\source) -- (H2\dest);
-	
-	\foreach \dest in {1,...,2}
-	\foreach \source in {1,...,4}
-	\draw[signal] (H2\source) edge (O\dest);
-	
-	\node[annot, above=4pt of H11] (hl) {verborgene Schicht 1};
-	\node[annot, above=4pt of H21] (hl) {verborgene Schicht 2};
-	\node[annot] at (I1 |- hl) {Eingabe\-schicht};
-	\node[annot] at (O1 |- hl) {Ausgabe\-schicht};
-	\end{tikzpicture}
-	\caption[Schematischer Aufbau eines künstlichen neuronalen Netzes] %hier kann ein alternativer/ verkürzter Text für das Abbildungsverzeichnis angegeben werden
-	{Schematischer Aufbau eines künstlichen neuronalen Netzes \cite[Abb. nach][]{Frochte.2019}} %Bildunteschrift
-	\label{fig:05_DNN}
-\end{figure}
+\section{Hinweise zum Kompilieren}
 
+Wird das Dokument, z.B. eines mit dem Namen "main.tex", auf dem lokalen Rechner kompiliert, folgende Reihenfolge  verwenden:
 
-\subsection{Einbeziehung von Daten aus CSV-Datei}
+Bspw. mit pdflatex als Compilier:
 
-\setlength{\figureheight}{5cm}
-\setlength{\figurewidth}{\textwidth}
-\begin{figure}[htbp]
-	\centering
-	\begin{tikzpicture}
-		\begin{axis}[
-			width=\figurewidth,
-			height=\figureheight,
-			date coordinates in = x,
-			xmin=2018-01-01 00:00,
-			xmax=2018-01-08 00:00,
-			minor x tick num=1,
-			xtick={2018-01-01 12:00, 2018-01-02 12:00, 2018-01-03 12:00, 2018-01-04 12:00, 2018-01-05 12:00, 2018-01-06 12:00, 2018-01-07 12:00},
-			set layers,cell picture=true,
-			xticklabel={\day.\month},
-			xlabel={2018},
-			ymin=-0.1, ymax=1.1, ytick={0,0.5,1},
-			no marks,
-			scaled y ticks = false,
-			ylabel={[\nicefrac{\%}{100}]}
-			,]
-			\addplot+[color=black ] table[x=Zeit, y=Shadestep, col sep=comma, skip first n=0] {_B_mainmatter/data/Example.csv};
-			\legend{Shadestep};
-		\end{axis}
-	\end{tikzpicture}
-	\caption[Photometrische Regelung der adaptiven Verglasung im Juli 2018, nach 500 Episoden]{Photometrische Regelung der adaptiven Verglasung nach 500 Episoden, für den Zeitraum vom 01. bis 07. Juli 2018} \label{fig:05_AVPhJun500}	
-\end{figure}
+pdflatex main.tex
 
-\newpage
-\subsection{Einbeziehung von Daten aus CSV-Datei und Gruppierung von Grafiken}
+makeglossaries glossaries
 
-\begin{figure}[htb]
-	\setlength{\figureheight}{5cm}
-	\setlength{\figurewidth}{\textwidth}
-	\centering
-	\begin{tikzpicture}
-		\begin{groupplot}[
-			width=\figurewidth,
-			height=\figureheight,
-			date coordinates in = x,
-			xmin=2018-01-01 00:00,
-			xmax=2018-01-08 00:00,
-			minor x tick num=1,
-			xtick={2018-01-01 12:00, 2018-01-02 12:00, 2018-01-03 12:00, 2018-01-04 12:00, 2018-01-05 12:00, 2018-01-06 12:00, 2018-01-07 12:00},
-			set layers,cell picture=true,
-			xticklabel={\day.\month},
-			xlabel={2018},
-			no marks,
-			scaled y ticks = false,
-			group style = {group size = 1 by 7,
-				horizontal sep =1cm,
-				vertical sep = 0cm,},]
-			
-			\nextgroupplot[xlabel={},xticklabels={},ylabel={[°C]}]
-			\addplot[color=black ] table[x=Zeit, y=T01, col sep=comma, skip first n=0] {_B_mainmatter/data/Example.csv};
-			\legend{T01};
-			
-			\nextgroupplot[xlabel={},xticklabels={},ylabel={[klx]}]
-			\addplot[color=black ] table[x=Zeit, y expr=\thisrow{B01}/1000, col sep=comma, skip first n=0] {_B_mainmatter/data/Example.csv};
-			\legend{B01};
-			
-			\nextgroupplot[ylabel={[kW]}, ymin=-0.02, ymax=0.32, ytick={0,0.1,0.2,0.3},]
-			\addplot+[color=black , name path=A] table[x=Zeit, y expr=\thisrow{QBeleuchtung}+\thisrow{QHeizung}+\thisrow{QKuehlung}, col sep=comma, skip first n=0] {_B_mainmatter/data/Example.csv};
-			\addplot+[draw=none,name path=B, mark=none] table[x=Zeit, y expr=0, col sep=comma, skip first n=0] {_B_mainmatter/data/Example.csv}; 
-			\addplot+[gray, fill opacity=0.1] fill between[of=A and B];
-			\legend{Q\textsubscript{HEAT}+Q\textsubscript{COOL}+Q\textsubscript{LIGHT}};
+pdflatex main.tex
 
-		\end{groupplot}
-	\end{tikzpicture}
-	\caption[Kombinierte Regelung im Januar 2018, nach 500 Episoden]{Kombinierte Regelung nach 500 Episoden, für den Zeitraum vom 01. bis 07. Januar 2018} \label{fig:05_KomJan18}	
-\end{figure}
-
-
-\section{Beispielkapitel Standard Grafik}
-\label{sec:graf}
-
-\subsection{Einfaches Bild}
-
-\begin{figure}[H]
-  \centering  
-  	\includegraphics[scale=0.5]{ILEK-logo.jpg}
-  \caption{ILEK Logo}
-  \label{fig:05_starwars}
-\end{figure}
-
-\subsection{Gruppierung von Bildern}
-
-\begin{figure}[H]
-	\centering
-	\begin{subfigure}[b]{0.3\textwidth}
-		\centering
-		\includegraphics[width=\textwidth]{ILEK-logo.jpg}
-		\caption{$y=x$}
-		\label{fig:05_a}
-	\end{subfigure}
-%	\hfill
-\hspace{1cm}
-	\begin{subfigure}[b]{0.3\textwidth}
-		\centering
-		\includegraphics[width=\textwidth]{ILEK-logo.jpg}
-		\caption{$y=3sinx$}
-		\label{fig:05_b}
-	\end{subfigure}
-	\\ 
-	\begin{subfigure}[b]{0.3\textwidth}
-		\centering
-		\includegraphics[width=\textwidth]{ILEK-logo.jpg}
-		\caption{$y=3sinx$}
-		\label{fig:05_c}
-	\end{subfigure}
-%	\hfill
-\hspace{1cm}
-	\begin{subfigure}[b]{0.3\textwidth}
-		\centering
-		\includegraphics[width=\textwidth]{ILEK-logo.jpg}
-		\caption{$y=5/x$}
-		\label{fig:05_five over x}
-	\end{subfigure}
-	\caption{Vier Bilder}
-	\label{fig:05_d}
-\end{figure}
-
-\subsection{Bilder und Tabellen im Fließtext}
-
-\begin{wraptable}[]{o}[0cm]{9cm}
-	\begin{center}
-		\begin{tabular}{|l|l|l|}
-			\hline
-			r & R & right side of the text\\
-			l & L & left side of the text\\
-			i & I & inside edge–near the binding\\
-			& &  (in a twoside document)\\
-			o & O & outside edge–far from the binding\\
-			\hline
-		\end{tabular}
-	\end{center}
-	\caption{The uppercase version allows the figure to float. The lowercase version means exactly here.}%\citep{cite}
-\end{wraptable}
-
-\blindtext[2]
-
-%\begin{wrapfigure}[Zeile]{Position}[Randüberhang]{Breite}
-\begin{wrapfigure}[]{o}[0cm]{6.5cm}
-	\includegraphics[width=6cm,angle=0]{ILEK-logo.jpg}
-	\caption{Bildbezeichnung}
-	\label{fig:05_bild}
-\end{wrapfigure}
-
-\blindtext[2]
+Um in Overleaf zu kompilieren, müssen diese Schritte nicht beachtet werden. Allerdings gibt es hier teilweise Probleme. Sollte etwas nicht korrekt funktionieren, lohnt es sich für die Erstellung der Nomenklatur den Compiler zu wechseln und den Cache zu leeren. Siehe auch Online die Hinweise von Overleaf zum Thema "Glossaries".
