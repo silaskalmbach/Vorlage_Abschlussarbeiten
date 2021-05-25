@@ -1,80 +1,285 @@
-\chapter{Einfügen von Tabellen}
-\label{chap:tabellen}
+\chapter{Abbildungen}
+\label{sec:tikz}
 
-\section{Beispieltabelle}
+Bei wissenschaftlichen Arbeiten sollten aussagekräftige Bildunterschriften angefertigt werden. Abbildungen sind meist nicht als selbsterklärend zu verstehen. Daher müssen zusätzliche Beschreibungen in die Bildunterschrift eingefügt werden, die es dem Leser möglichst erlauben, nur durch die Abbildung und dessen Beschreibung die im Fließtext erläuterten Zusammenhänge zusammengefasst zu verstehen oder mindestens die Bedeutung der Abbildung für Teile des Fließtextes klar einordnen zu können.
 
-\begin{table}[h]
-	\caption{Beispieltabelle}
-	\label{tab:Parameter}
+\section{Einfügen von Bildern}
+\label{sec:graf}
+
+\subsection{Einfaches Bild}
+
+\begin{figure}[H]
+  \centering  
+  	\includegraphics[scale=0.5]{ILEK-logo.jpg}
+  \caption{ILEK Logo}
+  \label{fig:05_starwars}
+\end{figure}
+
+\subsection{Gruppierung von Bildern}
+
+\begin{figure}[H]
 	\centering
-	\begin{tabularx}{\textwidth}{p{0.32\textwidth}p{0.32\textwidth}p{0.32\textwidth}}
-																					\toprule
-		Eins                       	     & Zwei    			& Drei 				\\ 	\midrule
-		Vier                       	     & Fünf    			& Sechs				\\
-		Sieben                           & Acht         	& Neun				\\ 	\bottomrule	
-	\end{tabularx}
-\end{table}
+	\begin{subfigure}[b]{0.3\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{ILEK-logo.jpg}
+		\caption{$y=x$}
+		\label{fig:05_a}
+	\end{subfigure}
+%	\hfill
+\hspace{1cm}
+	\begin{subfigure}[b]{0.3\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{ILEK-logo.jpg}
+		\caption{$y=3sinx$}
+		\label{fig:05_b}
+	\end{subfigure}
+	\\ 
+	\begin{subfigure}[b]{0.3\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{ILEK-logo.jpg}
+		\caption{$y=3sinx$}
+		\label{fig:05_c}
+	\end{subfigure}
+%	\hfill
+\hspace{1cm}
+	\begin{subfigure}[b]{0.3\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{ILEK-logo.jpg}
+		\caption{$y=5/x$}
+		\label{fig:05_five over x}
+	\end{subfigure}
+	\caption{Vier Bilder}
+	\label{fig:05_d}
+\end{figure}
 
-\begin{longtabu} to \textwidth {@{} X X[c] X[r] @{}}
-	\caption{Tabelle auf Textbreite mit drei gleich großen Spalten}\label{tab:bsp1} \\
-	\toprule
-	Spalte 1 linksbündig & Spalte 2 zentriert & Spalte 3 rechtsbündig \\
-	\midrule
-1 , 2                           & 3 , 2                           & 1 , 3 \\
-2 , 4                           & 6 , 4                           & 2 , 6 \\
-3 , 6                           & 9 , 6                           & 3 , 9 \\
-	\bottomrule
-\end{longtabu}
+\newpage
 
-\begin{longtabu} to 140mm {@{} X X[c] X[r] @{}}
-	\caption{Tabelle auf Textbreite mit drei gleich großen Spalten}\label{tab:bsp2} \\
-	\toprule
-	Spalte 1 linksbündig & Spalte 2 zentriert & Spalte 3 rechtsbündig \\
-	\midrule
-1 , 2                           & 3 , 2                           & 1 , 3 \\
-2 , 4                           & 6 , 4                           & 2 , 6 \\
-3 , 6                           & 9 , 6                           & 3 , 9 \\
-	\bottomrule
-\end{longtabu}
-%
+\subsection{Bilder und Tabellen im Fließtext}
 
-\begin{longtabu} to \textwidth {@{} X[1,l] X[1,c] X[1,r] @{}}
-	%----- Kopfzeile erste Tabelle ----- %
-	\caption{Tabelle über mehrere Seiten}\label{tab:mehrere Seiten} \\
-	\toprule
-	Spalte 1 linksbündig & Spalte 2 zentriert & Spalte 3 rechtsbündig \\
-	\midrule
-	\endfirsthead
-	%----- Kopfzeile zweite Tabelle ----- %	
-	\caption*{\textbf{Fortsetzung:} \cref{tab:mehrere Seiten}} \\
-	\toprule
-	Spalte 1 linksbündig & Spalte 2 zentriert & Spalte 3 rechtsbündig \\
-	\midrule
-	\endhead
-	%----- Tabellenende erste Tabelle ----- %	
-	\bottomrule
-	\endfoot
-	%----- Tabellenende zweite Tabelle ----- %
-	\bottomrule    
-	\endlastfoot
-	%----- Inhalt der Tabelle Tabelle ----- %	
-1 , 2                           & 3 , 2                           & 1 , 3 \\
-2 , 4                           & 6 , 4                           & 2 , 6 \\
-3 , 6                           & 9 , 6                           & 3 , 9 \\
-4 , 8                           & 12 , 8                           & 4 , 12 \\
-5 , 10                           & 15 , 10                           & 5 , 15 \\
-6 , 12                           & 18 , 12                           & 6 , 18 \\
-7 , 14                           & 21 , 14                           & 7 , 21 \\
-8 , 16                           & 24 , 16                           & 8 , 24 \\
-9 , 18                           & 27 , 18                           & 9 , 27 \\
-10 , 20                           & 30 , 20                           & 10 , 30 \\
-11 , 22                           & 33 , 22                           & 11 , 33 \\
-12 , 24                           & 36 , 24                           & 12 , 36 \\
-13 , 26                           & 39 , 26                           & 13 , 39 \\
-14 , 28                           & 42 , 28                           & 14 , 42 \\
-15 , 30                           & 45 , 30                           & 15 , 45 \\
-16 , 32                           & 48 , 32                           & 16 , 48 \\
-17 , 34                           & 51 , 34                           & 17 , 51 \\
-18 , 36                           & 54 , 36                           & 18 , 54 \\
-19 , 38                           & 57 , 38                           & 19 , 57 \\
-\end{longtabu}
+\begin{wraptable}[]{o}[0cm]{9cm}
+	\begin{center}
+		\begin{tabular}{|l|l|l|}
+			\hline
+			r & R & right side of the text\\
+			l & L & left side of the text\\
+			i & I & inside edge–near the binding\\
+			& &  (in a twoside document)\\
+			o & O & outside edge–far from the binding\\
+			\hline
+		\end{tabular}
+	\end{center}
+	\caption{The uppercase version allows the figure to float. The lowercase version means exactly here.}%\citep{cite}
+\end{wraptable}
+
+\blindtext[2]
+
+%\begin{wrapfigure}[Zeile]{Position}[Randüberhang]{Breite}
+\begin{wrapfigure}[]{o}[0cm]{6.5cm}
+	\includegraphics[width=6cm,angle=0]{ILEK-logo.jpg}
+	\caption{Bildbezeichnung}
+	\label{fig:05_bild}
+\end{wrapfigure}
+
+\blindtext[2]
+
+\newpage
+
+\section{Eigene Diagramme/Grafiken}
+
+Es gibt viele Möglichkeiten eigene Diagramme und Grafiken zu erstellen und in das \LaTeX-Dokument einzubinden. Im folgenden werden beispielhaft die Erstellung von \nameref{subsec:python_inkscape} sowie dieErstellung von \nameref{subsec:tikz} erläutert.
+
+\subsection{Diagramme und Grafiken mit Python und Inkscape}
+\label{subsec:python_inkscape}
+
+Zu diesem Zweck werden die Daten zunächst mit Python verarbeitet und anschließend bspw. mit Matplotlib (\url{https://matplotlib.org/}), Seaborn (\url{https://seaborn.pydata.org/}) und/oder Plotly (\url{https://plotly.com/}) geplottet.
+
+Empfohlen wird die Plots als \gls{SVG} zu speichern. Diese können dann bei Bedarf in Inkscape (\url{https://inkscape.org/de/}) nachbearbeitet werden. 
+
+Die \gls{SVG}-Grafiken müssen anschließend in Inkscape als .pdf und .pdf\_tex exportiert werden. Hierzu die \gls{SVG}-Grafik als .pdf speichern und die Option \flqq Text in PDF weglassen und \LaTeX Datei erstellen \frqq auswählen. Dadurch werden Alle Texte aus der .pdf entfernt, in die .pdf\_tex exportiert und werden beim Einbinden in das \LaTeX-Dokument mit den Dokumenteneinstellungen formatiert.
+
+Dieser Schritt kann auch entweder durch die Erstellung eines Batch-Skriptes, dem direkten Export aus o.g. Programmen als .pdf\_tex oder der Programmierung eines Latex-Befehls welcher Inkscape nutzt um den .pdf\_tex Export durchzuführen automatisiert werden. \\
+
+\begin{figure}[ht]
+    \begin{footnotesize}
+    	\centering
+    	\begin{subfigure}[b]{0.45\textwidth}
+    		\centering
+    		\includegraphics{PSD_Mesh_A_PNG.png}
+    		\caption{%
+    		    Diagramm direkt als .png importiert. Schriftarten und Schriftgröße werden nicht angepasst, mathematische Symbole können nicht verwendet werden.
+    		}
+    		\label{fig:png_import}
+    	\end{subfigure}
+    	\hspace{0.05\textwidth}
+    	\begin{subfigure}[b]{0.45\textwidth}
+    		\centering
+    		\includesvg{PSD_Mesh_A}
+    		\caption{%
+    		    Diagramm als .svg importiert. Schriftarten und Schriftgröße werden auf das Dokument angepasst und mathematische Symbole werden konvertiert.
+    		}
+    		\label{fig:svg_import}
+    	\end{subfigure}
+    \end{footnotesize}
+\end{figure}
+
+\newpage
+
+\section{Diagramme und Grafiken mit tikz}
+\label{subsec:tikz}
+
+\subsubsection{Darstellung von Funktionen}
+
+\begin{figure}[htb]
+\centering
+\begin{align*}
+f(x)=\tanh(x)
+\end{align*}
+\begin{tikzpicture}
+\begin{axis}
+[
+width=200pt,
+height=200pt,
+axis x line=middle, xmin=-4, xmax=4, xtick={-3,...,3}, xlabel=$x$,
+axis y line=middle, ymin=-1.5, ymax=1.5, ytick={-1,...,1}, ylabel=$f(x)$,
+scale only axis=true,
+samples=101
+]
+\addplot[uniSdarkblue, mark=none, very thick]{tanh(x)};
+%		\legend{$\tanh(x)$}
+\end{axis}
+\end{tikzpicture}
+\caption[Tangens hyperbolicus Aktivierungsfunktion]{Tangens hyperbolicus}
+\label{fig:05_AktivTan}
+\end{figure}
+
+\newpage
+\subsubsection{for-Schleifen bei der Grafikerzeugung}
+
+\begin{figure}[htb]
+	\centering
+	\begin{tikzpicture}[]
+	\tikzstyle{netnode}=[circle, inner sep=0pt, text width=22pt, align=center, line width=1.0pt]
+	\tikzstyle{inputnode}=[netnode, fill=uniSlightgrey,draw=black]
+	\tikzstyle{hiddennode}=[netnode, fill=uniSlightgrey,draw=black]
+	\tikzstyle{outputnode}=[netnode, fill=uniSlightgrey,draw=black]
+	\tikzstyle{signal}=[arrows={-latex},draw=uniSblack,line width=1pt,rounded corners=4pt]
+	
+	\def\nodedist{35pt}
+	\def\layerdist{80pt}
+	\def\pindist{20pt}
+	
+	\tikzstyle{every pin edge}=[signal]
+	\tikzstyle{annot} = [text width=6em, text centered]
+	
+	\foreach \y in {1,...,3}
+	\node[inputnode, pin={[pin edge={latex-}, pin distance=\pindist]left:Eingabe \y}] 
+	(I\y) at (0,-\y*\nodedist) {$i_\y$};  
+	
+	\foreach \y in {1,...,4}
+	\node[hiddennode] 
+	(H1\y) at ($(\layerdist,-\y*\nodedist) +(0, 0.5*\nodedist)$) {$h_\y^1$};
+	
+	\foreach \y in {1,...,4}
+	\node[hiddennode] 
+	(H2\y) at ($(2*\layerdist,-\y*\nodedist) +(0, 0.5*\nodedist)$) {$h_\y^2$};
+	
+	\foreach \y in {1,...,2}
+	\node[outputnode, pin={[pin edge={-latex}, pin distance=\pindist]right:Ausgabe \y}]
+	(O\y) at ($(H21) + (\layerdist, -\y*\nodedist)$) {$o_\y$};
+	
+	\foreach \dest in {1,...,4}
+	\foreach \source in {1,...,3}
+	\draw[signal] (I\source) -- (H1\dest);
+	
+	\foreach \dest in {1,...,4}
+	\foreach \source in {1,...,4}
+	\draw[signal] (H1\source) -- (H2\dest);
+	
+	\foreach \dest in {1,...,2}
+	\foreach \source in {1,...,4}
+	\draw[signal] (H2\source) edge (O\dest);
+	
+	\node[annot, above=4pt of H11] (hl) {verborgene Schicht 1};
+	\node[annot, above=4pt of H21] (hl) {verborgene Schicht 2};
+	\node[annot] at (I1 |- hl) {Eingabe\-schicht};
+	\node[annot] at (O1 |- hl) {Ausgabe\-schicht};
+	\end{tikzpicture}
+	\caption[Schematischer Aufbau eines künstlichen neuronalen Netzes] %hier kann ein alternativer/ verkürzter Text für das Abbildungsverzeichnis angegeben werden
+	{Schematischer Aufbau eines künstlichen neuronalen Netzes \cite[Abb. nach][]{Frochte.2019}} %Bildunteschrift
+	\label{fig:05_DNN}
+\end{figure}
+
+
+\subsubsection{Einbeziehung von Daten aus CSV-Datei}
+
+\setlength{\figureheight}{5cm}
+\setlength{\figurewidth}{\textwidth}
+\begin{figure}[htbp]
+	\centering
+	\begin{tikzpicture}
+		\begin{axis}[
+			width=\figurewidth,
+			height=\figureheight,
+			date coordinates in = x,
+			xmin=2018-01-01 00:00,
+			xmax=2018-01-08 00:00,
+			minor x tick num=1,
+			xtick={2018-01-01 12:00, 2018-01-02 12:00, 2018-01-03 12:00, 2018-01-04 12:00, 2018-01-05 12:00, 2018-01-06 12:00, 2018-01-07 12:00},
+			set layers,cell picture=true,
+			xticklabel={\day.\month},
+			xlabel={2018},
+			ymin=-0.1, ymax=1.1, ytick={0,0.5,1},
+			no marks,
+			scaled y ticks = false,
+			ylabel={[\nicefrac{\%}{100}]}
+			,]
+			\addplot+[color=black ] table[x=Zeit, y=Shadestep, col sep=comma, skip first n=0] {_B_mainmatter/data/Example.csv};
+			\legend{Shadestep};
+		\end{axis}
+	\end{tikzpicture}
+	\caption[Photometrische Regelung der adaptiven Verglasung im Juli 2018, nach 500 Episoden]{Photometrische Regelung der adaptiven Verglasung nach 500 Episoden, für den Zeitraum vom 01. bis 07. Juli 2018} \label{fig:05_AVPhJun500}	
+\end{figure}
+
+\newpage
+\subsubsection{Einbeziehung von Daten aus CSV-Datei und Gruppierung von Grafiken}
+
+\begin{figure}[htb]
+	\setlength{\figureheight}{5cm}
+	\setlength{\figurewidth}{\textwidth}
+	\centering
+	\begin{tikzpicture}
+		\begin{groupplot}[
+			width=\figurewidth,
+			height=\figureheight,
+			date coordinates in = x,
+			xmin=2018-01-01 00:00,
+			xmax=2018-01-08 00:00,
+			minor x tick num=1,
+			xtick={2018-01-01 12:00, 2018-01-02 12:00, 2018-01-03 12:00, 2018-01-04 12:00, 2018-01-05 12:00, 2018-01-06 12:00, 2018-01-07 12:00},
+			set layers,cell picture=true,
+			xticklabel={\day.\month},
+			xlabel={2018},
+			no marks,
+			scaled y ticks = false,
+			group style = {group size = 1 by 7,
+				horizontal sep =1cm,
+				vertical sep = 0cm,},]
+			
+			\nextgroupplot[xlabel={},xticklabels={},ylabel={[°C]}]
+			\addplot[color=black ] table[x=Zeit, y=T01, col sep=comma, skip first n=0] {_B_mainmatter/data/Example.csv};
+			\legend{T01};
+			
+			\nextgroupplot[xlabel={},xticklabels={},ylabel={[klx]}]
+			\addplot[color=black ] table[x=Zeit, y expr=\thisrow{B01}/1000, col sep=comma, skip first n=0] {_B_mainmatter/data/Example.csv};
+			\legend{B01};
+			
+			\nextgroupplot[ylabel={[kW]}, ymin=-0.02, ymax=0.32, ytick={0,0.1,0.2,0.3},]
+			\addplot+[color=black , name path=A] table[x=Zeit, y expr=\thisrow{QBeleuchtung}+\thisrow{QHeizung}+\thisrow{QKuehlung}, col sep=comma, skip first n=0] {_B_mainmatter/data/Example.csv};
+			\addplot+[draw=none,name path=B, mark=none] table[x=Zeit, y expr=0, col sep=comma, skip first n=0] {_B_mainmatter/data/Example.csv}; 
+			\addplot+[gray, fill opacity=0.1] fill between[of=A and B];
+			\legend{Q\textsubscript{HEAT}+Q\textsubscript{COOL}+Q\textsubscript{LIGHT}};
+
+		\end{groupplot}
+	\end{tikzpicture}
+	\caption[Kombinierte Regelung im Januar 2018, nach 500 Episoden]{Kombinierte Regelung nach 500 Episoden, für den Zeitraum vom 01. bis 07. Januar 2018} \label{fig:05_KomJan18}	
+\end{figure}

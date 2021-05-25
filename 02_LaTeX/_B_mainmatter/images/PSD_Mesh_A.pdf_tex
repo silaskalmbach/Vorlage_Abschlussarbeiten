@@ -1,0 +1,76 @@
+%% Creator: Inkscape 1.0.2 (e86c870879, 2021-01-15, custom), www.inkscape.org
+%% PDF/EPS/PS + LaTeX output extension by Johan Engelen, 2010
+%% Accompanies image file 'PSD_Mesh_A.pdf' (pdf, eps, ps)
+%%
+%% To include the image in your LaTeX document, write
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics{<filename>.pdf}
+%% To scale the image, write
+%%   \def\svgwidth{<desired width>}
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics[width=<desired width>]{<filename>.pdf}
+%%
+%% Images with a different path to the parent latex file can
+%% be accessed with the `import' package (which may need to be
+%% installed) using
+%%   \usepackage{import}
+%% in the preamble, and then including the image with
+%%   \import{<path to file>}{<filename>.pdf_tex}
+%% Alternatively, one can specify
+%%   \graphicspath{{<path to file>/}}
+%% 
+%% For more information, please see info/svg-inkscape on CTAN:
+%%   http://tug.ctan.org/tex-archive/info/svg-inkscape
+%%
+\begingroup%
+  \makeatletter%
+  \providecommand\color[2][]{%
+    \errmessage{(Inkscape) Color is used for the text in Inkscape, but the package 'color.sty' is not loaded}%
+    \renewcommand\color[2][]{}%
+  }%
+  \providecommand\transparent[1]{%
+    \errmessage{(Inkscape) Transparency is used (non-zero) for the text in Inkscape, but the package 'transparent.sty' is not loaded}%
+    \renewcommand\transparent[1]{}%
+  }%
+  \providecommand\rotatebox[2]{#2}%
+  \newcommand*\fsize{\dimexpr\f@size pt\relax}%
+  \newcommand*\lineheight[1]{\fontsize{\fsize}{#1\fsize}\selectfont}%
+  \ifx\svgwidth\undefined%
+    \setlength{\unitlength}{206.63999939bp}%
+    \ifx\svgscale\undefined%
+      \relax%
+    \else%
+      \setlength{\unitlength}{\unitlength * \real{\svgscale}}%
+    \fi%
+  \else%
+    \setlength{\unitlength}{\svgwidth}%
+  \fi%
+  \global\let\svgwidth\undefined%
+  \global\let\svgscale\undefined%
+  \makeatother%
+  \begin{picture}(1,0.69686411)%
+    \lineheight{1}%
+    \setlength\tabcolsep{0pt}%
+    \put(0,0){\includegraphics[width=\unitlength,page=1]{PSD_Mesh_A.pdf}}%
+    \put(0.58749999,0.0288379){\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}$ f_{red} $\end{tabular}}}}%
+    \put(0.89769844,0.0288379){\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}{$ f_{Nyq} $}\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=2]{PSD_Mesh_A.pdf}}%
+    \put(0.36268647,0.08817874){\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}$10^{-3}$\end{tabular}}}}%
+    \put(0.55143305,0.08817874){\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}$10^{-2}$\end{tabular}}}}%
+    \put(0.73947831,0.08854924){\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}$10^{-1}$\end{tabular}}}}%
+    \put(0.92870243,0.08817874){\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}$10^{0}$\end{tabular}}}}%
+    \put(0.14821487,0.20557915){\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}$10^{-2}$\end{tabular}}}}%
+    \put(0.14821487,0.37988552){\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}$10^{-1}$\end{tabular}}}}%
+    \put(0.14050691,0.55378832){\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}$10^{0}$\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=3]{PSD_Mesh_A.pdf}}%
+    \put(0.06131527,0.34843206){\rotatebox{90}{\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}$ \frac{{u}(f)}{u_{\tau}} $\end{tabular}}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=4]{PSD_Mesh_A.pdf}}%
+    \put(0.34332231,0.63043216){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Exact\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=5]{PSD_Mesh_A.pdf}}%
+    \put(0.56703262,0.63043216){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Sample\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=6]{PSD_Mesh_A.pdf}}%
+    \put(0.82834459,0.63043216){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Fitted\end{tabular}}}}%
+  \end{picture}%
+\endgroup%
