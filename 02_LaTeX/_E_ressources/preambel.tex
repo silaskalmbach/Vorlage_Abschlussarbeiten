@@ -4,20 +4,15 @@
 %Created:      2021-03-10
 %------------------------------------------------------------------------------
 
-% ============= Randabstände =============
-
-\usepackage[left= 2.5cm, right = 2cm, top=2.5cm]{geometry}
-
-
 % ============= Dokumentinformationen =============
 
 \usepackage[ 
 hidelinks
 ]{hyperref} 
 \hypersetup{ 
-	pdfauthor={\student}, 
-	pdftitle={\titel},
-	pdfsubject={\arbeit}, 
+	pdfauthor={\StudentVorname \StudentNachname}, 
+	pdftitle={\TitelDerArbeit},
+	pdfsubject={\TypDerArbeit}, 
 	pdfkeywords={}
 }
 
@@ -184,8 +179,15 @@ hidelinks
 % ============= Kopf- und Fußzeile =============
 
 \usepackage[automark, headsepline, autooneside=false]{scrlayer-scrpage}
-\automark[section]{chapter}	%Automatische Kapitelangabe in Kopfzeile
-\renewcommand*{\chaptermarkformat}{} %Kapitel ohne Kapitelnummer
+
+% Führe nur aus, wenn nicht article als document class festgelegt wurde (frontcover.tex)
+\makeatletter
+\@ifclassloaded{article}{}{     
+    \automark[section]{chapter}	%Automatische Kapitelangabe in Kopfzeile
+    \renewcommand*{\chaptermarkformat}{} %Kapitel ohne Kapitelnummer
+}
+\makeatother
+
 \renewcommand*{\sectionmarkformat}{} %Kapitel ohne Kapitelnummer
 \clearpairofpagestyles %aktuelle Einetsllungen aus Kopf- und Fußzeile löschen
 \setkomafont{pageheadfoot}{\small}		%Font für Kopfzeile
@@ -234,7 +236,13 @@ hidelinks
 \usepackage[figurename=Abb., % Beschriftung von Abbildung zu Abb.
 tablename=Tab., % Beschriftung von Tabelle zu Tab.
 labelfont=bf]{caption} %Label in Bold
-\KOMAoptions{numbers = noenddot} % der Punkt hinter den Kapiteln etc wird entfernt: 1.1. wird zu 1.1
+
+% Führe nur aus, wenn nicht article als document class festgelegt wurde (frontcover.tex)
+\makeatletter
+\@ifclassloaded{article}{}{     
+    \KOMAoptions{numbers = noenddot} % der Punkt hinter den Kapiteln etc wird entfernt: 1.1. wird zu 1.1
+}
+\makeatother
 
 
 % ============= Daten Plotten ============= 

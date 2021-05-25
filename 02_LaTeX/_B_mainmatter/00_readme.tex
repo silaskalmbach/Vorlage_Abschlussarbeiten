@@ -34,6 +34,8 @@ Für eine problemlose Kompilierung des \LaTeX-Dokumentes ist es notwendig, einig
 	\item[-] Als Standardcompiler wird LuaLaTeX oder PdfLaTeX empfohlen
 \end{description}
 
+\newpage
+
 \section*{Hinweis zur Abgabe}
 
 \subsection*{Gedrucktes Exemplar}
@@ -76,6 +78,7 @@ Hinweise zu den jeweiligen Abschnitten und dem dazugehörigen LaTeX-Code sind au
 %  .1 JahrNachnameTitelDerArbeit.tex.
  .1 /.
  .2 Jahr\_Nachname\_Titel\_der\_Arbeit.tex.
+ .2 Frontcover.tex.
  .2 \_A\_frontmatter.
      .3 01\_frontcover.
      .3 02\_cover.
@@ -95,15 +98,20 @@ Hinweise zu den jeweiligen Abschnitten und dem dazugehörigen LaTeX-Code sind au
      .3 literatur.bib.
  .2 \_E\_ressources.
      .3 preambel.tex.
+     .3 variables.tex.
      .3 fonts.
      .3 tikz.
 }
 
 \section*{JahrNachnameTitelDerArbeit.tex}
 
-Diese Datei ist der Startpunkt des Dokumentes. Hier werden grundlegende Angaben zur Arbeit (Titel, Betreuer, Prüfer, Abgabedatum..) aufgelistet und die im folgenden aufgelisteten Abschnitte referenziert. 
+Diese Datei ist der Startpunkt des Dokumentes. Hier werden alle im folgenden aufgelisteten Abschnitte referenziert. Um das Gesamtdokument zu erstellen muss diese Datei kompiliert werden.
 
-Um das Gesamtdokument zu erstellen muss diese Datei kompiliert werden.
+\section*{Frontcover.tex}
+
+Referenziert auf den Einband der Arbeit. Um den Einband zu erstellen muss diese Datei kompiliert werden.
+
+\newpage
 
 \section*{frontmatter}
 
@@ -112,9 +120,11 @@ Die Titelei (englisch front matter) bezeichnet die Seiten, die dem eigentlichen 
 \subsection*{frontcover}
 \label{section:_01_frontcover}
 
-Enthält den Einband bzw. das Deckblatt der Arbeit. Keine Anpassungen notwendig.
+Enthält den Einband der Arbeit. Keine Anpassungen notwendig.
 
-Wichtig: Die Datei coverEnvelope.pdf dient enthält den Umschlag zur Einreichung beim Druck der Arbeit im Kopiergeschäft. Am besten im Vorraus mit dem Kopiergeschäft abstimmen wie dick die Arbeit wird, sodass der Rücken des Umschlages die richtige Breite hat. Diese hängt ab von der Anzahl der Seiten, der Dicke des Papiers sowie ob ein- oder doppelseitig gedruckt wird.
+Wichtig: Die Datei Frontcover.pdf dient enthält den Umschlag zur Einreichung beim Druck der Arbeit im Kopiergeschäft. Am besten im Vorraus mit dem Kopiergeschäft abstimmen wie dick die Arbeit wird, sodass der Rücken des Umschlages die richtige Breite hat. Diese hängt ab von der Anzahl der Seiten, der Dicke des Papiers sowie ob ein- oder doppelseitig gedruckt wird. 
+
+Die Breite des Einbandes wird in \nameref{section:_E_ressources_variables} eingestellt.
 
 \subsection*{cover}
 
@@ -179,6 +189,8 @@ Empfohlen wird die Verwaltung und Anfertigung des Literaturverzeichnisses mit de
 
 1. Zotero https://www.zotero.org/
 
+\newpage
+
 \section*{ressources}
 
 Enthält notwendige Einstellungen und Dateien für LaTex.
@@ -186,6 +198,11 @@ Enthält notwendige Einstellungen und Dateien für LaTex.
 \subsection*{preambel.tex}
 
 In der Präambel werden alle für das gesamte Dokument gültigen Formatierungseinstellungen getroffen sowie zusätzlich benötigte Pakete geladen. Keine Anpassungen notwendig.
+
+\subsection*{variables.tex}
+\label{section:_E_ressources_variables}
+
+Enthält alle wichtigen Angaben (Titel, Betreuer, Jahr ..) zur Arbeit. Diese müssen entsprechend angepasst werden sodass Einband und Titelblatt mit den richtigen Informationen erstellt werden.
 
 \subsection*{fonts}
 Enthält die Schriftart der Universität Stuttgart. Aufgrund der Lizenzierung der Schrift dürfen wir die dafür notwendigen Dateien nicht über GitHub zu Verfügung stellen. 

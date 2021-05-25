@@ -1,5 +1,4 @@
 # LaTeX @ILEK
-
 Diese Vorlage dient als grober Leitfaden zu Erstellung der Abschlussarbeit. Die Formatierung ist somit nicht zwingend umzusetzen.
 
 Die Formatierung des Deckblattes sollte, soweit möglich, unverändert bleiben. 
@@ -7,7 +6,6 @@ Die Formatierung des Deckblattes sollte, soweit möglich, unverändert bleiben.
 Von der Gliederung der Arbeit kann abgewichen werden, solang dieses sinnig begründbar ist.
 
 # LaTeX Grundlagen
-
 Um mit LaTeX zu Arbeiten, wird einerseits ein Editor und andererseits eine LaTeX-Distribution benötigt. Der Editor dient hierbei zur Eingabe des LaTeX-Code, die LaTeX-Distribution übersetzt den Code in ein Dokument. 
 
 Beispielsweise kann eine Kombination der folgende Programme verwendet werden:
@@ -29,7 +27,6 @@ Für eine problemlose Kompilierung des \LaTeX-Dokumentes ist es notwendig, einig
 # Hinweis zur Abgabe
 
 ## Gedrucktes Exemplar
-
 In der Regel sollten insgesamt zwei Examplare an das ILEK ausgehändigt werden. Für den Druck gelten die folgenden Empfehlungen:
 
 - Dickeres Papier (z.B. 100-120 g/m²)
@@ -44,13 +41,11 @@ Wichtig bei der Auswahl eines Ein- oder Doppelseitigen Druckes ist das LaTeX-Dok
 Mit diesen Informationen einfach an das Kopiergeschäft herantreten, diese wissen meist was zu tun ist.
 
 ## Digitales Exemplar (PDF)
-
 Hierfür in der main.tex-Datei die Option `<twoside>` auskommentieren (Standarteinstellung).
 
 Bitte die Arbeit in digitaler Form auf einer CD speichern und einem der gedruckten Exemplare beilegen
 
 # Aufbau des Ordners
-
 Der Aufbau des Ordners ist an der Struktur der Abschlussarbeit orientiert. 
 
 Die Ordner und Dateien in denen nicht zwingend Anpassungen vorgenommen werden müssen sind im folgenden gekennzeichnet. Natürlich können diese dennoch angepasst werden.
@@ -58,71 +53,57 @@ Die Ordner und Dateien in denen nicht zwingend Anpassungen vorgenommen werden m�
 Hinweise zu den jeweiligen Abschnitten und dem dazugehörigen LaTeX-Code sind auch in den Kommentaren im Code zu finden!
 
 ## Jahr_Nachname_Titel_der_Arbeit.tex
+Diese Datei ist der Startpunkt des Dokumentes. Hier werden alle im folgenden aufgelisteten Abschnitte referenziert. Um das Gesamtdokument zu erstellen muss diese Datei kompiliert werden.
 
-Diese Datei ist der Startpunkt des Dokumentes. Hier werden grundlegende Angaben zur Arbeit (Titel, Betreuer, Prüfer, Abgabedatum..) aufgelistet und die im folgenden aufgelisteten Abschnitte referenziert. 
-
-Um das Gesamtdokument zu erstellen muss diese Datei kompiliert werden.
-
+## Frontcover.tex
+Referenziert auf den Einband der Arbeit. Um den Einband zu erstellen muss diese Datei kompiliert werden.
 ## _A_frontmatter
-
 Die Titelei (englisch front matter) bezeichnet die Seiten, die dem eigentlichen Inhalt vorangestellt sind.
 
 ### 01_frontcover
-
 Enthält den Einband bzw. das Deckblatt der Arbeit. Keine Anpassungen notwendig.
 
 Wichtig: Die Datei coverEnvelope.pdf dient enthält den Umschlag zur Einreichung beim Druck der Arbeit im Kopiergeschäft. Am besten im Vorraus mit dem Kopiergeschäft abstimmen wie dick die Arbeit wird, sodass der Rücken des Umschlages die richtige Breite hat. Diese hängt ab von der Anzahl der Seiten, der Dicke des Papiers sowie ob ein- oder doppelseitig gedruckt wird.
 
+Die Breite des Einbandes wird in den [Variablen](#variables.tex) eingestellt.
 ### 02_cover
-
 Enthält das Titelblatt der Arbeit. 
 
 ### 03_copyright.tex
-
 Enthält die eidesstattliche Erklärung zur eigenen Anfertigung der Arbeit. Keine Anpassungen notwendig.
 
 ### 04_acknowledgements.tex
-
 Enthält die Danksagung. 
 
 ### 05_assignment
-
 Kann optional auch weggelassen werden. Enthält ein PDF mit der Aufgabenstellung.
 
 ### 06_abstract
-
 Enthält die englische und deutsche Kurzfassung der Arbeit.
 
 ### 07_nomenclature
-
 Enthält Symbole und Abkürzungen die in der Arbeit verwendet werden. Keine Anpassungen notwendig.
 
 Alternativ kann dieser Abschnitt auch ins Backmatter vor das Abbildungsverzeichnis eingefügt werden.
 
 ## _B__mainmatter
-
 Ab hier beginnt der Hauptteil der Abschlussarbeit. Der Aufbau dieses Ordner kann beliebig angepasst werden.
 
 ### 01_examples.tex
-
 Die einzelnen Dateien enthalten Beispiele für Formatierungen von Tabellen, Bildern etc. und dienen als Orientierung.
 
 ### images
-
 Die verwendeten Abbildungen können in diesem Ordner abgelegt werden. Auch der Aufbau dieses Ordner kann beliebig angepasst werden.
 
 ## _C_appendix
-
 Ab hier beginnt der Anhang der Abschlussarbeit. Auch hier gilt das der Aufbau dieses Ordner beliebig angepasst werden kann.
 
 Der Vorschlag für den Aufbau orientiert sich an II_mainmatter.
 
 ## _D_backmatter
-
 Ab hier beginnet der Schlussteil der Arbeit.
 
 ### references.tex
-
 Enthält das Abbildungs-, Tabellen- und Literaturverzeichnis. 
 
 ### literatur.bib
@@ -136,12 +117,13 @@ Empfohlen wird die Verwaltung und Anfertigung des Literaturverzeichnisses mit de
 1. Zotero https://www.zotero.org/
 
 ## _E_ressources
-
 Enthält notwendige Einstellungen und Dateien für LaTex.
 
 ### preambel.tex
-
 In der Präambel werden alle für das gesamte Dokument gültigen Formatierungseinstellungen getroffen sowie zusätzlich benötigte Pakete geladen. Keine Anpassungen notwendig.
+
+### variables.tex
+Enthält alle wichtigen Angaben (Titel, Betreuer, Jahr ..) zur Arbeit. Diese müssen entsprechend angepasst werden sodass Einband und Titelblatt mit den richtigen Informationen erstellt werden.
 
 ### fonts
 Enthält die Schriftart der Universität Stuttgart. Aufgrund der Lizenzierung der Schrift dürfen wir die dafür notwendigen Dateien nicht über GitHub zu Verfügung stellen. 

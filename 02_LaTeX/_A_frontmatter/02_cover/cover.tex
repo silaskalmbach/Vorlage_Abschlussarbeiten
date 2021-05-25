@@ -11,13 +11,13 @@
 	\end{minipage}
 	\begin{minipage}[t]{70mm}
 		\begin{flushleft}
-			{\fontsize{14}{20}\sffamily{\arbeit}}
+			{\fontsize{14}{20}\sffamily{\MakeUppercase{\TypDerArbeit}}}
 			%{\large\textsf\arbeit}
 		\end{flushleft}	
 	\end{minipage}
 	\begin{minipage}[t]{33mm}
 		\begin{flushright}
-			{\fontsize{14}{20}\sffamily{\Nummer}~|~\textsf{\EndeJahr}}
+			{\fontsize{14}{20}\sffamily{\NummerDerArbeit}~|~\textsf{\EndeJahr}}
 		\end{flushright}
 	\end{minipage}
 	%------------------------------------------------------------
@@ -31,52 +31,48 @@
 	\hspace{60mm}
 	\begin{minipage}[c]{105mm}
 		\begin{minipage}[t][4cm][c]{\textwidth}
-			\LARGE{\textsf{\titel}}
+			\LARGE{\textbf{\TitelDerArbeit}}
 		\end{minipage}
 		\hspace{0mm} 
 		
 		\vspace{5mm}
 		\hspace{-3.0mm} 
 		\begin{tabular}{p{2.5cm}l}
-			\fontsize{12}{20}\textsf{Bearbeiter:}&\textsf{\student} \\
+			\textsf{Bearbeiter:}&\textsf{\StudentVorname\:\StudentNachname} \\
 		\end{tabular}
 		
 		\vspace{5mm}
 		\hspace{-3.0mm} 
 		\begin{tabular}{p{2.5cm}l}
-			\fontsize{12}{20}\textsf{Betreuer:}&\textsf{\betreuer} \\ 
+			\textsf{Betreuer:}&\textsf{\Betreuer} \\ 
 		\end{tabular}
 		
 		\vspace{5mm}
 		\hspace{-3.0mm} 
 		\begin{tabular}{p{2.5cm}l}
-			\fontsize{12}{20}\textsf{Prüfer:}&\textsf{\pruefer}	\\
+			\textsf{Prüfer:}&\textsf{\Pruefer}	\\
 		\end{tabular}
 		
 		\vspace{11mm}
-		\fontsize{12}{20}\textsf{\EndeMonatTxt~\EndeJahr}
-		
+		\textsf{\EndeMonat~\EndeJahr}
 		
 		\begin{minipage}[t][10.5cm][c]{\textwidth}
 			\includegraphics[width=1.0\textwidth]{Titelbild.jpg}
 		\end{minipage}
 		
+		\vspace{10mm}
 		
-		\begin{minipage}[c]{12mm}
+		\begin{minipage}[c]{4\baselineskip}
 			\vspace{-1mm}
-			\includegraphics[width=10mm]{unistuttgart_logo_de.jpg}
+			\includegraphics[height=3.5\baselineskip]{unistuttgart_logo_de.jpg}
 		\end{minipage}
-		\begin{minipage}[c]{60mm}
-			\fontsize{12}{20}\textsf{Universität Stuttgart}
+		\begin{minipage}[c]{90mm}
+			\small \textsf{Universität Stuttgart} \\
+    		\small \textsf{\Institut} \\
+    		\small \textsf{\ProfEins} \\
+    		\small \textsf{\ProfZwei} 
 		\end{minipage}
-		
-		\fontsize{12}{20}
-		\vspace{3mm}
-		\textsf{\institut} \\
-		\textsf{\profEins} \\
-		\textsf{\profZwei} \\
-		\textsf{\profDrei} 
-		
+
 	\end{minipage}
 	\cleardoublepage
 \end{titlepage}

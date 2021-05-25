@@ -4,7 +4,6 @@
 %Created:      2021-03-10
 %------------------------------------------------------------------------------
 
-
 % ============= Einstellungen zur Arbeit =============
 
 \documentclass[%
@@ -15,27 +14,22 @@
     headings=openright	% Einfügen von Leerseiten
 ]{scrbook}              % Dokumentenklasse: KOMA-Script Book
 
+% ============= Einstellungen zum Kompilieren =============
+
 \def\tikzextern{0} % 0 = Nein; 1 = Ja (TikZ Grafiken extern Speichern)
 \def\mintedinstall{0} % 0 = Nein; 1 = Ja; Um Minted zu nutzen muss Python und Pygments installiert sein. Alternative: listings
 
-% ============= Angaben zur Arbeit =============
+% ============= Randabstände =============
 
-\newcommand{\titel}{Xxxxx Xxxxx Xxxxx Xxxxx Xxxxx Xxxxx Xxxxx Xxxxx Xxxxx Xxxxx Xxxxx} % Hier den Titel der Arbeit angeben 
-\newcommand{\arbeit}{MASTERARBEIT} % Hier die Art der Abschlussarbeit eingeben in Großbuchstaben 
-\newcommand{\Nummer}{XX} % Nummerrierung der Arbeit (mit Berteurer zu klären)
-\newcommand{\EndeMonatTxt}{Xxxxx} % Angabe des Monates der Abgabe als Wort
-\newcommand{\EndeJahr}{20XX} % Angabe des Jahres der Abgabe
-\newcommand{\betreuer}{Xxxxx Xxxxx} % Hier den Betreuer der Arbeit angeben
-\newcommand{\pruefer}{Xxxxx Xxxxx} % Hier den Prüfer der Arbeit angeben 
-\newcommand{\student}{Xxxxx Xxxxx} %Hier den Studierendenname der Arbeit angeben 
-\newcommand{\profEins}{Prof. Dr.-Ing. M.Arch. Lucio Blandini} % Hier den Professor1 des Instituts angeben 
-\newcommand{\profZwei}{Prof. Dr.-Ing. Dr.-Ing. E.h. Dr. h.c. Werner Sobek} % Hier den Professor2 des Instituts angeben 
-\newcommand{\profDrei}{Prof. Dr.-Ing. Balthasar Nov\'{a}k} % Hier den Professor3 des Instituts angeben 
-\newcommand{\institut}{Institut f{\"u}r Leichtbau Entwerfen und Konstruieren} % Hier das Institut angeben
+\usepackage[left= 2.5cm, right = 2cm, top=2.5cm]{geometry}
 
 % ============= Präambel einbinden ============= 
 
-\include{_E_ressources/preambel} % Import relvenanter Einstellungen und Abhängigkeiten
+% Variablen einbinden
+\input{_E_ressources/variables}
+
+% Preambel einbinden
+\input{_E_ressources/preambel}
 
 % ============= Besondere Trennungen ============= 
 
@@ -100,12 +94,8 @@
 \include{_C_appendix/01_bsp}
 
 % ============= Backmatter =============
+\backmatter
 
-\printbibliography[title=Literaturverzeichnis] %Literaturverzeichnis
-\addcontentsline{toc}{chapter}{Literaturverzeichnis}
-
-\listoffigures %Verzeichnis aller Bilder
-
-\listoftables %Verzeichnis aller Tabellen
+\include{_D_backmatter/references}
 
 \end{document}
