@@ -33,7 +33,9 @@ In der Regel sollten insgesamt zwei Examplare an das ILEK ausgehändigt werden. 
 - Softcover mit Kaltleimbindundung
 - Für den Einband sollte der [Umschlag](#01_frontcover) verwendet werden 
 
-Wichtig bei der Auswahl eines Ein- oder Doppelseitigen Druckes ist das LaTeX-Dokument entsprechend anzupassen. Dadurch werden die Seitenränder und Seitenzahl korrekt ausgerichtet.
+Die Auswahl eines ein- oder doppelseitigen Druckes richtet sich nach der Seitenzahl. Bis ca. 50 Seiten wird ein einseitiger Druck empfohlen, darüber hinaus ein doppelseitiger.
+
+Wichtig bei der Auswahl eines ein- oder doppelseitigen Druckes ist das LaTeX-Dokument entsprechend anzupassen. Dadurch werden die Seitenränder und Seitenzahl korrekt ausgerichtet.
 
 - Doppelseitiger Druck: In der main.tex-Datei die Option `<twoside>` auswählen
 - Einseitiger Druck: In der main.tex-Datei die Option `<twoside>` auskommentieren (Standarteinstellung)
@@ -43,7 +45,7 @@ Mit diesen Informationen einfach an das Kopiergeschäft herantreten, diese wisse
 ## Digitales Exemplar (PDF)
 Hierfür in der main.tex-Datei die Option `<twoside>` auskommentieren (Standarteinstellung).
 
-Bitte die Arbeit in digitaler Form auf einer CD speichern und einem der gedruckten Exemplare beilegen
+Bitte die Arbeit in digitaler Form auf einer CD speichern und einem der gedruckten Exemplare beilegen. Die CD sollte ebenso das LaTeX-Dokument, alle Abbildung und die während der Arbeit erstellten Berechnungen (bswp. in Form von Excel-Tabellen, Programmcode oder FE-Berechnungen ohne Ergebnisse) enthalten.
 
 # Aufbau des Ordners
 Der Aufbau des Ordners ist an der Struktur der Abschlussarbeit orientiert. 
