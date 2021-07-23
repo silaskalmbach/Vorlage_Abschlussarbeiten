@@ -16,6 +16,12 @@ hidelinks
 	pdfkeywords={}
 }
 
+% Seems not to work, should underline links 
+\hypersetup{%
+  colorlinks=false,         % hyperlinks will be black
+  linkbordercolor={1 1 1},  % hyperlink borders will be black
+  pdfborderstyle={/S/U/W 1} % border style will be underline of width 1pt
+}
 
 % ============= Farbschema =============
 
@@ -45,6 +51,7 @@ hidelinks
 	\usepackage[utf8]{inputenc} %Schriftkodierung PDFLaTeX
 \fi
 
+\usepackage{fancyvrb} % Sophisticated verbatim text
 \usepackage[english, ngerman]{babel} %Sprachen
 \usepackage{graphicx} %Einbinden von Bildern
 \usepackage{amsfonts} % zusätzliche Schriftzeichen der American Mathematical Society
