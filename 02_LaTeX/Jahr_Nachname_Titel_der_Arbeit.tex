@@ -1,6 +1,7 @@
 %------------------------------------------------------------------------------
 %Description:  LaTeX Thesis Template main file
 %Author:       silas.kalmbach@ilek.uni-stuttgart.de
+%              benedikt.strahm@ilek.uni-stuttgart.de
 %Created:      2021-03-10
 %------------------------------------------------------------------------------
 
@@ -47,7 +48,7 @@
 
 \pagestyle{empty} %Seiten ohne Kopf- und Fußzeile sowie Seitenzahl
 
-\include{_A_frontmatter/02_cover/cover}
+\input{_A_frontmatter/02_cover/cover}
 
 \restoregeometry
 
@@ -57,11 +58,11 @@
 \pagestyle{plain.scrheadings} % Leere Kopf- und Fußzeilen
 \pagenumbering{Roman} % Römische Seitenzahlen verwenden
 
-\include{_A_frontmatter/03_copyright/copyright}
-\include{_A_frontmatter/04_acknowledgements/acknowledgements}
-\include{_A_frontmatter/05_assignment/assignment}
-\include{_A_frontmatter/06_abstract/abstract}
-\include{_A_frontmatter/07_nomenclature/nomenclature}
+\input{_A_frontmatter/03_copyright/copyright}
+\input{_A_frontmatter/04_acknowledgements/acknowledgements}
+\input{_A_frontmatter/05_assignment/assignment}
+\input{_A_frontmatter/06_abstract/abstract}
+\input{_A_frontmatter/07_nomenclature/nomenclature}
 
 \setcounter{tocdepth}{1}    % Inhaltsverzeichnis bis Ebene "Sections"
 \tableofcontents            % Inhaltsverzeichnis
@@ -78,15 +79,15 @@
 \graphicspath{{_B_mainmatter/images/}}
 
 % Hier eigene Kapitel einsetzen
-\include{_B_mainmatter/00_readme}   % Readme
-\include{_B_mainmatter/01_bsp}      % Grundlagen
-\include{_B_mainmatter/02_bsp}      % Tabellen
-\include{_B_mainmatter/03_bsp}      % Abbildungen
-\include{_B_mainmatter/04_bsp}      % Formeln
-\include{_B_mainmatter/05_bsp}      % Nomenklatur
-\include{_B_mainmatter/06_bsp}      % Erweiterte Formatierung
-\include{_B_mainmatter/07_bsp}      % Farbschema
-\include{_B_mainmatter/08_bsp}      % Programmcode
+\input{_B_mainmatter/00_readme}   % Readme
+\input{_B_mainmatter/01_bsp}      % Grundlagen
+\input{_B_mainmatter/02_bsp}      % Tabellen
+\input{_B_mainmatter/03_bsp}      % Abbildungen
+\input{_B_mainmatter/04_bsp}      % Formeln
+\input{_B_mainmatter/05_bsp}      % Nomenklatur
+\input{_B_mainmatter/06_bsp}      % Erweiterte Formatierung
+\input{_B_mainmatter/07_bsp}      % Farbschema
+\input{_B_mainmatter/08_bsp}      % Programmcode
 
 % ============= Appendix =============
 \appendix
@@ -94,11 +95,11 @@
 \addappheadtotoc
 \appendixpage
 
-\include{_C_appendix/01_bsp}
+\input{_C_appendix/01_bsp}
 
 % ============= Backmatter =============
 \backmatter
 
-\include{_D_backmatter/references}
+\input{_D_backmatter/references}
 
 \end{document}
