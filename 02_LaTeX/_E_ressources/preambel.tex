@@ -13,14 +13,17 @@ hidelinks
 	pdfauthor={\StudentVorname \StudentNachname}, 
 	pdftitle={\TitelDerArbeit},
 	pdfsubject={\TypDerArbeit}, 
-	pdfkeywords={}
-}
-
-% Seems not to work, should underline links 
-\hypersetup{%
-  colorlinks=false,         % hyperlinks will be black
-  linkbordercolor={1 1 1},  % hyperlink borders will be black
-  pdfborderstyle={/S/U/W 1} % border style will be underline of width 1pt
+	pdfkeywords={},
+	colorlinks=true, %Einfärben statt der Box
+	citecolor=blue,
+	linkcolor=black,
+	urlcolor=blue
+%	linkbordercolor={1 1 1},
+%	urlbordercolor={0 0.25 0.56},
+%	citebordercolor={1 1 1},
+%	menubordercolor={1 1 1},
+%	filebordercolor={1 1 1},
+%	citebordercolor={1 1 1}
 }
 
 % ============= Farbschema =============
@@ -115,7 +118,9 @@ hidelinks
 
 \usepackage{multirow}						% ermoeglicht mehrere Zeilen in einer Tabellenzeile
 \usepackage{multicol} 						% mehre Spalten auf eine Seite
-\usepackage{longtable, tabu}				% alternatives Tabellenpackage inkl. longtabu und Farben
+
+\usepackage{longtable}[=v4.13]				% alternatives Tabellenpackage inkl. longtabu und Farben
+\usepackage{tabu}
 \usepackage{float}							% um [H] bei float Objekten verwenden zu können
 \usepackage{booktabs}						% um \toprule, \midrule und \bottomrule verwenden zu können
 \usepackage{tabularx}
@@ -262,7 +267,7 @@ labelfont=bf]{caption} %Label in Bold
 \else
 	\usepackage{shellesc} % Notwendig für LuaLaTeX
 	\usetikzlibrary{shapes, arrows, positioning, calc, chains, scopes, external}
-	\tikzexternalize[prefix=tikz/,optimize command away=\includepdf] % activate and define tikz/ as cache folder
+	\tikzexternalize[prefix=_E_ressources/tikz/,optimize command away=\includepdf] % activate and define tikz/ as cache folder
 \fi
 
 \usepackage{pgfplots}  %Kurven, Graphen
@@ -283,10 +288,9 @@ labelfont=bf]{caption} %Label in Bold
 % ============= Abkürzungen, Glossare ============= 
 \usepackage[%
 	nonumberlist, 			% keine Seitenzahlen anzeigen
-	acronym,      			% ein Abkürzungsverzeichnis erstellen
 	toc,          			% Einträge im Inhaltsverzeichnis
 	section,    			% im Inhaltsverzeichnis auf section-Ebene erscheinen
-    xindy,					% xindy zum Indexieren verwenden
+    xindy={language=german-duden,codepage=utf8}, % xindy zum Indexieren verwenden -> Muss vorher installiert werden (https://www.activestate.com/products/perl/)
     % xindy={language=german,codepage=duden-utf8}, Falls Fehler bzgl. Sprache auftreten
     acronym,				% Separates Akronym-Verzeichnis
     nopostdot,				% Kein Punkt am Ende einer Beschreibung im Glossar
@@ -375,7 +379,7 @@ labelfont=bf]{caption} %Label in Bold
       afterskip=.1\baselineskip]{subsection}
     
     % ============= Formatierung Inhaltsverzeichnis =============  
-    
+\if 1\tocstyle    
     % Format des TOC
     % Titelleiste "Inhaltsverzeichnis"
     \BeforeTOCHead[toc]{%
@@ -399,5 +403,6 @@ labelfont=bf]{caption} %Label in Bold
     % Keine punktierten Linien im Abbildungs-/Tabellenverzeichnis
     \DeclareTOCStyleEntry[linefill=\hfill]{default}{figure}
     \DeclareTOCStyleEntry[linefill=\hfill]{default}{table}
+\fi
 }
 \makeatother
