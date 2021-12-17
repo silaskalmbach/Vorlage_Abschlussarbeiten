@@ -1,5 +1,5 @@
 % ============= Einstellungen zur Arbeit =============
-\documentclass{article}
+\documentclass[fontsize=11pt]{scrartcl}
 
 % ============= Einstellungen zum Kompilieren =============
 
@@ -8,11 +8,11 @@
 
 % Variablen einbinden
 \input{_E_ressources/variables}
-
-% Preambel einbinden
+%
+%% Preambel einbinden
 \input{_E_ressources/preambel}   
-
- % Zeilenabstand zurücksetzen
+%
+% % Zeilenabstand zurücksetzen
 \setstretch{1.00}
 
 % ============= Farbschema =============
@@ -21,8 +21,9 @@
     paperheight=\bookCoverHeight mm,
     paperwidth=\bookCoverWidth mm,
     margin=0 mm,
-    heightrounded,
-    showframe]{geometry}
+%    heightrounded,
+%    showframe
+    ]{geometry}
 
 % begin the document and suppress page numbers
 \begin{document}
@@ -33,7 +34,7 @@
 \setlength{\parskip}{7pt} %Absatzabstand
 
 % Update graphicspath to image folder
-\graphicspath{{_A_frontmatter/02_cover/images/}}
+%\graphicspath{{./}}
 
 \begingroup%
     \makeatletter%

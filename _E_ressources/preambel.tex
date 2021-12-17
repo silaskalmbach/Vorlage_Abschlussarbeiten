@@ -132,6 +132,12 @@ hidelinks
 \usepackage{rotating} %Rotieren von Tabellen
 \usepackage{bigstrut} %Für Tabellen mit Vertikalen Linien
 
+
+% ============= Standart Einstellungen der Pfade =============
+
+\graphicspath{{./_A_frontmatter/02_cover/images}{./_B_mainmatter/images/}} %Bilderordner
+
+
 % ============= Schriftarten =============
 
 \ifluatex
@@ -162,17 +168,19 @@ hidelinks
     	\usepackage[italic, symbolgreek]{mathastext} % Formeln in Sans-Serif
     	\renewcommand\familydefault\rmdefault % Formeln in Sans-Serif
     }{
-    	\usepackage[T1]{fontenc} %Richtige Trennung von Umlauten
-    	\usepackage[scale=0.87]{tgheros}
-    % 	\usepackage{fourier}
-    	\renewcommand\familydefault\sfdefault % alles in Sans-Serif
-    	\usepackage[italic, symbolgreek]{mathastext} % Formeln in Sans-Serif
+		\usepackage[no-math]{fontspec}
+		\setmainfont{Arial}
+		
+		\addtokomafont{disposition}{\rmfamily} %Überschriften selbe Schriftart wie Text
+		\renewcommand\familydefault\sfdefault % Formeln in Sans-Serif
+		\usepackage[italic, symbolgreek]{mathastext} % Formeln in Sans-Serif
+		\renewcommand\familydefault\rmdefault % Formeln in Sans-Serif
     }
 
 \else
 %% ============= PDF-LaTeX =============
 	\usepackage[T1]{fontenc} %Richtige Trennung von Umlauten
-	\usepackage[scale=0.87]{tgheros}
+	\usepackage[scale=1]{tgheros}
 %	\usepackage{fourier}
 	\renewcommand\familydefault\sfdefault % alles in Sans-Serif
 	\usepackage[italic, symbolgreek]{mathastext} % Formeln in Sans-Serif
@@ -194,7 +202,7 @@ hidelinks
 
 % Führe nur aus, wenn nicht article als document class festgelegt wurde (frontcover.tex)
 \makeatletter
-\@ifclassloaded{article}{}{     
+\@ifclassloaded{scrartcl}{}{     
     \automark[section]{chapter}	%Automatische Kapitelangabe in Kopfzeile
     \renewcommand*{\chaptermarkformat}{} %Kapitel ohne Kapitelnummer
 }
@@ -251,7 +259,7 @@ labelfont=bf]{caption} %Label in Bold
 
 % Führe nur aus, wenn nicht article als document class festgelegt wurde (frontcover.tex)
 \makeatletter
-\@ifclassloaded{article}{}{     
+\@ifclassloaded{scrartcl}{}{     
     \KOMAoptions{numbers = noenddot} % der Punkt hinter den Kapiteln etc wird entfernt: 1.1. wird zu 1.1
 }
 \makeatother
@@ -284,8 +292,8 @@ labelfont=bf]{caption} %Label in Bold
 
 \newlength{\figureheight} %Eigene Vatiable für Längen
 \newlength{\figurewidth} %Eigene Vatiable für Längen
-
-% ============= Abkürzungen, Glossare ============= 
+%
+%% ============= Abkürzungen, Glossare ============= 
 \usepackage[%
 	nonumberlist, 			% keine Seitenzahlen anzeigen
 	toc,          			% Einträge im Inhaltsverzeichnis
@@ -351,7 +359,7 @@ labelfont=bf]{caption} %Label in Bold
 % ============= Formatierung Überschriften =============
 % Führe folgendes nur aus, wenn nicht article als document class festgelegt wurde (frontcover.tex)
 \makeatletter
-\@ifclassloaded{article}{}{%
+\@ifclassloaded{scrartcl}{}{%
     % Change chapter fontsize
     \setkomafont{chapter}{\LARGE}
     

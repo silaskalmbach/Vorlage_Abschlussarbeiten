@@ -272,6 +272,7 @@ samples=101
 	\caption[Photometrische Regelung der adaptiven Verglasung im Juli 2018, nach 500 Episoden]{Photometrische Regelung der adaptiven Verglasung nach 500 Episoden, für den Zeitraum vom 01. bis 07. Juli 2018} \label{fig:05_AVPhJun500}	
 \end{figure}
 
+\ifLuaTeX %PDFLaTeX kommt beim internen Speichermanagement schnell an seine grenzen, weshalb dieser Plot nur beim Kompilieren in LuaLaTeX angezeigt wird.
 \subsubsection{Einbeziehung von Daten aus CSV-Datei und Gruppierung von Grafiken}
 
 \begin{figure}[htb]
@@ -314,3 +315,4 @@ samples=101
 	\end{tikzpicture}
 	\caption[Kombinierte Regelung im Januar 2018, nach 500 Episoden]{Kombinierte Regelung nach 500 Episoden, für den Zeitraum vom 01. bis 07. Januar 2018} \label{fig:05_KomJan18}	
 \end{figure}
+\fi
