@@ -1,0 +1,205 @@
+% ============= Einstellungen zur Arbeit =============
+\documentclass[fontsize=11pt]{scrartcl}
+
+
+% Variablen einbinden
+%\input{00_ressources/variables}
+\input{../../_E_ressources/variables}
+
+
+% ============= Einstellungen zum Kompilieren =============
+\usepackage[%
+paperheight=\bookCoverHeight mm,
+paperwidth=\bookCoverWidth mm,
+left= 0cm, right = 0cm, top=0cm, bottom=0cm,
+showframe
+]{geometry}
+
+% Zeilenabstand zurücksetzen
+\usepackage{setspace}
+\setstretch{1.00}
+
+% Update graphicspath to image folder
+\usepackage{graphicx} %Einbinden von Bildern
+%\graphicspath{{./01_images/}{./01_images/Titelseite/}} %Bilderordner
+\graphicspath{{../../_E_ressources/images}} %Bilderordner
+\usepackage{color}      %Verwendung von Farben
+\usepackage{xcolor}		%Definition eigener Farben
+
+% Uni Stuttgart Colors
+\definecolor{uniSlightblue}{RGB}{0,190,255}
+\definecolor{uniSdarkblue}{RGB}{0,65,145}
+\definecolor{uniSdarkgrey}{RGB}{62, 68, 76}
+\definecolor{uniSgreyblue}{RGB}{125,198,234}
+\definecolor{uniSgrey}{RGB}{159,153,152}
+
+% Uni Stuttgart monochrom greyscale
+\definecolor{uniSblack}{RGB}{0,0,0}
+\definecolor{uniSdarkgrey}{RGB}{62,68,76}
+\definecolor{uniSgrey}{RGB}{159,153,152}
+\definecolor{uniSlightgrey}{RGB}{185,186,187}
+
+\usepackage{setspace}
+
+\usepackage{ifluatex}
+\ifluatex
+\usepackage[utf8]{luainputenc} %Schriftkodierung LuaLaTeX
+\else
+\usepackage[utf8]{inputenc} %Schriftkodierung PDFLaTeX
+\fi
+
+
+% ============= Schriftarten =============
+
+\ifluatex
+
+\openin15=00_ressources/fonts/UniversforUniS55Rm-Regular.ttf   % TeX primitive level % \IfFileExists{filename}{true-branch}{false-branch} %LaTeX -> geht auch 15 ist eine Variable/Beschreibung
+\ifeof15           %... file does not exist
+
+\usepackage[no-math]{fontspec}
+\setmainfont{Arial}
+
+\addtokomafont{disposition}{\rmfamily} %Überschriften selbe Schriftart wie Text
+\renewcommand\familydefault\sfdefault % Formeln in Sans-Serif
+\usepackage[italic, symbolgreek]{mathastext} % Formeln in Sans-Serif
+\renewcommand\familydefault\rmdefault % Formeln in Sans-Serif
+
+\else\closein15    %... file exists
+
+%% ============= Lua-LaTeX =============
+\usepackage[no-math]{fontspec} 
+\setmainfont{UniversforUniS}[
+Extension      = .ttf,
+Path           = 00_ressources/fonts/,
+UprightFont    = *55Rm-Regular,
+ItalicFont     = *45LtObl-Rg,
+BoldFont       = *65Bd-Regular,
+BoldItalicFont = *45LtObl-Rg,
+]
+\setsansfont{UniversforUniS}[
+Extension      = .ttf,
+Path           = 00_ressources/fonts/,
+UprightFont    = *55Rm-Regular,
+ItalicFont     = *45LtObl-Rg,
+BoldFont       = *65Bd-Regular,
+BoldItalicFont = *45LtObl-Rg,
+]
+%\setmonofont{}[]
+\addtokomafont{disposition}{\rmfamily} %Überschriften selbe Schriftart wie Text
+\renewcommand\familydefault\sfdefault % Formeln in Sans-Serif
+\usepackage[italic, symbolgreek]{mathastext} % Formeln in Sans-Serif
+\renewcommand\familydefault\rmdefault % Formeln in Sans-Serif
+\fi
+
+\else
+%% ============= PDF-LaTeX =============
+\usepackage[T1]{fontenc} %Richtige Trennung von Umlauten
+\usepackage[scale=1]{tgheros}
+%	\usepackage{fourier}
+\renewcommand\familydefault\sfdefault % alles in Sans-Serif
+\usepackage[italic, symbolgreek]{mathastext} % Formeln in Sans-Serif
+\fi
+
+% begin the document and suppress page numbers
+\begin{document}
+	
+	\pagestyle{empty} 
+	
+	\begingroup%
+	\makeatletter%
+	% Conversion of pt to mm
+	% #1: macro, which gets the result of the conversion without unit
+	% #2: length expression
+	\newcommand*{\converttomm}[2]{%
+		\edef#1{%
+			\strip@pt\dimexpr(#2)*2540/7227\relax % 72.27 pt = 1 in = 25.4 mm
+		}%
+	}
+	\makeatother%
+	
+	% Folgende Maßeinheiten in mm
+	\setlength{\unitlength}{1mm}
+	
+	\noindent\begin{picture}(\bookCoverWidth,\bookCoverHeight)(0,0)
+		\converttomm{\fiveBaselineskip}{5.25\baselineskip}%
+		
+		% Prinzipielle Strategie: Mittels \put{x,y} [ab Eckpunkt unten links, Angaben in mm] die untere Linke Ecke einer Box erstellen. 
+		% Mittels \makebox(Breite,Höhe) eine Box zwischen den Hilfslinien erstellen. Kann bspw. mit \framebox angezeigt werden.
+		% In der Box dann Text und Bilder vertikal zentriert ausrichten
+		% Die Positions ist abhängig von der Dicke des Buchrückens gesetzt (Siehe x-Koordinaten)
+		
+		% ILEK Logo Vorderseite
+		\put(\numexpr\standardPageWidth + \spineWidth + 140\relax, 227){
+			\makebox(0,45)[lc]{%
+				\includegraphics[height=10mm]{ILEK-logo.jpg}
+		}}
+		
+		% ILEK Logo Rückseite
+		\put(28,227){
+			\makebox(0,45)[lc]{%
+				\includegraphics[height=10mm]{ILEK-logo}
+		}}
+		
+		% Logo Uni Stuttgart und Beschriftung
+		\put(\numexpr\standardPageWidth + \spineWidth + 20\relax,30){
+			\makebox(0,25)[lc]{%
+				\includegraphics[height=4.2\baselineskip]{unistuttgart_logo_de}
+		}}
+		
+		\put(\numexpr\standardPageWidth + \spineWidth + 20\relax,30){% Position Text
+			\put(\fiveBaselineskip,0){% 5x Texthöhe hinzufügen
+				\makebox(0,25)[lc]{%
+					\begin{tabular}{l}
+						{\small \Institut} \\ 
+						{\small \ProfEins} \\
+						{\small \ProfZwei} \\
+						{\small Universität Stuttgart}
+					\end{tabular}
+		}}}
+		
+		% Beschriftung des Buchrückens
+		\put(\numexpr\standardPageWidth + \spineWidth / 2\relax, 42.5){% Position Text
+			\rotatebox{90}{\makebox(0,0)[c]{
+					\MakeUppercase{\EndeJahr~|~\NummerDerArbeit}
+			}}
+		}%
+		
+		\put(\numexpr\standardPageWidth + \spineWidth / 2\relax, 60.0){% Position Text
+			\rotatebox{90}{\makebox(0,0)[l]{%
+					\MakeUppercase{\StudentNachname\:-\:\TitelDerArbeit}
+			}}
+		}%
+		
+		\put(\numexpr\standardPageWidth + \spineWidth / 2\relax, 249.5){% Position Text
+			\rotatebox{90}{\makebox(0,0)[c]{%
+					\MakeUppercase{\TypDerArbeit}
+			}}
+		}%
+		
+		% Horizontale Linien hinzufügen
+		\put(0,30){\color{uniSgrey}\rule{\textwidth}{1pt}}
+		\put(0,55){\color{uniSgrey}\rule{\textwidth}{1pt}}
+		\put(0,227){\color{uniSgrey}\rule{\textwidth}{1pt}}
+		\put(0,272){\color{uniSgrey}\rule{\textwidth}{1pt}}
+		
+		% Hilfslinien für den Buchrücken, bei Bedarf einblenden
+		% \put(\standardPageWidth,0){\rule{.4pt}{\paperheight}}
+		% \put(\numexpr\spineWidth + \standardPageWidth\relax,0){\rule{.4pt}{\paperheight}}
+		
+		% Titel
+		\doublespacing
+		\put(\numexpr\standardPageWidth + \spineWidth + 20\relax, 55){% Position Text
+			\makebox(0,172)[lc]{%
+				% \begin{tabular}[t]{l{\baselineskip} l}
+				\begin{tabular}{p{120mm}}  
+					\textbf{{\LARGE \TitelDerArbeit}} \\ 
+					\StudentVorname \: \StudentNachname \\
+					\\ \\ 
+					\TypDerArbeit\\
+					\EndeMonat \: \EndeJahr
+				\end{tabular}
+		}}
+		
+	\end{picture}%
+	\endgroup%
+\end{document}

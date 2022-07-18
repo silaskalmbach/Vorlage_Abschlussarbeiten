@@ -137,7 +137,7 @@ hidelinks
 
 % ============= Standart Einstellungen der Pfade =============
 
-\graphicspath{{./_A_frontmatter/02_cover/images}{./_B_mainmatter/images/}} %Bilderordner
+\graphicspath{{./_E_ressources/images}{./_B_mainmatter/images/}{./_C_appendix/images/}} %Bilderordner
 
 
 % ============= Schriftarten =============
@@ -241,7 +241,7 @@ hidelinks
     % sorting=none,			% Keine Sortierung des Verzeichnisses
 ]{biblatex}	
 
-\addbibresource{_D_backmatter/literatur.bib} %Bibliographiedateien laden
+\addbibresource{_E_ressources/literatur.bib} %Bibliographiedateien laden
 
 \urlstyle{same}	% url Schriftart anpassen auf die des Dokuments anpassen
 \usepackage{xpatch}% author in bold font in bibliography
@@ -295,63 +295,68 @@ labelfont=bf]{caption} %Label in Bold
 \newlength{\figureheight} %Eigene Vatiable für Längen
 \newlength{\figurewidth} %Eigene Vatiable für Längen
 %
-%% ============= Abkürzungen, Glossare ============= 
-\usepackage[%
-	nonumberlist, 			% keine Seitenzahlen anzeigen
-	toc,          			% Einträge im Inhaltsverzeichnis
-	section,    			% im Inhaltsverzeichnis auf section-Ebene erscheinen
-%    xindy={language=german-duden,codepage=utf8}, % xindy zum Indexieren verwenden -> Perl.exe muss vorher installiert werden (https://www.activestate.com/products/perl/) Weitere Informationen unter http://tug.ctan.org/tex-archive/macros/latex/contrib/glossaries/glossariesbegin.html#x1-50011
-    acronym,				% Separates Akronym-Verzeichnis
-    nopostdot,				% Kein Punkt am Ende einer Beschreibung im Glossar
-    automake=immediate
-]{glossaries}
 
-% Glossare & Abkürzungsverzeichnisse:
-% Hier ergänzen sollten weitere Glossare erstellt werden
-
-\newglossary[lug]{lat_upp}{lus}{luo}{Latin upper case letters}              % Big Latin Letters
-\newglossary[llg]{lat_low}{lls}{llo}{Latin lower case letters}         		% Small Latin Letters
-\newglossary[gug]{gre_upp}{gus}{guo}{Greek upper case letters}              % Big Greek Letters
-\newglossary[glg]{gre_low}{gls}{glo}{Greek lower case letters}         		% Small Greek Letters         	
-\newglossary[mog]{math_op}{mos}{moo}{Mathematical Operators}               	% Mathematical Operators
-
-\makeglossaries
-
-% Dateien die die Definitionen der Glossare enthalten
-\input{_A_frontmatter/07_nomenclature/_abbreviations}
-\input{_A_frontmatter/07_nomenclature/_symbols}
-
-% Stil der Glossare
-\setacronymstyle{short-long}
-
-\newglossarystyle{abbreviation}{%
-	\setglossarystyle{super}%
-	\renewcommand{\glsgroupskip}{}					% Do not group items
-	\renewcommand{\glsnamefont}[1]{\textbf{##1}}	% Make abbreviation bold
-	\renewcommand*{\arraystretch}{1.0}				% Distance between entries
-}
-
-\newglossarystyle{symbols}{%
-	\setglossarystyle{super}%
-	\renewcommand{\glsgroupskip}{}								% Do not group items
-	\renewcommand{\glsnamefont}[1]{\textbf{##1}}				% Make abbreviation bold
-	\renewcommand*{\arraystretch}{1.0}							% Distance between entries
-}
+\if 1\autonomenclature
+	%% ============= Abkürzungen, Glossare ============= 
+	\usepackage[%
+		nonumberlist, 			% keine Seitenzahlen anzeigen
+		toc,          			% Einträge im Inhaltsverzeichnis
+		section,    			% im Inhaltsverzeichnis auf section-Ebene erscheinen
+	%    xindy={language=german-duden,codepage=utf8}, % xindy zum Indexieren verwenden -> Perl.exe muss vorher installiert werden (https://www.activestate.com/products/perl/) Weitere Informationen unter http://tug.ctan.org/tex-archive/macros/latex/contrib/glossaries/glossariesbegin.html#x1-50011
+	    acronym,				% Separates Akronym-Verzeichnis
+	    nopostdot,				% Kein Punkt am Ende einer Beschreibung im Glossar
+	    automake=immediate
+	]{glossaries}
 
 
-% Bei erstmaliger Verwendung Langform, anschließend Kurzform, immer in kursiv geschrieben
-\defglsentryfmt{%
-  \ifglsused{\glslabel}{%
-    \glsgenentryfmt%
-  }{%
-    % Typeset first use
-    \textit{\glsgenentryfmt}%
-  }%
-}
+	% Glossare & Abkürzungsverzeichnisse:
+	% Hier ergänzen sollten weitere Glossare erstellt werden
+	
+	\newglossary[lug]{lat_upp}{lus}{luo}{Latin upper case letters}              % Big Latin Letters
+	\newglossary[llg]{lat_low}{lls}{llo}{Latin lower case letters}         		% Small Latin Letters
+	\newglossary[gug]{gre_upp}{gus}{guo}{Greek upper case letters}              % Big Greek Letters
+	\newglossary[glg]{gre_low}{gls}{glo}{Greek lower case letters}         		% Small Greek Letters         	
+	\newglossary[mog]{math_op}{mos}{moo}{Mathematical Operators}               	% Mathematical Operators
+	
+	\makeglossaries
+	
+	% Dateien die die Definitionen der Glossare enthalten
+	\input{_A_frontmatter/07_nomenclature/_abbreviations}
+	\input{_A_frontmatter/07_nomenclature/_symbols}
+	
+	% Stil der Glossare
+	\setacronymstyle{short-long}
+	
+	\newglossarystyle{abbreviation}{%
+		\setglossarystyle{super}%
+		\renewcommand{\glsgroupskip}{}					% Do not group items
+		\renewcommand{\glsnamefont}[1]{\textbf{##1}}	% Make abbreviation bold
+		\renewcommand*{\arraystretch}{1.0}				% Distance between entries
+	}
+	
+	\newglossarystyle{symbols}{%
+		\setglossarystyle{super}%
+		\renewcommand{\glsgroupskip}{}								% Do not group items
+		\renewcommand{\glsnamefont}[1]{\textbf{##1}}				% Make abbreviation bold
+		\renewcommand*{\arraystretch}{1.0}							% Distance between entries
+	}
+	
+	
+	% Bei erstmaliger Verwendung Langform, anschließend Kurzform, immer in kursiv geschrieben
+	\defglsentryfmt{%
+	  \ifglsused{\glslabel}{%
+	    \glsgenentryfmt%
+	  }{%
+	    % Typeset first use
+	    \textit{\glsgenentryfmt}%
+	  }%
+	}
+	
+	% Issue w/ glossaries: No Writes left
+	% See: https://tex.stackexchange.com/questions/289734/special-package-combination-gives-no-room-for-new-write
+	\usepackage{morewrites}
+\fi
 
-% Issue w/ glossaries: No Writes left
-% See: https://tex.stackexchange.com/questions/289734/special-package-combination-gives-no-room-for-new-write
-\usepackage{morewrites}
 
 % ============= Testing ============= 
 

@@ -3,6 +3,7 @@
 %Author:       silas.kalmbach@ilek.uni-stuttgart.de
 %              benedikt.strahm@ilek.uni-stuttgart.de
 %Created:      2021-03-10
+%last change:  2022-07-18
 %------------------------------------------------------------------------------
 
 % ============= Einstellungen zur Arbeit =============
@@ -19,9 +20,10 @@
 
 % ============= Einstellungen zum Kompilieren =============
 
-\def\tikzextern{0} % 0 = Nein; 1 = Ja (TikZ Grafiken extern Speichern) 
-\def\mintedinstall{0} % 0 = Nein; 1 = Ja; Um Minted zu nutzen muss Python und Pygments installiert sein. Alternative: listings
-\def\tocstyle{0} % Unter 0 bis 1 können Styles ausgewählt werden
+\def\tikzextern{0} % Externes speichern von TIKZ-Grafiken zur Beschleunigung der Compilierungszeit. 0 = Nein; 1 = Ja
+\def\mintedinstall{0} % Codedarstellung mit Minted. 0 = Nein; 1 = Ja; Um Minted zu nutzen muss Python und Pygments installiert sein. Alternative bei 0: listings
+\def\tocstyle{0} % 0 = Klassisches Inhaltsverzeichnis, 1 = Modifiziertes Inhaltsverzeichnis
+\def\autonomenclature{0} % 0 = Nomenclatur selbst schreiben (basic), 1 = Nomenclatur im Text berücksichtigen (siehe _symbols.tex) und anschließend generieren lassen
 
 % ============= Randabstände =============
 
@@ -63,7 +65,13 @@
 \input{_A_frontmatter/04_acknowledgements/acknowledgements}
 \input{_A_frontmatter/05_assignment/assignment}
 \input{_A_frontmatter/06_abstract/abstract}
-\input{_A_frontmatter/07_nomenclature/nomenclature}
+
+\if 0\autonomenclature
+	\input{_A_frontmatter/07_nomenclature/nomenclature_basic}
+\else
+	\input{_A_frontmatter/07_nomenclature/nomenclature}
+\fi
+
 
 \setcounter{tocdepth}{1}    % Inhaltsverzeichnis bis Ebene "Sections"
 \tableofcontents            % Inhaltsverzeichnis
@@ -76,16 +84,16 @@
 \pagenumbering{arabic}	% Arabische Seitenzahlen verwenden
 
 % In diesem Pfad werden die Grafiken geladen
-% Der Pfad kann beliebig oft im Dokument durch das Einfügen von \graphicspath{{}} verändert werden
-\graphicspath{{_B_mainmatter/images/}}
+% Dem Pfad für die Grafiken kann durch weitere Einträge in {} ergänzt werden. Default ist nafolgend auskommentiert aufgeführt.
+%\graphicspath{{./_E_ressources/images}{./_B_mainmatter/images/}{./_C_appendix/images/}} %Bilderordner
 
 % Hier eigene Kapitel einsetzen
 \input{_B_mainmatter/00_readme}   % Readme
 \input{_B_mainmatter/01_bsp}      % Grundlagen
 \input{_B_mainmatter/02_bsp}      % Tabellen
-\input{_B_mainmatter/03_bsp}      % Abbildungen
+\if 1\autonomenclature \input{_B_mainmatter/03_bsp} \fi  % Abbildungen
 \input{_B_mainmatter/04_bsp}      % Formeln
-\input{_B_mainmatter/05_bsp}      % Nomenklatur
+\if 1\autonomenclature \input{_B_mainmatter/05_bsp} \fi   % Nomenklatur
 \input{_B_mainmatter/06_bsp}      % Erweiterte Formatierung
 \input{_B_mainmatter/07_bsp}      % Farbschema
 \input{_B_mainmatter/08_bsp}      % Programmcode
