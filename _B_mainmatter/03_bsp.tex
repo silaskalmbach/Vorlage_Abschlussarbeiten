@@ -97,7 +97,7 @@ Grafiken und Skizzen können als Vektorgrafik direkt in Inkscape (\url{https://i
 
 Diagramme lassen sich mit Hilfe der Programmiersprache Python erstellen. Zu diesem Zweck werden die Daten zunächst mit Python verarbeitet und anschließend bspw. mit Matplotlib (\url{https://matplotlib.org/}), Seaborn (\url{https://seaborn.pydata.org/}) und/oder Plotly (\url{https://plotly.com/}) geplottet.
 
-Empfohlen wird die Plots als \gls{SVG} zu speichern. Diese können dann bei Bedarf in Inkscape nachbearbeitet werden. 
+Empfohlen wird die Plots als SVG zu speichern. Diese können dann bei Bedarf in Inkscape nachbearbeitet werden. 
 
 \begin{figure}[ht]
     \begin{footnotesize}
@@ -130,7 +130,7 @@ Hierfür kann das Paket \href{https://www.ctan.org/tex-archive/graphics/svg}{svg
 
 Leider funktioniert dies nicht immer problemlos, da die Zusatzprogramme meist nicht standardmäßig installiert sind. Ansonsten ist dies aber die zu bevorzugenden Variante.
 
-Prinzipiell kann die \gls{SVG}-Grafik direkt wie folgt eingebunden werden:
+Prinzipiell kann die SVG-Grafik direkt wie folgt eingebunden werden:
 
 \begin{Verbatim}
 \begin{figure}
@@ -142,7 +142,7 @@ Prinzipiell kann die \gls{SVG}-Grafik direkt wie folgt eingebunden werden:
 
 \subsubsection{2) Einbindung als .pdf\_tex}
 
-Die \gls{SVG}-Grafiken müssen in Inkscape als .pdf und .pdf\_tex exportiert werden. Hierzu die \gls{SVG}-Grafik als .pdf speichern und die Option \flqq Text in PDF weglassen und \LaTeX Datei erstellen \frqq auswählen. Dadurch werden Alle Texte aus der .pdf entfernt, in die .pdf\_tex exportiert und werden beim Einbinden in das \LaTeX-Dokument mit den Dokumenteneinstellungen formatiert.
+Die SVG-Grafiken müssen in Inkscape als .pdf und .pdf\_tex exportiert werden. Hierzu die SVG-Grafik als .pdf speichern und die Option \flqq Text in PDF weglassen und \LaTeX Datei erstellen \frqq auswählen. Dadurch werden Alle Texte aus der .pdf entfernt, in die .pdf\_tex exportiert und werden beim Einbinden in das \LaTeX-Dokument mit den Dokumenteneinstellungen formatiert.
 
 Dieser Schritt kann auch entweder durch die Erstellung eines Batch-Skriptes, dem direkten Export aus o.g. Programmen als .pdf\_tex oder der Programmierung eines Latex-Befehls welcher Inkscape nutzt um den .pdf\_tex Export durchzuführen automatisiert werden, siehe auch \url{https://github.com/BeneStrahm/pyLEK/tree/master/inkscape}.
 

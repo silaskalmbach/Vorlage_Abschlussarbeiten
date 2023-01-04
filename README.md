@@ -12,7 +12,11 @@ Beispielsweise kann eine Kombination der folgende Programme verwendet werden:
 
 1. MiKTeX https://miktex.org/download (LaTeX-Distribution)
 
+2. TinyTeX https://yihui.org/tinytex/ (LaTeX-Distribution)
+
 1. TeXstudio https://www.texstudio.org/ (Editor)
+
+1. Visual Studio Code und LaTeX-Workshop https://alexanderzeilmann.de/blog/my-latex-workflow/editor (Editor) 
 
 Alternativ besteht auch die Möglichkeit Online-Dienste zu benutzen, welche mögliche Schwierigkeiten bei der Einrichtung der oben genannten Lösung umgehen. Diese vereinen Editor und LaTeX-Distribution.
 
