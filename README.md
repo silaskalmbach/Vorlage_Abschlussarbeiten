@@ -12,8 +12,6 @@ Beispielsweise kann eine Kombination der folgende Programme verwendet werden:
 
 1. MiKTeX https://miktex.org/download (LaTeX-Distribution)
 
-2. TinyTeX https://yihui.org/tinytex/ (LaTeX-Distribution)
-
 1. TeXstudio https://www.texstudio.org/ (Editor)
 
 1. Visual Studio Code und LaTeX-Workshop https://alexanderzeilmann.de/blog/my-latex-workflow/editor (Editor) 
