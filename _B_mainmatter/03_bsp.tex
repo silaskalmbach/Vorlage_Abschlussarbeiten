@@ -88,16 +88,14 @@ Zur Erstellung von aufschlussreichen Abbildungen siehe auch das \verb!Graphic-de
 
 \section{Eigene Diagramme/Grafiken}
 
-Es gibt viele Möglichkeiten eigene Diagramme und Grafiken zu erstellen und in das \LaTeX-Dokument einzubinden. Im folgenden werden beispielhaft die Erstellung von \nameref{subsec:python_inkscape} sowie die Erstellung von \nameref{subsec:tikz} erläutert.
+Es gibt mehrere Möglichkeiten Diagramme und Grafiken zu erstellen und in  \LaTeX einzubinden. Im folgenden wird die Erstellung von \nameref{subsec:python_inkscape} sowie die Erstellung von \nameref{subsec:tikz} erläutert.
 
 \subsection{Diagramme und Grafiken mit Inkscape}
 \label{subsec:python_inkscape}
 
 Grafiken und Skizzen können als Vektorgrafik direkt in Inkscape (\url{https://inkscape.org/de/}) erstellt werden.
 
-Diagramme lassen sich mit Hilfe der Programmiersprache Python erstellen. Zu diesem Zweck werden die Daten zunächst mit Python verarbeitet und anschließend bspw. mit Matplotlib (\url{https://matplotlib.org/}), Seaborn (\url{https://seaborn.pydata.org/}) und/oder Plotly (\url{https://plotly.com/}) geplottet.
-
-Empfohlen wird die Plots als SVG zu speichern. Diese können dann bei Bedarf in Inkscape nachbearbeitet werden. 
+Diagramme lassen sich mit Hilfe der Programmiersprache Python erstellen. Zu diesem Zweck werden die Daten zunächst mit Python verarbeitet und anschließend bspw. mit Matplotlib (\url{https://matplotlib.org/}), Seaborn (\url{https://seaborn.pydata.org/}) und/oder Plotly (\url{https://plotly.com/}) geplottet. Empfohlen wird die Plots als SVG zu speichern. Diese können dann bei Bedarf in Inkscape nachbearbeitet werden. 
 
 \begin{figure}[ht]
     \begin{footnotesize}
@@ -128,9 +126,7 @@ Es existieren mehrere Möglichkeiten die .svg-Grafiken einzubinden. Siehe \url{h
 
 Hierfür kann das Paket \href{https://www.ctan.org/tex-archive/graphics/svg}{svg} verwendet werden. Jede SVG-Datei, die mit dem Befehl \verb!\includesvg! übergeben wird, wird unter der Haube mit Hilfe einiger Zusatzprogramme konvertiert.
 
-Leider funktioniert dies nicht immer problemlos, da die Zusatzprogramme meist nicht standardmäßig installiert sind. Ansonsten ist dies aber die zu bevorzugenden Variante.
-
-Prinzipiell kann die SVG-Grafik direkt wie folgt eingebunden werden:
+Leider funktioniert dies nicht immer problemlos, da die Zusatzprogramme meist nicht standardmäßig installiert sind. Ansonsten ist dies aber die zu bevorzugenden Variante. Prinzipiell kann die SVG-Grafik direkt wie folgt eingebunden werden:
 
 \begin{Verbatim}
 \begin{figure}

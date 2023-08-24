@@ -22,12 +22,17 @@ Beispielsweise kann eine Kombination der folgende Programme verwendet werden:
 &\text{3) Visual Studio Code \& LaTeX-Workshop:} &&\text{\href{https://alexanderzeilmann.de/blog/my-latex-workflow/editor}{VS Code \& Latex}} &&\text{(Editor)} &\\
 \end{flalign*}
 
+\vspace{-.5cm}
+
 Alternativ besteht auch die Möglichkeit Online-Dienste zu benutzen, welche mögliche Schwierigkeiten bei der Einrichtung der oben genannten Lösung umgehen. Diese vereinen Editor und LaTeX-Distribution.
 
 \vspace{-.5cm}
+
 \begin{flalign*}
 &\text{1) Overleaf:} &&\text{\url{https://de.overleaf.com/}} &&  && \\
 \end{flalign*}
+
+\vspace{-.5cm}
 
 \begin{tcolorbox}[width=\linewidth, sharp corners=all, colback=white!95!black]
 \textbf{How to access the premium features of Overleaf:}
@@ -38,7 +43,6 @@ Alternativ besteht auch die Möglichkeit Online-Dienste zu benutzen, welche mög
 \end{enumerate}
 \end{tcolorbox}
 
-\doublespacing
 Für eine problemlose Kompilierung des \LaTeX-Dokumentes ist es notwendig, einige Einstellungen in der LaTeX-Distribution zu übernehmen.
 
 \begin{description}
@@ -73,17 +77,15 @@ Mit diesen Informationen einfach an das Kopiergeschäft herantreten, diese wisse
 
 \subsection*{Digitales Exemplar (PDF)}
 
-Hierfür in der main.tex-Datei die Option \lstinline[basicstyle=\ttfamily]|twoside| auskommentieren (Standarteinstellung).
+Hierfür in der main.tex-Datei die Option \lstinline[basicstyle=\ttfamily]|twoside| auskommentieren (Standardeinstellung).
 
-Bitte die Arbeit in digitaler Form auf einer CD speichern und einem der gedruckten Exemplare beilegen. Die CD sollte ebenso das LaTeX-Dokument, alle Abbildung und die während der Arbeit erstellten Berechnungen (bswp. in Form von Excel-Tabellen, Programmcode oder FE-Berechnungen ohne Ergebnisse) enthalten.
+Bitte die Arbeit in digitaler Form auf einem USB-Stick speichern und einem der gedruckten Exemplare beilegen. Der USB-Stick sollte ebenso das LaTeX-Dokument, alle Abbildung und die während der Arbeit erstellten Berechnungen und Berechnungsgrundlagen (bswp. in Form von Excel-Tabellen, Programmcode, FE-Berechnungen ohne Ergebnisse) enthalten.
 
 \newpage
 
-\section*{Aufbau des Ordners}
+\section*{Aufbau des Dokumentes}
 
-Der Aufbau des Ordners ist an der Struktur der Abschlussarbeit orientiert. 
-
-Die Ordner und Dateien in denen nicht zwingend Anpassungen vorgenommen werden müssen sind im folgenden gekennzeichnet. Natürlich können diese dennoch angepasst werden.
+Der Aufbau des Dokumentes und der Ordnerstruktur ist an der Struktur der Abschlussarbeit orientiert. 
 
 Hinweise zu den jeweiligen Abschnitten und dem dazugehörigen LaTeX-Code sind auch in den Kommentaren im Code zu finden!\\ 
 \\
@@ -104,6 +106,7 @@ Hinweise zu den jeweiligen Abschnitten und dem dazugehörigen LaTeX-Code sind au
  .2 \_B\_mainmatter.
      .3 examples.tex.
      .3 images.
+     .3 data.     
  .2 \_C\_appendix.
      .3 examples.tex.
      .3 images.
@@ -117,24 +120,32 @@ Hinweise zu den jeweiligen Abschnitten und dem dazugehörigen LaTeX-Code sind au
      .3 tikz.
 }
 
-\section*{JahrNachnameTitelDerArbeit.tex}
+\newpage
 
-Diese Datei ist der Startpunkt des Dokumentes. Hier werden alle im folgenden aufgelisteten Abschnitte referenziert. Um das Gesamtdokument zu erstellen muss diese Datei kompiliert werden.
+\section*{Hauptdokumente}
 
-\section*{Frontcover.tex}
+Das Hauptdokument ist die Datei, die von \LaTeX kompiliert werden soll und enthält verweist Abschnitte und Formatvorlagen des Dokumentes.
 
-Referenziert auf den Einband der Arbeit. Um den Einband zu erstellen muss diese Datei kompiliert werden.
+\subsection*{JahrNachnameTitelDerArbeit.tex}
+
+Diese Datei ist der Startpunkt des Dokumentes. Um das Gesamtdokument zu erstellen muss diese Datei kompiliert werden.
+
+In dieser Datei werden alle im folgenden aufgelisteten Dateien (Bspw. examples.tex, references.tex etc.) referenziert. Sollten weitere Dateien hinzugefügt werden müssen diese hier eingebunden werden.
+
+\subsection*{Frontcover.tex}
+
+Diese Datei referenziert auf den Einband der Arbeit. Um den Einband zu erstellen muss diese Datei kompiliert werden.
 
 \newpage
 
 \section*{frontmatter}
 
-Die Titelei (englisch front matter) bezeichnet die Seiten, die dem eigentlichen Inhalt vorangestellt sind.
+Die Titelei (englisch front matter) bezeichnet die Seiten, die dem eigentlichen Inhalt vorangestellt sind. 
 
 \subsection*{frontcover}
 \label{section:_01_frontcover}
 
-Enthält den Einband der Arbeit. Keine Anpassungen notwendig.
+Enthält den Einband der Arbeit. Hier sind Keine Anpassungen notwendig.
 
 Wichtig: Die Datei Frontcover.pdf dient enthält den Umschlag zur Einreichung beim Druck der Arbeit im Kopiergeschäft. Am besten im Vorraus mit dem Kopiergeschäft abstimmen wie dick die Arbeit wird, sodass der Rücken des Umschlages die richtige Breite hat. Diese hängt ab von der Anzahl der Seiten, der Dicke des Papiers sowie ob ein- oder doppelseitig gedruckt wird. 
 
@@ -162,9 +173,9 @@ Enthält die englische und deutsche Kurzfassung der Arbeit.
 
 \subsection*{nomenclature}
 
-Enthält Symbole und Abkürzungen die in der Arbeit verwendet werden. Keine Anpassungen notwendig.
+Enthält Symbole und Abkürzungen die in der Arbeit verwendet werden. Alternativ kann dieser Abschnitt auch ins Backmatter vor das Abbildungsverzeichnis eingefügt werden.
 
-Alternativ kann dieser Abschnitt auch ins Backmatter vor das Abbildungsverzeichnis eingefügt werden.
+\newpage 
 
 \section*{mainmatter}
 \label{section:_A_mainmatter}
@@ -177,13 +188,13 @@ Die einzelnen Dateien enthalten Beispiele für Formatierungen von Tabellen, Bild
 
 \subsection*{images}
 
-Die verwendeten Abbildungen können in diesem Ordner abgelegt werden. Auch der Aufbau dieses Ordner kann beliebig angepasst werden.
+Die verwendeten Abbildungen können in diesem Ordner abgelegt werden. 
+
+\newpage 
 
 \section*{appendix}
 
-Ab hier beginnt der Anhang der Abschlussarbeit. Auch hier gilt das der Aufbau dieses Ordner beliebig angepasst werden kann.
-
-Der Vorschlag für den Aufbau orientiert sich an \nameref{section:_A_mainmatter}.
+Ab hier beginnt der Anhang der Abschlussarbeit. Der Vorschlag für den Aufbau orientiert sich an \nameref{section:_A_mainmatter}.
 
 \section*{backmatter}
 
