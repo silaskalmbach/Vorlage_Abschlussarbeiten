@@ -240,6 +240,43 @@ samples=101
 
 \subsubsection{Einbeziehung von Daten aus CSV-Datei}
 
+
+\begin{table}[h!]
+	\centering
+	\caption{Tabelle der Daten}
+	\csvreader[
+	tabular= c c c c,
+	table head=\toprule Strecke & Breite 1 & Breite 2 & Breite 3 \\ \midrule,
+	%		late after line=\\ \hline,
+	late after last line=\\ \bottomrule
+	]{_B_mainmatter/data/Example2.csv}{}%
+	{\csvcoli & \csvcolii & \csvcoliii & \csvcoliv}
+	\label{tab:data}
+\end{table}
+
+
+\begin{figure}[h!]
+	\centering
+	\begin{tikzpicture}
+		\begin{axis}[
+			xlabel={Strecke},
+			ylabel={CO2-Emmissionen},
+			legend pos=outer north east,
+			grid=major,
+			width=\textwidth*0.8,
+			height=0.4\textwidth
+			]
+			\addplot table [x=Strecke, y=Breite1, col sep=comma] {_B_mainmatter/data/Example2.csv};
+			\addplot table [x=Strecke, y=Breite2, col sep=comma] {_B_mainmatter/data/Example2.csv};
+			\addplot table [x=Strecke, y=Breite3, col sep=comma] {_B_mainmatter/data/Example2.csv};
+			\legend{Breite 1, Breite 2, Breite 3}
+		\end{axis}
+	\end{tikzpicture}
+	\caption{Breiten in Abhängigkeit von der Strecke}
+	\label{fig:breiten}
+\end{figure}
+
+
 \setlength{\figureheight}{5cm}
 \setlength{\figurewidth}{\textwidth}
 \begin{figure}[htbp]
