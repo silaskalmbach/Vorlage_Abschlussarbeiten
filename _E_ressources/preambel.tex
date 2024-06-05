@@ -139,52 +139,62 @@ hidelinks
 % ============= Standart Einstellungen der Pfade =============
 
 \graphicspath{{./_E_ressources/images/}{./_B_mainmatter/images/}{./_C_appendix/images/}} %Bilderordner
-
+\def\unifontspath{./_E_ressources/fonts/}
+\def\unifontfilename{UniversforUniS55Rm-Regular.ttf}
+\def\unifullfontpath{\unifontspath\unifontfilename}
 
 % ============= Schriftarten =============
 
 \ifluatex
-%% ============= Lua-LaTeX =============
-% Prüfen ob Datei mit Schriftart UniversforUniS vorhanden:
-    \IfFileExists{./_E_ressources/fonts/UniversforUniS55Rm-Regular.ttf}{
-        % Wenn ja, diese Schriftart auswählen
-    	\usepackage[no-math]{fontspec} 
-    	\setmainfont{UniversforUniS}[
-    	Extension      = .ttf,
-    	Path           = _E_ressources/fonts/,
-    	UprightFont    = *55Rm-Regular,
-    	ItalicFont     = *45LtObl-Rg,
-    	BoldFont       = *65Bd-Regular,
-    	BoldItalicFont = *45LtObl-Rg,
-    	]
-    	\setsansfont{UniversforUniS}[
-    	Extension      = .ttf,
-    	Path           = _E_ressources/fonts/,
-    	UprightFont    = *55Rm-Regular,
-    	ItalicFont     = *45LtObl-Rg,
-    	BoldFont       = *65Bd-Regular,
-    	BoldItalicFont = *45LtObl-Rg,
-    	]
-    	%\setmonofont{}[]
-    	\addtokomafont{disposition}{\rmfamily} %Überschriften selbe Schriftart wie Text
-    	\renewcommand\familydefault\sfdefault % Formeln in Sans-Serif
-    	\usepackage[italic, symbolgreek]{mathastext} % Formeln in Sans-Serif
-    	\renewcommand\familydefault\rmdefault % Formeln in Sans-Serif
-    }{
+	\wlog{SK: LuaLaTeX existiert}
+	
+	\openin15={\unifullfontpath}   % TeX primitive level % \IfFileExists{filename}{true-branch}{false-branch} %LaTeX -> geht auch 15 ist eine Variable/Beschreibung
+	\ifeof15           %... file does not exist
+		\wlog{SK: ttf file \unifullfontpath does not exist}
+		
 		\usepackage[no-math]{fontspec}
-		\setmainfont{Arial}
+		%\setmainfont{Arial}
+		\setmainfont{QTCasual}
 		
 		\addtokomafont{disposition}{\rmfamily} %Überschriften selbe Schriftart wie Text
 		\renewcommand\familydefault\sfdefault % Formeln in Sans-Serif
 		\usepackage[italic, symbolgreek]{mathastext} % Formeln in Sans-Serif
 		\renewcommand\familydefault\rmdefault % Formeln in Sans-Serif
-    }
-
+		
+	\else\closein15    %... file exists
+		\wlog{SK: ttf file exist}
+		
+		%% ============= Lua-LaTeX =============
+		\usepackage[no-math]{fontspec} 
+		\setmainfont{UniversforUniS}[
+		Extension      = .ttf,
+		Path           = {\unifontspath},
+		UprightFont    = *55Rm-Regular,
+		ItalicFont     = *45LtObl-Rg,
+		BoldFont       = *65Bd-Regular,
+		BoldItalicFont = *45LtObl-Rg,
+		]
+		\setsansfont{UniversforUniS}[
+		Extension      = .ttf,
+		Path           = {\unifontspath},
+		UprightFont    = *55Rm-Regular,
+		ItalicFont     = *45LtObl-Rg,
+		BoldFont       = *65Bd-Regular,
+		BoldItalicFont = *45LtObl-Rg,
+		]
+		%\setmonofont{}[]
+		\addtokomafont{disposition}{\rmfamily} %Überschriften selbe Schriftart wie Text
+		\renewcommand\familydefault\sfdefault % Formeln in Sans-Serif
+		\usepackage[italic, symbolgreek]{mathastext} % Formeln in Sans-Serif
+		\renewcommand\familydefault\rmdefault % Formeln in Sans-Serif
+	\fi
+	
 \else
-%% ============= PDF-LaTeX =============
+	\wlog{SK: verwende PDF-LaTeX}
+	%% ============= PDF-LaTeX =============
 	\usepackage[T1]{fontenc} %Richtige Trennung von Umlauten
 	\usepackage[scale=1]{tgheros}
-%	\usepackage{fourier}
+	%	\usepackage{fourier}
 	\renewcommand\familydefault\sfdefault % alles in Sans-Serif
 	\usepackage[italic, symbolgreek]{mathastext} % Formeln in Sans-Serif
 \fi
@@ -421,3 +431,5 @@ labelfont=bf]{caption} %Label in Bold
 \fi
 }
 \makeatother
+
+\wlog{SK: Initialisierung beendet}
