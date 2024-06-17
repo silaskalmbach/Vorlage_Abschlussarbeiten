@@ -144,5 +144,5 @@ Die Schriftarten der Universität Stuttgart müssen wie folgt benannt werden:
 ### tikz
 Durch Tikz Kompilierte Grafiken. Keine Anpassungen notwendig.
 
-### Umfang - Seitananzahl
+## Umfang - Seitananzahl
 Der Umfang der Arbeit sollte ohne Anhang zwischen 60 und 100 Seiten liegen. Unter- oder Überschreitungen sind mit dem Betreuer abzustimmen.
