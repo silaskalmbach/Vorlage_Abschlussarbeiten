@@ -70,6 +70,8 @@ Enthält den Einband bzw. das Deckblatt der Arbeit. Keine Anpassungen notwendig.
 Wichtig: Die Datei coverEnvelope.pdf dient enthält den Umschlag zur Einreichung beim Druck der Arbeit im Kopiergeschäft. Am besten im Vorraus mit dem Kopiergeschäft abstimmen wie dick die Arbeit wird, sodass der Rücken des Umschlages die richtige Breite hat. Diese hängt ab von der Anzahl der Seiten, der Dicke des Papiers sowie ob ein- oder doppelseitig gedruckt wird.
 
 Die Breite des Einbandes wird in den [Variablen](#variables.tex) eingestellt.
+Ein Papier mit einem Flächengewicht von 100 g/m² hat eine Dicke von etwa 0,1 mm. Eine Seitenzahl von 80 entspricht somit ca. 8 mm. Je nach verwendetem Papier können genauere Werte festgelegt werden.
+
 ### 02_cover
 Enthält das Titelblatt der Arbeit. 
 
