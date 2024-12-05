@@ -43,6 +43,7 @@ Wichtig bei der Auswahl eines ein- oder doppelseitigen Druckes ist das LaTeX-Dok
 - Einseitiger Druck: In der main.tex-Datei die Option `<twoside>` auskommentieren (Standarteinstellung)
 
 Mit diesen Informationen einfach an das Kopiergeschäft herantreten, diese wissen meist was zu tun ist.
+Als zuverlässig hat sich der Schwabenprint GmbH Copyshop Stuttgart in der Jägerstraße 51 erwiesen.
 
 ## Digitales Exemplar (PDF)
 Hierfür in der main.tex-Datei die Option `<twoside>` auskommentieren (Standarteinstellung).
